@@ -1,6 +1,7 @@
 import { getStoredTokens } from '../../lib/strava-tokens.js';
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store');
   try {
     const tokens = await getStoredTokens();
     if (!tokens || !tokens.access_token) {

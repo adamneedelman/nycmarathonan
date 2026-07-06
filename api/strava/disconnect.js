@@ -1,6 +1,7 @@
 import { getStoredTokens, clearTokens } from '../../lib/strava-tokens.js';
 
 export default async function handler(req, res) {
+  res.setHeader('Cache-Control', 'no-store');
   if (req.method !== 'POST') {
     res.status(405).json({ error: 'method_not_allowed' });
     return;
