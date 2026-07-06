@@ -102,6 +102,12 @@
   .connect .cta { color:var(--fog); text-decoration:underline; text-underline-offset:2px; }
   .banner { margin:0 16px 16px; padding:11px 14px; border:1px solid var(--line); border-left:3px solid var(--cool); border-radius:8px; background:var(--ink-2); font-size:12px; color:var(--fog); }
   .banner b { color:var(--chalk); }
+  .strava-row { display:flex; justify-content:flex-end; margin-top:10px; }
+  .strava-pill { font-size:11px; letter-spacing:0.03em; color:var(--fog); display:inline-flex; align-items:center; gap:7px; padding:5px 12px; border:1px solid var(--line); border-radius:20px; background:var(--ink-2); }
+  .strava-pill .dot { width:6px; height:6px; border-radius:50%; background:var(--fog-dim); flex:0 0 auto; }
+  .strava-pill.connected .dot { background:var(--sig); }
+  .strava-pill.error .dot { background:var(--hot); }
+  .strava-pill button { background:none; border:none; padding:0; margin:0; font:inherit; color:var(--chalk); text-decoration:underline; text-underline-offset:2px; cursor:pointer; }
   footer { text-align:center; padding:8px 16px 20px; font-size:10px; letter-spacing:0.1em; color:var(--fog-dim); text-transform:uppercase; }
 </style>
 </head>
@@ -113,6 +119,7 @@
   </div>
   <div class="rail"><div class="rail-fill" id="railfill" style="width:14%"></div></div>
   <div class="rail-labels"><span>Base</span><span>Build</span><span>Peak</span><span>Taper</span><span>Race</span></div>
+  <div class="strava-row"><div class="strava-pill" id="stravaPill"><span class="dot"></span>Strava</div></div>
 </header>
 <div class="weekbar" id="weekbar"></div>
 <div class="banner"><b>Live plan.</b> Reads from your training repo — edits you make via chat appear here on next open. Completed-run rows stay greyed until Strava is connected.</div>
@@ -222,6 +229,72 @@ function render(){
 loadPlan();
 // Re-fetch when returning to the app (e.g. after a chat edit), so changes appear.
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) loadPlan(); });
+
+function escapeHtml(str){
+  return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderStravaPill(state){
+  const el = document.getElementById('stravaPill');
+  if(!el) return;
+  el.classList.remove('connected','error');
+  if(state.error){
+    el.classList.add('error');
+    el.innerHTML = `<span class="dot"></span>Strava error <button type="button" id="stravaRetry">retry</button>`;
+    document.getElementById('stravaRetry').onclick = loadStravaStatus;
+    return;
+  }
+  if(state.connected){
+    el.classList.add('connected');
+    el.innerHTML = `<span class="dot"></span>Connected as ${escapeHtml(state.athlete_firstname || 'athlete')} <button type="button" id="stravaDisconnect">Disconnect</button>`;
+    document.getElementById('stravaDisconnect').onclick = disconnectStrava;
+  } else {
+    el.innerHTML = `<span class="dot"></span><button type="button" id="stravaConnect">Connect Strava</button>`;
+    document.getElementById('stravaConnect').onclick = ()=>{ window.location.href = '/api/strava/authorize'; };
+  }
+}
+
+async function loadStravaStatus(){
+  try {
+    const res = await fetch('/api/strava/status');
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    renderStravaPill(data);
+  } catch(err){
+    renderStravaPill({ connected:false, error:true });
+  }
+}
+
+async function disconnectStrava(){
+  const el = document.getElementById('stravaPill');
+  if(el) el.innerHTML = `<span class="dot"></span>Disconnecting…`;
+  try {
+    await fetch('/api/strava/disconnect', { method:'POST' });
+  } catch(err) {}
+  loadStravaStatus();
+}
+
+// Surface OAuth errors from the callback redirect, then strip the params from the URL.
+function handleStravaRedirectParams(){
+  const params = new URLSearchParams(window.location.search);
+  const err = params.get('strava_error');
+  if(err){
+    const notice = document.createElement('div');
+    notice.className = 'banner';
+    notice.style.borderLeftColor = 'var(--hot)';
+    notice.innerHTML = `<b>Strava connection failed.</b> ${escapeHtml(err)}`;
+    document.body.insertBefore(notice, document.getElementById('app'));
+  }
+  if(params.has('strava') || params.has('strava_error')){
+    params.delete('strava');
+    params.delete('strava_error');
+    const qs = params.toString();
+    window.history.replaceState({}, '', window.location.pathname + (qs ? '?'+qs : ''));
+  }
+}
+
+handleStravaRedirectParams();
+loadStravaStatus();
 </script>
 </body>
 </html>
