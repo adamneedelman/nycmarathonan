@@ -108,6 +108,32 @@
   .strava-pill.connected .dot { background:var(--sig); }
   .strava-pill.error .dot { background:var(--hot); }
   .strava-pill button { background:none; border:none; padding:0; margin:0; font:inherit; color:var(--chalk); text-decoration:underline; text-underline-offset:2px; cursor:pointer; }
+  #todayCard { padding:18px 16px 0; max-width:620px; margin:0 auto; }
+  .today-card { background:linear-gradient(180deg,var(--ink-3),var(--ink-2)); border:1px solid var(--line); border-radius:16px; padding:16px 18px; }
+  .today-head { display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; }
+  .today-eyebrow { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fog); font-weight:700; }
+  .today-phase { font-size:10px; letter-spacing:0.16em; text-transform:uppercase; font-weight:700; padding:3px 8px; border-radius:20px; border:1px solid var(--line); flex:0 0 auto; }
+  .today-type { font-family:'Fraunces',serif; font-size:24px; font-weight:600; color:#fff; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .today-stats { display:flex; gap:22px; margin:14px 0 2px; }
+  .today-stats .k { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--fog); }
+  .today-stats .v { font-family:'Fraunces',serif; font-size:20px; font-weight:600; margin-top:2px; color:var(--chalk); }
+  .today-rest-badge { font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--fog); }
+  .today-rest-note { font-size:13.5px; color:var(--fog); margin-top:6px; line-height:1.55; }
+  .today-tomorrow { margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-soft); }
+  .today-tomorrow-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fog-dim); font-weight:700; margin-bottom:6px; }
+  .today-tomorrow-body { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:15px; font-weight:600; color:var(--chalk); }
+  .today-tomorrow-miles { font-family:'Fraunces',serif; font-size:15px; color:var(--fog); }
+  .today-tomorrow-detail { font-size:12.5px; color:var(--fog); margin-top:3px; }
+  .completed-row { display:flex; align-items:center; gap:8px; padding:9px 15px; font-size:12.5px; color:var(--chalk); border-top:1px dashed var(--line-soft); }
+  .completed-check { color:var(--sig); font-weight:700; }
+  .day.completed { border-color:rgba(216,255,62,0.28); }
+  .today-card .completed-row { margin-top:14px; padding:12px 0 0 0; }
+  .coach-box { margin-top:0; padding:10px 15px 13px; border-top:1px dashed var(--line-soft); }
+  .today-card .coach-box { padding:10px 0 0 0; }
+  .coach-label { font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); font-weight:700; display:block; margin-bottom:4px; }
+  .coach-text { font-size:13px; line-height:1.55; color:var(--chalk); font-style:italic; }
+  .coach-loading-text { font-size:12px; color:var(--fog-dim); font-style:italic; }
+  .sync-note { margin:10px 16px 0; font-size:11px; color:var(--fog-dim); max-width:620px; }
   footer { text-align:center; padding:8px 16px 20px; font-size:10px; letter-spacing:0.1em; color:var(--fog-dim); text-transform:uppercase; }
 </style>
 </head>
@@ -121,6 +147,7 @@
   <div class="rail-labels"><span>Base</span><span>Build</span><span>Peak</span><span>Taper</span><span>Race</span></div>
   <div class="strava-row"><div class="strava-pill" id="stravaPill"><span class="dot"></span>Strava</div></div>
 </header>
+<div id="todayCard"></div>
 <div class="weekbar" id="weekbar"></div>
 <main id="app"></main>
 <footer>adamneedelman / marathon-plan</footer>
@@ -142,13 +169,53 @@ let PLAN = { race:'2026-11-01', weeks:[] };
 
 function weeklyMiles(w){ return (w[FIELD.days]||[]).reduce((s,d)=>s+(d.miles||0),0); }
 
-// Which week index is "today"? Falls back to 0 if before the block.
-function currentWeekIndex(){
-  const now = new Date();
-  const start = new Date(BLOCK_START+'T00:00:00');
-  if(now < start) return 0;
-  const idx = Math.floor((now - start)/(86400000*7));
-  return Math.min(Math.max(idx,0), (PLAN.weeks.length||1)-1);
+// Eastern-time date resolution, so "today" tracks the runner's home timezone
+// regardless of device locale (matches /lib/plan-week.js on the server side).
+const EASTERN_TZ = 'America/New_York';
+const MONTHS = { Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11 };
+function toIsoDate(shortDate, year){
+  const [monthAbbr, day] = shortDate.split(' ');
+  const month = MONTHS[monthAbbr];
+  return `${year}-${String(month+1).padStart(2,'0')}-${String(Number(day)).padStart(2,'0')}`;
+}
+function todayIsoInEastern(){
+  return new Intl.DateTimeFormat('en-CA', { timeZone: EASTERN_TZ }).format(new Date());
+}
+function planYear(){
+  return Number(((PLAN.meta && PLAN.meta.blockStart) || BLOCK_START).slice(0,4));
+}
+
+// Flattened list of every plan day with its resolved ISO date, used to find
+// "today" and "tomorrow" and to resolve the current week from real dates
+// rather than a fixed Monday offset.
+let ALL_DAYS = [];
+function buildAllDays(){
+  const year = planYear();
+  ALL_DAYS = [];
+  PLAN.weeks.forEach((w, wi) => {
+    w.days.forEach((d, di) => {
+      ALL_DAYS.push({ iso: toIsoDate(d.date, year), week: w, day: d, weekIndex: wi, dayIndex: di });
+    });
+  });
+}
+function todayEntryIndex(){
+  if(!ALL_DAYS.length) return -1;
+  const today = todayIsoInEastern();
+  let idx = ALL_DAYS.findIndex(e => e.iso === today);
+  if(idx === -1){
+    idx = today < ALL_DAYS[0].iso ? 0 : ALL_DAYS.length - 1;
+  }
+  return idx;
+}
+
+let hasScrolledToActiveWeek = false;
+function scrollWeekbarToActive(){
+  if(hasScrolledToActiveWeek) return;
+  const activeEl = document.querySelector('#weekbar .wk.active');
+  if(activeEl){
+    activeEl.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+    hasScrolledToActiveWeek = true;
+  }
 }
 
 async function loadPlan(){
@@ -156,8 +223,11 @@ async function loadPlan(){
     const res = await fetch(PLAN_URL + '?t=' + Date.now()); // cache-bust so edits show
     if(!res.ok) throw new Error('HTTP '+res.status);
     PLAN = await res.json();
-    activeWeek = currentWeekIndex();
+    buildAllDays();
+    const idx = todayEntryIndex();
+    activeWeek = idx >= 0 ? ALL_DAYS[idx].weekIndex : 0;
     render();
+    scrollWeekbarToActive();
   } catch(err) {
     document.getElementById('app').innerHTML =
       '<div style="padding:24px;color:#8ea39c;font-size:14px;line-height:1.6">'
@@ -177,7 +247,10 @@ function openSheet(d, w){
       ${d.hr?`<div class="sheet-stat"><div class="k">HR</div><div class="v" style="font-size:18px">${d.hr}</div></div>`:''}
     </div>`;
   }
-  const connect = !isRest ? `<div class="sheet-connect"><span class="dot"></span>No run logged yet</div>` : '';
+  const activity = !isRest && d.date ? matchActivityForIso(toIsoDate(d.date, planYear())) : null;
+  const connect = !isRest
+    ? (activity ? renderCompletionBlock(activity, d, w) : `<div class="sheet-connect"><span class="dot"></span>No run logged yet</div>`)
+    : '';
   document.getElementById('sheetBody').innerHTML = `
     <div class="sheet-eyebrow">${d.dow} · Week ${w.week} · ${w.phase}</div>
     <div class="sheet-title">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>
@@ -199,8 +272,115 @@ document.getElementById('scrim').onclick = closeSheet;
 
 function daysUntil(iso){ return Math.max(0, Math.round((new Date(iso+'T00:00:00')-new Date())/86400000)); }
 let activeWeek = 0;
-let weeklyMileage = null;
+
+// Strava activities, matched to plan days by date (longest run wins on multi-run days).
+let activitiesByDate = new Map();
+let stravaActivitiesConnected = false;
+let stravaActivitiesError = false;
+function matchActivityForIso(iso){
+  return activitiesByDate.get(iso) || null;
+}
+function weeklyActualMiles(w){
+  const year = planYear();
+  let total = 0, any = false;
+  w.days.forEach(d=>{
+    const a = d.date ? activitiesByDate.get(toIsoDate(d.date, year)) : null;
+    if(a){ total += a.distance; any = true; }
+  });
+  return any ? Math.round(total*10)/10 : null;
+}
+
+// Coach Claude blurbs, keyed by Strava activity id. Generated once per activity
+// (server caches indefinitely); this map just tracks in-session render state.
+let coachBlurbs = new Map();
+function buildPlannedWorkoutPayload(d, w){
+  return { type:d.type, kind:d.kind, miles:d.miles, pace:d.pace, hr:d.hr, focus:d.focus, phase:w.phase, week:w.week, dow:d.dow, date:d.date };
+}
+function renderCoachBlock(activityId){
+  const entry = coachBlurbs.get(activityId);
+  if(!entry) return '';
+  if(entry.status === 'loading'){
+    return `<div class="coach-box"><span class="coach-label">Coach Claude</span><span class="coach-loading-text">Thinking…</span></div>`;
+  }
+  if(entry.status !== 'done' || !entry.text) return '';
+  return `<div class="coach-box"><span class="coach-label">Coach Claude</span><div class="coach-text">${escapeHtml(entry.text)}</div></div>`;
+}
+async function requestCoachAnalysis(activity, plannedWorkout){
+  if(coachBlurbs.has(activity.id)) return;
+  coachBlurbs.set(activity.id, { status:'loading' });
+  render();
+  try {
+    const res = await fetch('/api/coach-analysis', {
+      method:'POST',
+      headers: { 'Content-Type':'application/json' },
+      body: JSON.stringify({ activityId: activity.id, activity, plannedWorkout }),
+    });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    const data = await res.json();
+    coachBlurbs.set(activity.id, data.blurb ? { status:'done', text:data.blurb } : { status:'error' });
+  } catch(err){
+    console.error('Coach analysis failed:', err);
+    coachBlurbs.set(activity.id, { status:'error' });
+  }
+  render();
+}
+function renderCompletionBlock(activity, d, w){
+  if(!activity) return `<div class="connect"><span class="dot"></span>No run logged</div>`;
+  const hrParts = [];
+  if(activity.average_heartrate) hrParts.push(`${activity.average_heartrate} avg`);
+  if(activity.max_heartrate) hrParts.push(`${activity.max_heartrate} max`);
+  const hrText = hrParts.length ? ` · HR ${hrParts.join(' / ')}` : '';
+  const paceText = activity.avg_pace ? ` @ ${activity.avg_pace}` : '';
+  requestCoachAnalysis(activity, buildPlannedWorkoutPayload(d, w));
+  return `<div class="completed-row"><span class="completed-check">✓</span><span class="completed-text">${activity.distance} mi${paceText}${hrText}</span></div>${renderCoachBlock(activity.id)}`;
+}
+
+function renderTodayCard(){
+  const el = document.getElementById('todayCard');
+  if(!el) return;
+  if(!ALL_DAYS.length){ el.innerHTML = ''; return; }
+  const idx = todayEntryIndex();
+  const entry = ALL_DAYS[idx];
+  const isActuallyToday = entry.iso === todayIsoInEastern();
+  const w = entry.week, d = entry.day;
+  const phaseColor = PHASE_COLOR[w.phase] || '#8ea39c';
+
+  let bodyHtml;
+  if(!d.miles){
+    const tomorrowEntry = ALL_DAYS[idx+1];
+    let tomorrowHtml = '';
+    if(tomorrowEntry){
+      const td = tomorrowEntry.day;
+      const tomorrowIsRest = !td.miles;
+      tomorrowHtml = `<div class="today-tomorrow">
+        <div class="today-tomorrow-label">Tomorrow</div>
+        <div class="today-tomorrow-body">${td.type}<span class="tag ${td.kind}">${td.kind}</span>${!tomorrowIsRest?`<span class="today-tomorrow-miles">${td.miles} mi</span>`:''}</div>
+        ${!tomorrowIsRest && td.pace ? `<div class="today-tomorrow-detail">${td.pace}</div>` : ''}
+      </div>`;
+    }
+    bodyHtml = `<div class="today-rest-badge">Rest day</div><div class="today-rest-note">${d.focus || 'Full rest.'}</div>${tomorrowHtml}`;
+  } else {
+    const activity = matchActivityForIso(entry.iso);
+    bodyHtml = `<div class="today-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>
+      <div class="today-stats">
+        <div class="today-stat"><div class="k">Distance</div><div class="v">${d.miles} mi</div></div>
+        ${d.pace?`<div class="today-stat"><div class="k">Pace</div><div class="v" style="font-size:16px">${d.pace}</div></div>`:''}
+        ${d.hr?`<div class="today-stat"><div class="k">HR</div><div class="v" style="font-size:16px">${d.hr}</div></div>`:''}
+      </div>
+      ${renderCompletionBlock(activity, d, w)}`;
+  }
+
+  el.innerHTML = `<div class="today-card">
+    <div class="today-head">
+      <div class="today-eyebrow">${isActuallyToday ? 'Today' : 'Up next'} · ${d.dow} · Week ${w.week}</div>
+      <div class="today-phase" style="color:${phaseColor};border-color:${phaseColor}44">${w.phase}</div>
+    </div>
+    ${bodyHtml}
+  </div>${stravaActivitiesError ? `<div class="sync-note">Strava sync unavailable — showing plan data.</div>` : ''}`;
+}
+
 function render(){
+  renderTodayCard();
   const raceDate = (PLAN.meta && PLAN.meta.raceDate) || PLAN.race || '2026-11-01';
   document.getElementById('dcount').textContent = Math.max(0, Math.ceil((new Date(raceDate+'T00:00:00')-new Date())/(86400000*7)));
   const wb = document.getElementById('weekbar'); wb.innerHTML='';
@@ -214,14 +394,17 @@ function render(){
   const w=PLAN.weeks[activeWeek];
   const runningDays=w.days.filter(d=>d.miles>0).length;
   const app=document.getElementById('app');
-  const liveMileage = (weeklyMileage && weeklyMileage.week_number===w.week)
-    ? `<div class="week-live">Week ${w.week}: <b>${weeklyMileage.actual_miles!=null?weeklyMileage.actual_miles.toFixed(1):'--'}</b> / ${weeklyMileage.planned_miles.toFixed(1)} miles</div>`
+  const actualMiles = stravaActivitiesConnected ? weeklyActualMiles(w) : null;
+  const liveMileage = stravaActivitiesConnected
+    ? `<div class="week-live">Week ${w.week}: <b>${actualMiles!=null?actualMiles.toFixed(1):'--'}</b> / ${weeklyMiles(w).toFixed(1)} miles</div>`
     : '';
   let html=`<div class="week-panel"><div class="week-head"><div class="week-title">Week ${w.week}</div><div class="week-phase" style="color:${PHASE_COLOR[w.phase]};border-color:${PHASE_COLOR[w.phase]}44">${w.phase}</div></div><div class="week-sub">${w.label} · <b>${weeklyMiles(w)} mi</b> · ${runningDays} runs</div>${liveMileage}</div>`;
+  const year = planYear();
   w.days.forEach((d,di)=>{
     const isRest=!d.miles;
     const dateStr = d.date ? `<span class="daydate">${d.date}</span>` : '';
-    html+=`<div class="day ${isRest?'rest':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?`<div class="connect"><span class="dot"></span>No run logged</div>`:''}</div>`;
+    const activity = !isRest && d.date ? matchActivityForIso(toIsoDate(d.date, year)) : null;
+    html+=`<div class="day ${isRest?'rest':''}${activity?' completed':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?renderCompletionBlock(activity, d, w):''}</div>`;
   });
   app.innerHTML=html;
   app.querySelectorAll('.day').forEach(el=>{
@@ -233,18 +416,27 @@ loadPlan();
 // Re-fetch when returning to the app (e.g. after a chat edit), so changes appear.
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) loadPlan(); });
 
-async function loadWeeklyMileage(){
+async function loadActivities(){
   try {
-    const res = await fetch('/api/strava/weekly-mileage?t=' + Date.now(), { cache: 'no-store' });
+    const res = await fetch('/api/strava/activities?t=' + Date.now(), { cache: 'no-store' });
     if(!res.ok) throw new Error('HTTP '+res.status);
-    weeklyMileage = await res.json();
+    const data = await res.json();
+    stravaActivitiesConnected = !!data.connected;
+    stravaActivitiesError = !!data.error;
+    activitiesByDate = new Map();
+    (data.activities || []).forEach(a=>{
+      const existing = activitiesByDate.get(a.date);
+      if(!existing || a.distance > existing.distance) activitiesByDate.set(a.date, a);
+    });
   } catch(err){
-    console.error('Weekly mileage check failed:', err);
-    weeklyMileage = null;
+    console.error('Strava activities fetch failed:', err);
+    stravaActivitiesConnected = false;
+    stravaActivitiesError = true;
+    activitiesByDate = new Map();
   }
   if(PLAN.weeks && PLAN.weeks.length) render();
 }
-loadWeeklyMileage();
+loadActivities();
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
