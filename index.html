@@ -53,6 +53,8 @@
   .week-phase { font-size:10px; letter-spacing:0.16em; text-transform:uppercase; font-weight:700; padding:3px 8px; border-radius:20px; border:1px solid var(--line); }
   .week-sub { color:#eef2ee; font-weight:600; font-size:13px; margin-top:6px; }
   .week-sub b { color:#fff; font-weight:700; }
+  .week-live { font-family:'Inconsolata',monospace; font-size:12px; color:var(--fog); margin-top:8px; letter-spacing:0.02em; }
+  .week-live b { color:var(--chalk); font-weight:700; }
   .day { border:1px solid var(--line); border-radius:14px; background:var(--ink-3); margin-bottom:10px; overflow:hidden; }
   .day.rest { background:var(--ink-2); }
   .day-top { display:flex; align-items:center; gap:12px; padding:13px 15px; cursor:pointer; }
@@ -81,7 +83,6 @@
   .sheet-focus { font-size:15.5px; line-height:1.6; color:var(--chalk); }
   .sheet-connect { margin-top:20px; padding-top:16px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--fog-dim); display:flex; align-items:center; gap:9px; }
   .sheet-connect .dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--fog-dim); }
-  .sheet-connect .cta { color:var(--fog); text-decoration:underline; text-underline-offset:2px; }
   .dow { font-size:15px; letter-spacing:0.06em; color:var(--chalk); text-transform:uppercase; width:42px; flex:0 0 auto; font-weight:700; display:flex; flex-direction:column; gap:2px; }
   .daydate { font-size:10px; font-weight:600; letter-spacing:0.04em; color:var(--fog-dim); text-transform:none; }
   .day.rest .dow { color:var(--fog); }
@@ -99,7 +100,6 @@
   .miles small { font-size:11px; color:var(--fog); font-family:'Inconsolata'; }
   .connect { border-top:1px dashed var(--line-soft); padding:9px 15px; display:flex; align-items:center; gap:9px; font-size:11px; color:var(--fog-dim); letter-spacing:0.03em; }
   .connect .dot { width:7px; height:7px; border-radius:50%; border:1.5px solid var(--fog-dim); flex:0 0 auto; }
-  .connect .cta { color:var(--fog); text-decoration:underline; text-underline-offset:2px; }
   .banner { margin:0 16px 16px; padding:11px 14px; border:1px solid var(--line); border-left:3px solid var(--cool); border-radius:8px; background:var(--ink-2); font-size:12px; color:var(--fog); }
   .banner b { color:var(--chalk); }
   .strava-row { display:flex; justify-content:flex-end; margin-top:10px; }
@@ -122,7 +122,6 @@
   <div class="strava-row"><div class="strava-pill" id="stravaPill"><span class="dot"></span>Strava</div></div>
 </header>
 <div class="weekbar" id="weekbar"></div>
-<div class="banner"><b>Live plan.</b> Reads from your training repo — edits you make via chat appear here on next open. Completed-run rows stay greyed until Strava is connected.</div>
 <main id="app"></main>
 <footer>adamneedelman / marathon-plan</footer>
 
@@ -178,7 +177,7 @@ function openSheet(d, w){
       ${d.hr?`<div class="sheet-stat"><div class="k">HR</div><div class="v" style="font-size:18px">${d.hr}</div></div>`:''}
     </div>`;
   }
-  const connect = !isRest ? `<div class="sheet-connect"><span class="dot"></span>No run logged yet · <span class="cta">connect Strava</span></div>` : '';
+  const connect = !isRest ? `<div class="sheet-connect"><span class="dot"></span>No run logged yet</div>` : '';
   document.getElementById('sheetBody').innerHTML = `
     <div class="sheet-eyebrow">${d.dow} · Week ${w.week} · ${w.phase}</div>
     <div class="sheet-title">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>
@@ -200,6 +199,7 @@ document.getElementById('scrim').onclick = closeSheet;
 
 function daysUntil(iso){ return Math.max(0, Math.round((new Date(iso+'T00:00:00')-new Date())/86400000)); }
 let activeWeek = 0;
+let weeklyMileage = null;
 function render(){
   const raceDate = (PLAN.meta && PLAN.meta.raceDate) || PLAN.race || '2026-11-01';
   document.getElementById('dcount').textContent = Math.max(0, Math.ceil((new Date(raceDate+'T00:00:00')-new Date())/(86400000*7)));
@@ -214,11 +214,14 @@ function render(){
   const w=PLAN.weeks[activeWeek];
   const runningDays=w.days.filter(d=>d.miles>0).length;
   const app=document.getElementById('app');
-  let html=`<div class="week-panel"><div class="week-head"><div class="week-title">Week ${w.week}</div><div class="week-phase" style="color:${PHASE_COLOR[w.phase]};border-color:${PHASE_COLOR[w.phase]}44">${w.phase}</div></div><div class="week-sub">${w.label} · <b>${weeklyMiles(w)} mi</b> · ${runningDays} runs</div></div>`;
+  const liveMileage = (weeklyMileage && weeklyMileage.week_number===w.week)
+    ? `<div class="week-live">Week ${w.week}: <b>${weeklyMileage.actual_miles!=null?weeklyMileage.actual_miles.toFixed(1):'--'}</b> / ${weeklyMileage.planned_miles.toFixed(1)} miles</div>`
+    : '';
+  let html=`<div class="week-panel"><div class="week-head"><div class="week-title">Week ${w.week}</div><div class="week-phase" style="color:${PHASE_COLOR[w.phase]};border-color:${PHASE_COLOR[w.phase]}44">${w.phase}</div></div><div class="week-sub">${w.label} · <b>${weeklyMiles(w)} mi</b> · ${runningDays} runs</div>${liveMileage}</div>`;
   w.days.forEach((d,di)=>{
     const isRest=!d.miles;
     const dateStr = d.date ? `<span class="daydate">${d.date}</span>` : '';
-    html+=`<div class="day ${isRest?'rest':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?`<div class="connect"><span class="dot"></span>No run logged · <span class="cta">connect Strava</span></div>`:''}</div>`;
+    html+=`<div class="day ${isRest?'rest':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?`<div class="connect"><span class="dot"></span>No run logged</div>`:''}</div>`;
   });
   app.innerHTML=html;
   app.querySelectorAll('.day').forEach(el=>{
@@ -229,6 +232,19 @@ function render(){
 loadPlan();
 // Re-fetch when returning to the app (e.g. after a chat edit), so changes appear.
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) loadPlan(); });
+
+async function loadWeeklyMileage(){
+  try {
+    const res = await fetch('/api/strava/weekly-mileage?t=' + Date.now(), { cache: 'no-store' });
+    if(!res.ok) throw new Error('HTTP '+res.status);
+    weeklyMileage = await res.json();
+  } catch(err){
+    console.error('Weekly mileage check failed:', err);
+    weeklyMileage = null;
+  }
+  if(PLAN.weeks && PLAN.weeks.length) render();
+}
+loadWeeklyMileage();
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
