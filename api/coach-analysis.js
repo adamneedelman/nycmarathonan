@@ -6,10 +6,10 @@ const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
 
 function cacheKey(activityId) {
-  return `coach:blurb:${activityId}`;
+  return `coach:blurb:v2:${activityId}`;
 }
 
-function buildUserMessage(activity, plannedWorkout) {
+function buildUserMessage(activity, plannedWorkout, nextWorkout) {
   const lines = [
     `Planned workout: ${plannedWorkout.type || 'n/a'} (${plannedWorkout.kind || 'n/a'}), ${plannedWorkout.miles ?? 'n/a'} mi, target pace ${plannedWorkout.pace || 'n/a'}, target HR ${plannedWorkout.hr || 'n/a'}. Week ${plannedWorkout.week ?? 'n/a'}, ${plannedWorkout.phase || 'n/a'} phase.`,
   ];
@@ -20,8 +20,19 @@ function buildUserMessage(activity, plannedWorkout) {
   if (activity.average_heartrate) hrBits.push(`avg HR ${activity.average_heartrate}`);
   if (activity.max_heartrate) hrBits.push(`max HR ${activity.max_heartrate}`);
   lines.push(
-    `Actual run: ${activity.distance} mi, avg pace ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}. Strava activity name: "${activity.name || ''}".`
+    `Actual run: ${activity.distance} mi, avg pace ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}.`
   );
+  if (nextWorkout) {
+    const nw = nextWorkout;
+    const isRest = !nw.miles;
+    if (isRest) {
+      lines.push(`Next day (${nw.dow || 'n/a'}): rest day.`);
+    } else {
+      lines.push(
+        `Next day (${nw.dow || 'n/a'}): ${nw.type || 'n/a'} (${nw.kind || 'n/a'}), ${nw.miles ?? 'n/a'} mi, target pace ${nw.pace || 'n/a'}, target HR ${nw.hr || 'n/a'}.${nw.focus ? ` Notes: ${nw.focus}` : ''}`
+      );
+    }
+  }
   lines.push('Give your coaching take on this run.');
   return lines.join('\n');
 }
@@ -34,7 +45,7 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { activityId, activity, plannedWorkout } = req.body || {};
+  const { activityId, activity, plannedWorkout, nextWorkout } = req.body || {};
   if (!activityId || !activity || !plannedWorkout) {
     res.status(400).json({ error: 'missing_fields' });
     return;
@@ -54,9 +65,9 @@ export default async function handler(req, res) {
     const client = new Anthropic();
     const response = await client.messages.create({
       model: MODEL,
-      max_tokens: 300,
+      max_tokens: 400,
       system: COACH_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: buildUserMessage(activity, plannedWorkout) }],
+      messages: [{ role: 'user', content: buildUserMessage(activity, plannedWorkout, nextWorkout) }],
     });
 
     const textBlock = response.content.find((b) => b.type === 'text');
