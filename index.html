@@ -296,6 +296,16 @@ let coachBlurbs = new Map();
 function buildPlannedWorkoutPayload(d, w){
   return { type:d.type, kind:d.kind, miles:d.miles, pace:d.pace, hr:d.hr, focus:d.focus, phase:w.phase, week:w.week, dow:d.dow, date:d.date };
 }
+// The planned workout for the day after `d`, so Coach Claude can offer a
+// forward-looking tip. Resolved via the flattened ALL_DAYS date list.
+function nextDayWorkoutPayload(d){
+  if(!d || !d.date || !ALL_DAYS.length) return null;
+  const iso = toIsoDate(d.date, planYear());
+  const idx = ALL_DAYS.findIndex(e => e.iso === iso);
+  if(idx === -1 || idx+1 >= ALL_DAYS.length) return null;
+  const next = ALL_DAYS[idx+1];
+  return { ...buildPlannedWorkoutPayload(next.day, next.week), dateIso: next.iso };
+}
 function renderCoachBlock(activityId){
   const entry = coachBlurbs.get(activityId);
   if(!entry) return '';
@@ -305,7 +315,7 @@ function renderCoachBlock(activityId){
   if(entry.status !== 'done' || !entry.text) return '';
   return `<div class="coach-box"><span class="coach-label">Coach Claude</span><div class="coach-text">${escapeHtml(entry.text)}</div></div>`;
 }
-async function requestCoachAnalysis(activity, plannedWorkout){
+async function requestCoachAnalysis(activity, plannedWorkout, nextWorkout){
   if(coachBlurbs.has(activity.id)) return;
   coachBlurbs.set(activity.id, { status:'loading' });
   render();
@@ -313,7 +323,7 @@ async function requestCoachAnalysis(activity, plannedWorkout){
     const res = await fetch('/api/coach-analysis', {
       method:'POST',
       headers: { 'Content-Type':'application/json' },
-      body: JSON.stringify({ activityId: activity.id, activity, plannedWorkout }),
+      body: JSON.stringify({ activityId: activity.id, activity, plannedWorkout, nextWorkout }),
     });
     if(!res.ok) throw new Error('HTTP '+res.status);
     const data = await res.json();
@@ -324,15 +334,20 @@ async function requestCoachAnalysis(activity, plannedWorkout){
   }
   render();
 }
-function renderCompletionBlock(activity, d, w){
+// showCoach gates the Coach Claude blurb (and its analysis request) so it only
+// appears on the Today card and in the day's workout overview sheet — not in the
+// core weekly schedule rows below.
+function renderCompletionBlock(activity, d, w, showCoach=true){
   if(!activity) return `<div class="connect"><span class="dot"></span>No run logged</div>`;
   const hrParts = [];
   if(activity.average_heartrate) hrParts.push(`${activity.average_heartrate} avg`);
   if(activity.max_heartrate) hrParts.push(`${activity.max_heartrate} max`);
   const hrText = hrParts.length ? ` · HR ${hrParts.join(' / ')}` : '';
   const paceText = activity.avg_pace ? ` @ ${activity.avg_pace}` : '';
-  requestCoachAnalysis(activity, buildPlannedWorkoutPayload(d, w));
-  return `<div class="completed-row"><span class="completed-check">✓</span><span class="completed-text">${activity.distance} mi${paceText}${hrText}</span></div>${renderCoachBlock(activity.id)}`;
+  const completedRow = `<div class="completed-row"><span class="completed-check">✓</span><span class="completed-text">${activity.distance} mi${paceText}${hrText}</span></div>`;
+  if(!showCoach) return completedRow;
+  requestCoachAnalysis(activity, buildPlannedWorkoutPayload(d, w), nextDayWorkoutPayload(d));
+  return `${completedRow}${renderCoachBlock(activity.id)}`;
 }
 
 function renderTodayCard(){
@@ -404,7 +419,7 @@ function render(){
     const isRest=!d.miles;
     const dateStr = d.date ? `<span class="daydate">${d.date}</span>` : '';
     const activity = !isRest && d.date ? matchActivityForIso(toIsoDate(d.date, year)) : null;
-    html+=`<div class="day ${isRest?'rest':''}${activity?' completed':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?renderCompletionBlock(activity, d, w):''}</div>`;
+    html+=`<div class="day ${isRest?'rest':''}${activity?' completed':''}" data-di="${di}"><div class="day-top"><div class="dow">${d.dow}${dateStr}</div><div class="day-main"><div class="day-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>${!isRest?`<div class="day-detail">${d.pace?`<span class="hi">${d.pace}</span>`:''}${d.hr?` · HR ${d.hr}`:''}</div>`:''}</div>${!isRest?`<div class="miles">${d.miles}<small> mi</small></div>`:'<span class="chev">›</span>'}${!isRest?'<span class="chev">›</span>':''}</div>${!isRest?renderCompletionBlock(activity, d, w, false):''}</div>`;
   });
   app.innerHTML=html;
   app.querySelectorAll('.day').forEach(el=>{
