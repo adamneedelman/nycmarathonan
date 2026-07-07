@@ -5,10 +5,27 @@ import { COACH_SYSTEM_PROMPT } from '../lib/coach-prompt.js';
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
 
-// Default to NYC (runner's home base); override with env vars when traveling.
-const WEATHER_LAT = process.env.WEATHER_LAT || '40.7128';
-const WEATHER_LON = process.env.WEATHER_LON || '-74.0060';
+// Default to zip 10011 (Chelsea, Manhattan); override with env vars when traveling.
+const WEATHER_LAT = process.env.WEATHER_LAT || '40.7420';
+const WEATHER_LON = process.env.WEATHER_LON || '-74.0000';
 const WEATHER_TZ = process.env.WEATHER_TZ || 'America/New_York';
+// Local hours of the runner's usual morning window; the forecast focuses here.
+const WEATHER_RUN_HOURS = (process.env.WEATHER_RUN_HOURS || '8,9')
+  .split(',')
+  .map((h) => parseInt(h.trim(), 10))
+  .filter((h) => Number.isInteger(h) && h >= 0 && h <= 23);
+
+// Human label for the run window, e.g. [8,9] -> "8-9am".
+const RUN_WINDOW_LABEL = (() => {
+  if (!WEATHER_RUN_HOURS.length) return null;
+  const lo = Math.min(...WEATHER_RUN_HOURS);
+  const hi = Math.max(...WEATHER_RUN_HOURS);
+  const mer = (h) => (h < 12 ? 'am' : 'pm');
+  const h12 = (h) => (h % 12 === 0 ? 12 : h % 12);
+  if (lo === hi) return `${h12(lo)}${mer(lo)}`;
+  if (mer(lo) === mer(hi)) return `${h12(lo)}-${h12(hi)}${mer(hi)}`;
+  return `${h12(lo)}${mer(lo)}-${h12(hi)}${mer(hi)}`;
+})();
 
 // Open-Meteo WMO weather codes → short human-readable conditions.
 const WEATHER_CODES = {
@@ -22,18 +39,19 @@ const WEATHER_CODES = {
 };
 
 function cacheKey(activityId) {
-  return `coach:blurb:v2:${activityId}`;
+  return `coach:blurb:v3:${activityId}`;
 }
 
-// Free, no-key daily forecast for the next workout's date via Open-Meteo.
-// Returns null (and never throws) so a weather outage can't block the blurb.
+// Free, no-key Open-Meteo forecast for the next workout's date, summarized over
+// the runner's morning run window (hourly data, local time). Returns null (and
+// never throws) so a weather outage can't block the blurb.
 async function fetchNextDayWeather(dateIso) {
-  if (!dateIso) return null;
+  if (!dateIso || !WEATHER_RUN_HOURS.length) return null;
   try {
     const params = new URLSearchParams({
       latitude: WEATHER_LAT,
       longitude: WEATHER_LON,
-      daily: 'weathercode,temperature_2m_max,temperature_2m_min,apparent_temperature_max,precipitation_probability_max,windspeed_10m_max',
+      hourly: 'weathercode,temperature_2m,apparent_temperature,precipitation_probability,windspeed_10m',
       temperature_unit: 'fahrenheit',
       windspeed_unit: 'mph',
       timezone: WEATHER_TZ,
@@ -43,15 +61,35 @@ async function fetchNextDayWeather(dateIso) {
     const res = await fetch(`https://api.open-meteo.com/v1/forecast?${params.toString()}`);
     if (!res.ok) throw new Error(`open-meteo ${res.status}`);
     const data = await res.json();
-    const d = data.daily;
-    if (!d || !Array.isArray(d.time) || !d.time.length) return null;
+    const h = data.hourly;
+    if (!h || !Array.isArray(h.time) || !h.time.length) return null;
+
+    // Rows matching the run-window hours (e.g. "...T08:00", "...T09:00") in local time.
+    const idxs = WEATHER_RUN_HOURS
+      .map((hr) => h.time.findIndex((t) => t.endsWith(`T${String(hr).padStart(2, '0')}:00`)))
+      .filter((i) => i >= 0);
+    if (!idxs.length) return null;
+
+    const pick = (arr) => idxs.map((i) => arr?.[i]).filter((v) => v != null);
+    const temps = pick(h.temperature_2m);
+    const feels = pick(h.apparent_temperature);
+    const precip = pick(h.precipitation_probability);
+    const winds = pick(h.windspeed_10m);
+    const codes = pick(h.weathercode);
+
+    // Report the wettest hour's condition so rain in the window isn't hidden.
+    let condIdx = 0;
+    if (precip.length && precip.length === codes.length) {
+      condIdx = precip.reduce((best, p, i) => (p > precip[best] ? i : best), 0);
+    }
+
     return {
-      condition: WEATHER_CODES[d.weathercode?.[0]] || null,
-      hi: d.temperature_2m_max?.[0],
-      lo: d.temperature_2m_min?.[0],
-      feelsMax: d.apparent_temperature_max?.[0],
-      precipProb: d.precipitation_probability_max?.[0],
-      windMax: d.windspeed_10m_max?.[0],
+      condition: codes.length ? WEATHER_CODES[codes[condIdx]] || null : null,
+      lo: temps.length ? Math.min(...temps) : undefined,
+      hi: temps.length ? Math.max(...temps) : undefined,
+      feelsMax: feels.length ? Math.max(...feels) : undefined,
+      precipProb: precip.length ? Math.max(...precip) : undefined,
+      windMax: winds.length ? Math.max(...winds) : undefined,
     };
   } catch (err) {
     console.error('coach-analysis: weather fetch failed:', err);
@@ -92,7 +130,8 @@ function buildUserMessage(activity, plannedWorkout, nextWorkout, weather) {
     if (weather.precipProb != null) parts.push(`${weather.precipProb}% chance of precip`);
     if (weather.windMax != null) parts.push(`wind up to ${Math.round(weather.windMax)} mph`);
     if (parts.length) {
-      lines.push(`Next-day weather forecast: ${parts.join(', ')}.`);
+      const label = RUN_WINDOW_LABEL ? ` for the runner's ${RUN_WINDOW_LABEL} run window` : '';
+      lines.push(`Next-day forecast${label}: ${parts.join(', ')}.`);
     }
   }
   lines.push('Give your coaching take on this run.');
