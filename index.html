@@ -304,7 +304,7 @@ function nextDayWorkoutPayload(d){
   const idx = ALL_DAYS.findIndex(e => e.iso === iso);
   if(idx === -1 || idx+1 >= ALL_DAYS.length) return null;
   const next = ALL_DAYS[idx+1];
-  return buildPlannedWorkoutPayload(next.day, next.week);
+  return { ...buildPlannedWorkoutPayload(next.day, next.week), dateIso: next.iso };
 }
 function renderCoachBlock(activityId){
   const entry = coachBlurbs.get(activityId);
