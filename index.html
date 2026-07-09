@@ -135,13 +135,53 @@
   .coach-loading-text { font-size:12px; color:var(--fog-dim); font-style:italic; }
   .sync-note { margin:10px 16px 0; font-size:11px; color:var(--fog-dim); max-width:620px; }
   footer { text-align:center; padding:8px 16px 20px; font-size:10px; letter-spacing:0.1em; color:var(--fog-dim); text-transform:uppercase; }
+
+  /* inbox / Coach's Notes */
+  .topline-right { display:flex; align-items:center; gap:6px; flex:0 0 auto; }
+  .inbox-btn { position:relative; display:inline-flex; align-items:center; justify-content:center; width:44px; height:44px; margin:-10px -8px -10px 0; background:none; border:none; color:var(--chalk); cursor:pointer; flex:0 0 auto; }
+  .inbox-btn svg { width:21px; height:21px; }
+  .inbox-badge { position:absolute; top:6px; right:6px; min-width:15px; height:15px; padding:0 3px; border-radius:8px; background:#ff3b30; color:#fff; font-size:9.5px; font-weight:700; display:flex; align-items:center; justify-content:center; line-height:1; font-family:'Inconsolata',monospace; }
+  .inbox-badge.hidden { display:none; }
+  .notes-view { padding:14px 16px 60px; max-width:620px; margin:0 auto; }
+  .notes-header { display:flex; align-items:center; gap:6px; margin-bottom:14px; }
+  .back-btn { width:44px; height:44px; display:flex; align-items:center; justify-content:center; background:none; border:none; color:var(--chalk); font-size:26px; cursor:pointer; margin-left:-10px; flex:0 0 auto; }
+  .notes-title { font-family:'Fraunces',serif; font-size:22px; font-weight:600; }
+  .note-row { border:1px solid var(--line); border-radius:14px; background:var(--ink-3); padding:14px 16px; margin-bottom:10px; cursor:pointer; display:flex; align-items:center; justify-content:space-between; gap:10px; }
+  .note-row:active { background:var(--ink-2); }
+  .note-row-main { flex:1; min-width:0; }
+  .note-row-title { font-family:'Fraunces',serif; font-size:17px; font-weight:600; display:flex; align-items:center; gap:8px; }
+  .note-row-dates { font-size:11px; color:var(--fog-dim); margin-top:2px; }
+  .note-row-miles { font-size:12.5px; color:var(--fog); margin-top:4px; }
+  .note-unread-dot { width:8px; height:8px; border-radius:50%; background:var(--sig); flex:0 0 auto; }
+  .note-empty { color:var(--fog); font-size:14px; line-height:1.6; padding:20px 4px; }
+  .note-detail-back { margin-bottom:4px; }
+  .note-detail-head { margin-bottom:18px; }
+  .note-detail-eyebrow { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fog); font-weight:700; }
+  .note-detail-title { font-family:'Fraunces',serif; font-size:26px; font-weight:900; color:#fff; margin-top:4px; }
+  .note-detail-meta { font-size:12.5px; color:var(--fog); margin-top:6px; }
+  .note-loading { color:var(--fog-dim); font-style:italic; font-size:14px; padding:30px 4px; text-align:center; }
+  .note-error { color:var(--fog); font-size:14px; padding:20px 4px; line-height:1.6; }
+  .note-retry-btn { margin-top:6px; padding:9px 16px; border-radius:20px; border:1px solid var(--line); background:var(--ink-2); color:var(--chalk); font:inherit; cursor:pointer; }
+  .note-content { font-size:14.5px; line-height:1.7; color:var(--chalk); }
+  .note-content h2 { font-family:'Fraunces',serif; font-size:19px; font-weight:700; color:#fff; margin:22px 0 8px; }
+  .note-content h2:first-child { margin-top:0; }
+  .note-content p { margin:10px 0; }
+  .note-content strong { color:#fff; }
+  .note-content ul { margin:8px 0 8px 20px; }
+  .note-content li { margin:4px 0; }
 </style>
 </head>
 <body>
 <header>
   <div class="topline">
     <span class="eyebrow">TCS NYC Marathon · Nov 1</span>
-    <span class="days"><span id="dcount">17</span> weeks to race</span>
+    <div class="topline-right">
+      <span class="days"><span id="dcount">17</span> weeks to race</span>
+      <button class="inbox-btn" id="inboxBtn" type="button" aria-label="Coach's Notes">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/></svg>
+        <span class="inbox-badge hidden" id="inboxBadge">1</span>
+      </button>
+    </div>
   </div>
   <div class="rail"><div class="rail-fill" id="railfill" style="width:14%"></div></div>
   <div class="rail-labels"><span>Base</span><span>Build</span><span>Peak</span><span>Taper</span><span>Race</span></div>
@@ -150,6 +190,13 @@
 <div id="todayCard"></div>
 <div class="weekbar" id="weekbar"></div>
 <main id="app"></main>
+<div class="notes-view" id="notesView" style="display:none">
+  <div class="notes-header">
+    <button class="back-btn" id="notesBack" type="button" aria-label="Back">‹</button>
+    <span class="notes-title">Coach's Notes</span>
+  </div>
+  <div id="notesBody"></div>
+</div>
 <footer>adamneedelman / marathon-plan</footer>
 
 <div class="scrim" id="scrim"></div>
@@ -228,6 +275,7 @@ async function loadPlan(){
     activeWeek = idx >= 0 ? ALL_DAYS[idx].weekIndex : 0;
     render();
     scrollWeekbarToActive();
+    updateInboxBadge();
   } catch(err) {
     document.getElementById('app').innerHTML =
       '<div style="padding:24px;color:#8ea39c;font-size:14px;line-height:1.6">'
@@ -527,6 +575,185 @@ function handleStravaRedirectParams(){
 
 handleStravaRedirectParams();
 loadStravaStatus();
+
+// ---- Coach's Notes (weekly review) ----
+const REVIEW_LAST_READ_KEY = 'coachReviewLastRead';
+let reviewsMeta = new Map(); // week -> { actualMiles, plannedMiles, generatedAt }
+let currentReviewWeek = null;
+
+// A week's review becomes available once its Sunday reaches 5pm in the
+// runner's own device timezone (DST-safe: the JS Date constructor resolves
+// "T17:00:00" against local time and already accounts for DST).
+function weekSundayFivePmLocalMs(week) {
+  const year = planYear();
+  const sundayIso = toIsoDate(week.days[week.days.length - 1].date, year);
+  return new Date(sundayIso + 'T17:00:00').getTime();
+}
+function latestAvailableReviewWeek() {
+  if (!PLAN.weeks || !PLAN.weeks.length) return 0;
+  const now = Date.now();
+  let latest = 0;
+  PLAN.weeks.forEach((w) => {
+    if (now >= weekSundayFivePmLocalMs(w)) latest = Math.max(latest, w.week);
+  });
+  return latest;
+}
+function updateInboxBadge() {
+  const badge = document.getElementById('inboxBadge');
+  if (!badge) return;
+  const latest = latestAvailableReviewWeek();
+  const lastRead = Number(localStorage.getItem(REVIEW_LAST_READ_KEY) || '0');
+  badge.classList.toggle('hidden', !(latest > lastRead));
+}
+function markReviewRead(week) {
+  const lastRead = Number(localStorage.getItem(REVIEW_LAST_READ_KEY) || '0');
+  if (week > lastRead) localStorage.setItem(REVIEW_LAST_READ_KEY, String(week));
+  updateInboxBadge();
+}
+
+function showNotesView() {
+  document.getElementById('todayCard').style.display = 'none';
+  document.getElementById('weekbar').style.display = 'none';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('notesView').style.display = 'block';
+  window.scrollTo({ top: 0 });
+}
+function hideNotesView() {
+  document.getElementById('notesView').style.display = 'none';
+  document.getElementById('todayCard').style.display = '';
+  document.getElementById('weekbar').style.display = '';
+  document.getElementById('app').style.display = '';
+}
+
+// Minimal, dependency-free markdown -> HTML for review bodies: headings,
+// bold, bullet lists, and paragraphs only (matches what the coach prompt is
+// instructed to produce).
+function inlineMarkdown(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+}
+function renderMarkdown(md) {
+  const lines = escapeHtml(md).split('\n');
+  let html = '';
+  let inList = false;
+  const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+  lines.forEach((line) => {
+    const trimmed = line.trim();
+    if (/^#{1,3}\s+/.test(trimmed)) {
+      closeList();
+      html += `<h2>${inlineMarkdown(trimmed.replace(/^#{1,3}\s+/, ''))}</h2>`;
+    } else if (/^[-*]\s+/.test(trimmed)) {
+      if (!inList) { html += '<ul>'; inList = true; }
+      html += `<li>${inlineMarkdown(trimmed.replace(/^[-*]\s+/, ''))}</li>`;
+    } else if (trimmed === '') {
+      closeList();
+    } else {
+      closeList();
+      html += `<p>${inlineMarkdown(trimmed)}</p>`;
+    }
+  });
+  closeList();
+  return html;
+}
+
+function renderNotesList() {
+  const notesBody = document.getElementById('notesBody');
+  const latest = latestAvailableReviewWeek();
+  if (!latest) {
+    notesBody.innerHTML = `<div class="note-empty">Coach Claude's first weekly review arrives Sunday evening after week 1 wraps up.</div>`;
+    return;
+  }
+  const lastRead = Number(localStorage.getItem(REVIEW_LAST_READ_KEY) || '0');
+  const weeks = PLAN.weeks.filter((w) => w.week <= latest).slice().reverse();
+  notesBody.innerHTML = weeks.map((w) => {
+    const meta = reviewsMeta.get(w.week);
+    const planned = weeklyMiles(w);
+    const actualText = meta && meta.actualMiles != null ? `${meta.actualMiles} mi actual` : 'not opened yet';
+    const dateRange = `${w.days[0].date} – ${w.days[w.days.length - 1].date}`;
+    const unread = w.week > lastRead;
+    return `<div class="note-row" data-week="${w.week}">
+      <div class="note-row-main">
+        <div class="note-row-title">Week ${w.week} Review${unread ? '<span class="note-unread-dot"></span>' : ''}</div>
+        <div class="note-row-dates">${dateRange}</div>
+        <div class="note-row-miles">${planned} mi planned · ${actualText}</div>
+      </div>
+      <span class="chev">›</span>
+    </div>`;
+  }).join('');
+  notesBody.querySelectorAll('.note-row').forEach((el) => {
+    el.onclick = () => openReviewDetail(Number(el.dataset.week));
+  });
+}
+
+function reviewDetailHeader(week, w) {
+  const dateRange = `${w.days[0].date} – ${w.days[w.days.length - 1].date}`;
+  return `<div class="note-detail-back"><button class="back-btn" id="notesDetailBack" type="button" aria-label="Back to list">‹</button></div>
+    <div class="note-detail-head">
+      <div class="note-detail-eyebrow">Week ${week} · ${w.phase}</div>
+      <div class="note-detail-title">Week ${week} Review</div>
+      <div class="note-detail-meta">${dateRange}</div>
+    </div>`;
+}
+function bindDetailBack() {
+  const backBtn = document.getElementById('notesDetailBack');
+  if (backBtn) backBtn.onclick = renderNotesList;
+}
+
+const REVIEW_ERROR_MESSAGES = {
+  strava_not_connected: "Strava isn't connected, so Coach Claude can't see this week's runs.",
+  not_yet_available: "This week's review isn't ready yet.",
+  invalid_week: 'That week is outside the training block.',
+  strava_fetch_failed: "Couldn't reach Strava just now.",
+  generation_failed: 'Coach Claude had trouble writing this review.',
+};
+function renderReviewError(header, errCode) {
+  const msg = REVIEW_ERROR_MESSAGES[errCode] || 'Something went wrong generating this review.';
+  const reconnect = errCode === 'strava_not_connected';
+  document.getElementById('notesBody').innerHTML = header + `<div class="note-error">${escapeHtml(msg)}<br><br>
+    <button class="note-retry-btn" id="notesRetryBtn" type="button">${reconnect ? 'Connect Strava' : 'Retry'}</button></div>`;
+  bindDetailBack();
+  document.getElementById('notesRetryBtn').onclick = () => {
+    if (reconnect) window.location.href = '/api/strava/authorize';
+    else openReviewDetail(currentReviewWeek);
+  };
+}
+
+async function openReviewDetail(week) {
+  currentReviewWeek = week;
+  const w = PLAN.weeks.find((x) => x.week === week);
+  if (!w) return;
+  const header = reviewDetailHeader(week, w);
+
+  markReviewRead(week);
+
+  if (!stravaActivitiesConnected) {
+    renderReviewError(header, 'strava_not_connected');
+    return;
+  }
+
+  document.getElementById('notesBody').innerHTML = header + `<div class="note-loading">Coach Claude is reviewing your week…<br>(takes about 10–20 seconds)</div>`;
+  bindDetailBack();
+
+  try {
+    const res = await fetch(`/api/coach/weekly-review?week=${week}`, { cache: 'no-store' });
+    const data = await res.json();
+    if (!res.ok) {
+      renderReviewError(header, data.error);
+      return;
+    }
+    reviewsMeta.set(week, { actualMiles: data.actualMiles, plannedMiles: data.plannedMiles, generatedAt: data.generatedAt });
+    document.getElementById('notesBody').innerHTML = header + `<div class="note-content">${renderMarkdown(data.review)}</div>`;
+    bindDetailBack();
+  } catch (err) {
+    console.error('weekly review fetch failed:', err);
+    renderReviewError(header, null);
+  }
+}
+
+document.getElementById('inboxBtn').addEventListener('click', () => {
+  showNotesView();
+  renderNotesList();
+});
+document.getElementById('notesBack').addEventListener('click', hideNotesView);
 </script>
 </body>
 </html>
