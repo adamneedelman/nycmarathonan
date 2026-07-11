@@ -92,22 +92,22 @@
         },
         {
           "dow": "Sat",
-          "kind": "easy",
-          "type": "Easy (short) + leg strength",
-          "miles": 3,
-          "pace": "9:20-10:00",
-          "hr": "<=145",
-          "focus": "Short, genuinely easy 3 mi, then your leg-strength session (calf raises, tibialis raises, single-leg stability). Keep the run recovery-paced - it's a 4th day this week, so no pushing. Rolls into Sunday/Monday rest and week 2.",
-          "date": "Jul 11"
-        },
-        {
-          "dow": "Sun",
           "kind": "rest",
           "type": "Rest",
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest - this week's run moved up to Saturday. Full rest today. Tib check.",
+          "focus": "Rest - this week's short easy + leg-strength session moved to Sunday. Tib check.",
+          "date": "Jul 11"
+        },
+        {
+          "dow": "Sun",
+          "kind": "easy",
+          "type": "Easy (short) + leg strength",
+          "miles": 3,
+          "pace": "9:20-10:00",
+          "hr": "<=145",
+          "focus": "Short, genuinely easy 3 mi, then your leg-strength session (calf raises, tibialis raises, single-leg stability). Keep the run recovery-paced - it's a 4th day this week, so no pushing. Rolls into Monday rest and week 2.",
           "date": "Jul 12"
         }
       ],
