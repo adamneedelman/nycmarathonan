@@ -6,32 +6,32 @@
     "blockStart": "2026-07-06",
     "weeks": 17,
     "goals": {
-      "A": "3:35 (8:12/mi)",
-      "B": "3:40",
-      "C": "sub-3:45",
+      "primary": "Stay healthy to the start line",
+      "A": "3:43 (8:30/mi)",
+      "B": "sub-3:50",
       "floor": "beat 3:59 (2025)"
     },
     "zones": {
       "recovery": "<130",
       "easy": "130-145 (9:15-9:45+)",
       "steady": "145-155",
-      "threshold": "155-164 (cap 7:55-8:00 pace, short reps only)",
+      "threshold": "155-164 (not used this cycle - no dedicated threshold sessions; MP 8:30 sits well below this zone)",
       "vo2": "164+"
     },
     "tibRules": [
-      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days.",
-      "Nothing sustained faster than 7:55-8:00, and never for more than ~2-3 miles at a time. MP (8:12) is the safe race-specific workhorse.",
-      "Fast bursts (strides, <=90s reps) are safe but never sprint-fast.",
-      "Marathon pace 8:12 is the safe race-specific workhorse.",
-      "Long-run pace-up segments capped at MP (8:12); work the 8:12-8:45 band.",
-      "Max one sustained-fast bout per week, alternating midweek speed vs pace-up long run.",
-      "Morning-after check (touch-tenderness + stairs) governs progression, not in-run feel."
+      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days - with no work scheduled faster than marathon pace (8:30) anywhere in this plan, that band is never approached.",
+      "Nothing sustained faster than 8:30/mi anywhere in the plan. Marathon pace 8:30 is the safe race-specific workhorse - there is no dedicated threshold work this cycle.",
+      "Fast bursts (strides, <=90s reps) are safe but never sprint-fast - the only faster-than-MP stimulus in the block.",
+      "Marathon pace 8:30 is the safe, goal-pace workhorse.",
+      "Long-run pace-up segments are capped at MP (8:30), built gradually within an easy base, and dropped immediately if the knee or tib speaks.",
+      "Max one MP-focused bout per week, living mostly in the long run.",
+      "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel."
     ],
     "structure": {
-      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 20->32 mpw, easy aerobic + strides, LR 7->13",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 34->44 mpw, threshold + MP enters, LR 14->18, tune-up half wk 11",
-      "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 44->48 mpw, LR to 22 on Oct 10",
-      "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops ~25/40/race, sharpen, race Nov 1"
+      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5->22 mpw, easy aerobic + strides (knee return protocol wks 1-2), LR 8->10 (no weekend long wk1 - travel/knee)",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 24->30 mpw (dips to 18 in travel-cutback wk9), easy aerobic + strides, MP (8:30) touches enter gradually within the long run, LR 12->14, no threshold work",
+      "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 33->40 mpw, LR to 22 on Oct 10, one MP-focused (8:30) long run per week, no threshold",
+      "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
     }
   },
   "weeks": [
@@ -102,21 +102,21 @@
         },
         {
           "dow": "Sun",
-          "kind": "easy",
-          "type": "Easy (short) + leg strength",
-          "miles": 3,
-          "pace": "9:20-10:00",
-          "hr": "<=145",
-          "focus": "Short, genuinely easy 3 mi, then your leg-strength session (calf raises, tibialis raises, single-leg stability). Keep the run recovery-paced - it's a 4th day this week, so no pushing. Rolls into Monday rest and week 2.",
+          "kind": "rest",
+          "type": "Rest (knee)",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Full rest (knee). Structural, not conditional. Morning knee/tib check: touch-tenderness + first flight of stairs. Rolls into week 2's return-from-knee protocol.",
           "date": "Jul 12"
         }
       ],
-      "totalMiles": 18.5
+      "totalMiles": 15.5
     },
     {
       "week": 2,
       "phase": "Base",
-      "label": "First pace-up long run",
+      "label": "Return week (knee) \u00b7 all easy",
       "days": [
         {
           "dow": "Mon",
@@ -130,32 +130,32 @@
         },
         {
           "dow": "Tue",
-          "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 5,
-          "pace": "9:15-9:45",
-          "hr": "<=145",
-          "focus": "Easy aerobic. Smooth cadence around 158+, avoid overstriding.",
+          "kind": "rest",
+          "type": "Rest (knee)",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Full rest (knee). Morning knee/tib check: touch-tenderness + first flight of stairs.",
           "date": "Jul 14"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
+          "type": "Easy (first run back)",
           "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy. Recovery-oriented.",
+          "focus": "First run back, conditional on a calm knee - no swelling, pain-free stairs. If either is off, delay to Thursday or start with a 2-mi test and stop if anything grumbles. Genuinely easy pace, no strides.",
           "date": "Jul 15"
         },
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy + strides",
+          "type": "Easy aerobic",
           "miles": 5,
-          "pace": "9:15-9:45 + 4 strides",
+          "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy with 4x20s strides to finish. Quick but controlled, nowhere near flare pace.",
+          "focus": "Easy aerobic. No strides yet this week - keep it plain while the knee settles back into running.",
           "date": "Jul 16"
         },
         {
@@ -171,30 +171,30 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ pace-up",
-          "miles": 9,
-          "pace": "see focus",
-          "hr": "<=155",
-          "focus": "First structured long run. 5 mi easy (9:20-9:45), then 3 mi at 8:30, then 1 mi easy. The 8:30 segment is comfortably slower than MP \u2014 just waking up the legs to faster turnover on a long run. Stop the pace-up if the tib speaks.",
+          "type": "Long run (easy)",
+          "miles": 8,
+          "pace": "9:20-9:50",
+          "hr": "<=150",
+          "focus": "Easy long run, no pace-up. All easy this week - the point is volume tolerance, not speed. Stop early if the knee speaks.",
           "date": "Jul 18"
         },
         {
           "dow": "Sun",
           "kind": "rest",
-          "type": "Leg strength",
+          "type": "Leg strength (light)",
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Leg strength. Calf raises, tibialis raises, single-leg stability, posterior chain. Directly supports the anterior tib.",
+          "focus": "Light leg strength - calf raises, tibialis raises, gentle single-leg work. Skip loaded single-leg work if the knee is tender; posterior chain is fine either way.",
           "date": "Jul 19"
         }
       ],
-      "totalMiles": 23
+      "totalMiles": 17
     },
     {
       "week": 3,
       "phase": "Base",
-      "label": "Threshold introduced",
+      "label": "All easy \u00b7 strides return",
       "days": [
         {
           "dow": "Mon",
@@ -208,29 +208,29 @@
         },
         {
           "dow": "Tue",
-          "kind": "quality",
-          "type": "Threshold intro",
-          "miles": 6,
-          "pace": "3x6min @ 7:55-8:00",
-          "hr": "155-164",
-          "focus": "FIRST real threshold. Warm up 1.5+ mi easy. Then 3x6min at 7:55-8:00 (just easier than your 7:50 cap), 3 min easy jog between. This is your one hard bout this week. Watch the tib \u2014 this pace is near your zone, so if it grumbles, back off to 8:05. Cool down easy.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 3.5,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy aerobic. No threshold work this cycle - everything stays comfortably easy.",
           "date": "Jul 21"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 4,
-          "pace": "9:15-9:45",
+          "type": "Easy + strides",
+          "miles": 3.5,
+          "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
-          "focus": "Recovery easy the day after threshold. Keep it genuinely slow.",
+          "focus": "Strides reintroduced: easy run, then 4x ~20s relaxed strides on flat ground. Smooth turnover, never sprint-fast, well short of your flare pace. Full walk recovery between.",
           "date": "Jul 22"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 3.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -250,10 +250,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long run (easy)",
-          "miles": 10,
+          "miles": 8,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Easy long run \u2014 intensity was spent midweek, so keep this fully easy, HR under 150. Practice fueling every 30-40 min.",
+          "focus": "Easy long run, no pace-up yet. Practice fueling every 30-40 min. HR under 150.",
           "date": "Jul 25"
         },
         {
@@ -267,12 +267,12 @@
           "date": "Jul 26"
         }
       ],
-      "totalMiles": 25
+      "totalMiles": 18.5
     },
     {
       "week": 4,
       "phase": "Base",
-      "label": "Pace-up long \u00b7 MP touch",
+      "label": "Pace-up long \u00b7 first MP touch",
       "days": [
         {
           "dow": "Mon",
@@ -288,7 +288,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy.",
@@ -298,7 +298,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 4,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
           "focus": "Easy with 5x20s strides. Controlled speed.",
@@ -308,7 +308,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 3,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -327,11 +327,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP finish",
-          "miles": 11,
+          "type": "Long w/ MP touch",
+          "miles": 9,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "6 mi easy, then 3 mi at 8:30, then 2 mi at 8:12 (MP). First taste of goal pace on a long run \u2014 it should feel controlled, not hard. This is the safe race-specific stimulus. Cap at 8:12, never faster.",
+          "hr": "<=153",
+          "focus": "7 mi easy, then 1 mi @ 8:30 (MP), then 1 mi easy. First taste of goal pace on a long run - it should feel controlled, not hard. Drop the MP mile to easy if the knee or tib speaks.",
           "date": "Aug 1"
         },
         {
@@ -345,7 +345,7 @@
           "date": "Aug 2"
         }
       ],
-      "totalMiles": 26
+      "totalMiles": 20
     },
     {
       "week": 5,
@@ -364,32 +364,32 @@
         },
         {
           "dow": "Tue",
-          "kind": "quality",
-          "type": "Threshold",
-          "miles": 7,
-          "pace": "2x10min @ 7:55-8:00",
-          "hr": "155-164",
-          "focus": "Warm up 1.5 mi. 2x10min at 7:55-8:00 (your ceiling - do not go faster), 3 min easy between. Each rep is ~1.3 mi, so you never hold fast pace beyond a couple miles. Tib watch is highest on these days. Cool down easy.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 4,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy aerobic.",
           "date": "Aug 4"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 5,
-          "pace": "9:15-9:45",
+          "type": "Easy + strides",
+          "miles": 4,
+          "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
-          "focus": "Recovery easy.",
+          "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast.",
           "date": "Aug 5"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic, slightly longer.",
+          "focus": "Easy aerobic.",
           "date": "Aug 6"
         },
         {
@@ -405,11 +405,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long run (easy)",
-          "miles": 11,
-          "pace": "9:20-9:50",
-          "hr": "<=150",
-          "focus": "Easy long, HR under 150. Consolidating the base before the build phase opens up. Fuel practice.",
+          "type": "Long w/ MP segment",
+          "miles": 10,
+          "pace": "see focus",
+          "hr": "<=153",
+          "focus": "7 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. Building MP volume within the long run, controlled effort. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 8"
         },
         {
@@ -423,7 +423,7 @@
           "date": "Aug 9"
         }
       ],
-      "totalMiles": 29
+      "totalMiles": 22
     },
     {
       "week": 6,
@@ -444,17 +444,17 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy. Build phase \u2014 volume climbs but keep easy days honestly easy.",
+          "focus": "Easy. Build phase - volume climbs but keep easy days honestly easy.",
           "date": "Aug 11"
         },
         {
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 4,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
           "focus": "Easy with strides.",
@@ -464,7 +464,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -483,11 +483,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP segments",
-          "miles": 13,
+          "type": "Long w/ MP segment",
+          "miles": 12,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "7 mi easy, then 2 mi @ 8:30, 2 mi @ 8:12, 2 mi easy. Building MP volume within the long run. Controlled effort \u2014 the goal is time at pace on tiring legs, not to hammer.",
+          "hr": "<=153",
+          "focus": "8 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Building MP volume within the long run - the goal is time at goal pace on tiring legs, not to hammer. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 15"
         },
         {
@@ -501,12 +501,12 @@
           "date": "Aug 16"
         }
       ],
-      "totalMiles": 30
+      "totalMiles": 24
     },
     {
       "week": 7,
       "phase": "Build",
-      "label": "Threshold \u00b7 long run Fri (travel)",
+      "label": "Long run moved to Fri (travel)",
       "days": [
         {
           "dow": "Mon",
@@ -520,28 +520,28 @@
         },
         {
           "dow": "Tue",
-          "kind": "quality",
-          "type": "Threshold",
-          "miles": 7,
-          "pace": "3x8min @ 7:55-8:00",
-          "hr": "155-164",
-          "focus": "Warm up 1.5 mi. 3x8min at 7:55-8:00 (ceiling), 3 min easy between. ~1 mi per rep, well under 'a few miles' sustained. Your hard bout this week. Tib check tomorrow matters.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 4,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy aerobic. No threshold work this cycle.",
           "date": "Aug 18"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
+          "type": "Easy + strides",
           "miles": 5,
-          "pace": "9:15-9:45",
+          "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
-          "focus": "Recovery easy after threshold.",
+          "focus": "Easy with 5x20s strides. Controlled speed.",
           "date": "Aug 19"
         },
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy aerobic",
+          "type": "Easy (short)",
           "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
@@ -551,11 +551,11 @@
         {
           "dow": "Fri",
           "kind": "long",
-          "type": "Long run (easy) \u2014 moved",
-          "miles": 13,
+          "type": "Long run (easy) - moved",
+          "miles": 12,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Long run pulled to Friday because of Sat-Sun travel. Easy effort, HR under 150. Fuel well. After this you travel, so the weekend is off.",
+          "focus": "Long run pulled to Friday because of Sat-Sun travel. Easy effort, HR under 150, no MP segment this week. Fuel well. After this you travel, so the weekend is off.",
           "date": "Aug 21"
         },
         {
@@ -579,7 +579,7 @@
           "date": "Aug 23"
         }
       ],
-      "totalMiles": 29
+      "totalMiles": 25
     },
     {
       "week": 8,
@@ -600,7 +600,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy. Back to normal rhythm after travel week.",
@@ -610,7 +610,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45 + 6 strides",
           "hr": "<=145",
           "focus": "Easy with 6 strides.",
@@ -620,7 +620,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -639,11 +639,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP block",
-          "miles": 14,
+          "type": "Long w/ MP segment",
+          "miles": 13,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "7 mi easy, then 4 mi @ 8:12 (MP), then 3 mi easy. Longest MP block yet. Settle into goal pace and hold it relaxed. If 8:12 feels hard this deep, ease to 8:20 - never push past 8:12.",
+          "hr": "<=153",
+          "focus": "8 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Longest MP block yet. Settle into goal pace and hold it relaxed - if it feels hard this deep, ease off. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 29"
         },
         {
@@ -657,7 +657,7 @@
           "date": "Aug 30"
         }
       ],
-      "totalMiles": 32
+      "totalMiles": 28
     },
     {
       "week": 9,
@@ -671,7 +671,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Full rest. This whole week is a forced cutback from travel \u2014 treat it as a genuine recovery/down week. Well-timed at the block midpoint.",
+          "focus": "Full rest. This whole week is a forced cutback from travel - treat it as a genuine recovery/down week. Well-timed at the block midpoint.",
           "date": "Aug 31"
         },
         {
@@ -701,7 +701,7 @@
           "miles": 3,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Lighter easy run \u2014 short and gentle, travel week. No pressure on pace.",
+          "focus": "Lighter easy run - short and gentle, travel week. No pressure on pace.",
           "date": "Sep 3"
         },
         {
@@ -721,7 +721,7 @@
           "miles": 7,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Travel-shortened long \u2014 only 7. Easy-steady. You're banking recovery this week, not fitness. Finish feeling fresh.",
+          "focus": "Travel-shortened long - only 7, easy-steady, no MP. You're banking recovery this week, not fitness. Finish feeling fresh.",
           "date": "Sep 5"
         },
         {
@@ -731,7 +731,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "No run today (travel). Rest \u2014 no leg strength this week; the cutback is doing the work.",
+          "focus": "No run today (travel). Rest - no leg strength this week; the cutback is doing the work.",
           "date": "Sep 6"
         }
       ],
@@ -795,11 +795,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP segments",
-          "miles": 15,
+          "type": "Long w/ MP segment",
+          "miles": 13,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "6 mi easy, then 3 mi @ 8:30, 3 mi @ 8:12, 3 mi easy. Strong pace-up long coming off the recovery week - you should feel good. This is your historical danger window (last year's tib flare followed a post-travel re-ramp here), so keep the re-entry controlled and cap segments at 8:12.",
+          "hr": "<=153",
+          "focus": "8 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Strong pace-up long coming off the recovery week - you should feel good. This is your historical danger window (last year's tib flare followed a post-travel re-ramp here), so keep the re-entry controlled and drop the MP segment to easy if the knee or tib speaks.",
           "date": "Sep 12"
         },
         {
@@ -813,12 +813,12 @@
           "date": "Sep 13"
         }
       ],
-      "totalMiles": 29
+      "totalMiles": 27
     },
     {
       "week": 11,
       "phase": "Build",
-      "label": "3:35 validation long run (Sat 9/19)",
+      "label": "8:30 sustainability check (Sat 9/19)",
       "days": [
         {
           "dow": "Mon",
@@ -834,17 +834,17 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 7,
+          "miles": 6,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with a few strides. Freshening up for Saturday's validation run.",
+          "focus": "Easy with a few strides. Freshening up for Saturday's check.",
           "date": "Sep 15"
         },
         {
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy. Keep the legs loose, don't add load before the race.",
@@ -854,7 +854,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Short easy. Pre-race legs.",
@@ -872,12 +872,12 @@
         },
         {
           "dow": "Sat",
-          "kind": "quality",
-          "type": "3:35 validation long run",
-          "miles": 15,
-          "pace": "3x2mi @ 8:00 w/ easy floats",
-          "hr": "150-160 on reps",
-          "focus": "Your key 3:35 validation - built to respect your ceiling. 2 mi easy warmup, then 3x2mi at 8:00 with 1 mi easy float between each, then easy to fill out ~15 mi total. You never hold fast pace beyond 2 miles at a time. If the 8:00 blocks feel controlled with HR settling around 150-158, that validates 3:35. If they're a struggle, 3:40 is the smarter A-goal. Tib check tomorrow is important.",
+          "kind": "long",
+          "type": "8:30 sustainability check",
+          "miles": 14,
+          "pace": "see focus",
+          "hr": "148-153",
+          "focus": "3 mi easy, then 6 mi @ 8:30 (MP) continuous, then 5 mi easy. If 8:30 settles in comfortably with HR around 150, that validates the goal pace. Drop the MP block to easy if the knee or tib speaks. Tib/knee check tomorrow is important.",
           "date": "Sep 19"
         },
         {
@@ -891,7 +891,7 @@
           "date": "Sep 20"
         }
       ],
-      "totalMiles": 32
+      "totalMiles": 30
     },
     {
       "week": 12,
@@ -952,10 +952,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP block",
-          "miles": 18,
+          "miles": 16,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "8 mi easy, then 5 mi @ 8:12 (MP), then 5 mi easy. Big race-specific long run. Practice race fueling and the mental side of holding pace when tired. Cap 8:12.",
+          "hr": "<=153",
+          "focus": "9 mi easy, then 5 mi @ 8:30 (MP), then 2 mi easy. Big race-specific long run. Practice race fueling and the mental side of holding pace when tired. Drop the MP block to easy if the knee or tib speaks.",
           "date": "Sep 26"
         },
         {
@@ -969,12 +969,12 @@
           "date": "Sep 27"
         }
       ],
-      "totalMiles": 35
+      "totalMiles": 33
     },
     {
       "week": 13,
       "phase": "Peak",
-      "label": "Peak threshold",
+      "label": "Peak volume \u00b7 long easy (time on feet)",
       "days": [
         {
           "dow": "Mon",
@@ -988,22 +988,22 @@
         },
         {
           "dow": "Tue",
-          "kind": "quality",
-          "type": "Threshold",
-          "miles": 8,
-          "pace": "4x8min @ 7:55-8:00",
-          "hr": "155-164",
-          "focus": "Warm up 1.5 mi. 4x8min at 7:55-8:00 (ceiling), 3 min easy between - biggest threshold session of the block, but each rep is only ~1 mi so you never marinate in fast pace. Your one hard bout this week. Tib watch high. Cool down.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 7,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy aerobic. No threshold work this cycle.",
           "date": "Sep 29"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
+          "type": "Easy + strides",
           "miles": 6,
-          "pace": "9:15-9:45",
+          "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
-          "focus": "Recovery easy after a big threshold day.",
+          "focus": "Easy with 5x20s strides.",
           "date": "Sep 30"
         },
         {
@@ -1030,10 +1030,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long run (easy)",
-          "miles": 20,
+          "miles": 18,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Easy long - intensity was midweek (threshold Tue), so this stays fully easy despite going to 20. HR under 150. Your second-longest run of the block; time on feet on tired legs. Fuel every 30-40 min. Cap effort, not distance - if anything feels off, ease the pace, never push.",
+          "focus": "Easy long, no MP - intensity stays out of this one. Time on feet on tired legs, fully easy, HR under 150. Fuel every 30-40 min. Cap effort, not distance - if anything feels off, ease the pace, never push.",
           "date": "Oct 3"
         },
         {
@@ -1047,7 +1047,7 @@
           "date": "Oct 4"
         }
       ],
-      "totalMiles": 40
+      "totalMiles": 37
     },
     {
       "week": 14,
@@ -1088,7 +1088,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -1110,8 +1110,8 @@
           "type": "LONGEST \u00b7 22 w/ MP finish",
           "miles": 22,
           "pace": "see focus",
-          "hr": "<=155",
-          "focus": "The peak long run. 12 mi easy, then 6 mi @ 8:12 (MP), then 4 mi easy. This is the confidence run \u2014 holding MP through mile 18 is exactly the race skill you need. If the tib or legs object, drop the MP to 8:20 or cut it short; finishing 22 easy is still a win. Full race fueling rehearsal.",
+          "hr": "<=153",
+          "focus": "The peak long run, mostly easy. 15 mi easy, then 5 mi @ 8:30 (MP), then 2 mi easy. Holding MP late is the race skill you need. Drop the MP segment to easy if anything is off - finishing 22 easy is still the win. Full race fueling rehearsal.",
           "date": "Oct 10"
         },
         {
@@ -1125,7 +1125,7 @@
           "date": "Oct 11"
         }
       ],
-      "totalMiles": 41
+      "totalMiles": 40
     },
     {
       "week": 15,
@@ -1144,12 +1144,12 @@
         },
         {
           "dow": "Tue",
-          "kind": "quality",
-          "type": "MP sharpener",
-          "miles": 7,
-          "pace": "3x1.5mi @ 8:12",
-          "hr": "150-155",
-          "focus": "Warm up 1.5 mi. 3x1.5mi at MP (8:12) with 3 min easy between. Short, race-pace touches to stay sharp while volume drops. 8:12 is safe for the tib. Cool down.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 6,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy. No dedicated quality session - MP work now lives in the long run only.",
           "date": "Oct 13"
         },
         {
@@ -1187,9 +1187,9 @@
           "kind": "long",
           "type": "Long (reduced)",
           "miles": 14,
-          "pace": "9:20-9:50",
-          "hr": "<=150",
-          "focus": "Reduced long run \u2014 taper means less volume. Easy effort, maybe 2 mi @ 8:12 in the middle if you feel good, but don't force it. HR under 150.",
+          "pace": "see focus",
+          "hr": "<=153",
+          "focus": "Reduced long run - taper means less volume. 12 mi easy, then 2 mi @ 8:30 (MP). HR under 150 on the easy portion. Drop the MP segment if anything feels off.",
           "date": "Oct 17"
         },
         {
@@ -1203,7 +1203,7 @@
           "date": "Oct 18"
         }
       ],
-      "totalMiles": 31
+      "totalMiles": 30
     },
     {
       "week": 16,
@@ -1227,17 +1227,17 @@
           "miles": 5,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with strides. Stay loose, resist adding work \u2014 the fitness is banked.",
+          "focus": "Easy with strides. Stay loose, resist adding work - the fitness is banked.",
           "date": "Oct 20"
         },
         {
           "dow": "Wed",
-          "kind": "quality",
-          "type": "MP touch",
-          "miles": 5,
-          "pace": "2x1.5mi @ 8:12",
-          "hr": "150-155",
-          "focus": "Warm up 1 mi. 2x1.5mi at MP (8:12), 3 min easy between. Just reminding the legs of goal pace. Short and sharp. Cool down.",
+          "kind": "easy",
+          "type": "Easy aerobic",
+          "miles": 4,
+          "pace": "9:15-9:45",
+          "hr": "<=145",
+          "focus": "Easy. No dedicated quality session - MP work now lives in the long run only.",
           "date": "Oct 21"
         },
         {
@@ -1265,9 +1265,9 @@
           "kind": "long",
           "type": "Long (reduced)",
           "miles": 11,
-          "pace": "9:20-9:50",
-          "hr": "<=150",
-          "focus": "Last moderately-long run. Easy, with maybe 2 mi @ 8:12. Keep it comfortable \u2014 the work is done, this is just maintaining rhythm.",
+          "pace": "see focus",
+          "hr": "<=153",
+          "focus": "Last moderately-long run. 9 mi easy, then 2 mi @ 8:30 (MP). Keep it comfortable - the work is done, this is just maintaining rhythm.",
           "date": "Oct 24"
         },
         {
@@ -1281,7 +1281,7 @@
           "date": "Oct 25"
         }
       ],
-      "totalMiles": 25
+      "totalMiles": 24
     },
     {
       "week": 17,
@@ -1312,10 +1312,10 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 3,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Short easy. Nothing hard this week \u2014 just keep the blood moving.",
+          "focus": "Short easy. Nothing hard this week - just keep the blood moving.",
           "date": "Oct 28"
         },
         {
@@ -1323,9 +1323,9 @@
           "kind": "easy",
           "type": "Shakeout + MP touch",
           "miles": 3,
-          "pace": "2-3 x 90s @ 8:12",
+          "pace": "2-3 x 90s @ 8:30",
           "hr": "<=150",
-          "focus": "Very short. Warm up easy, then 2-3 x 90s at MP (8:12) just to feel race pace. Stop feeling fresh, not tired. Last real pace touch before the race.",
+          "focus": "Very short. Warm up easy, then 2-3 x 90s at MP (8:30) just to feel goal pace. Stop feeling fresh, not tired. Last real pace touch before the race.",
           "date": "Oct 29"
         },
         {
@@ -1351,15 +1351,15 @@
         {
           "dow": "Sun",
           "kind": "long",
-          "type": "RACE \u2014 TCS NYC MARATHON",
+          "type": "RACE - TCS NYC MARATHON",
           "miles": 26.2,
-          "pace": "target 8:12 (3:35)",
-          "hr": "150-155",
-          "focus": "RACE DAY. Goal 3:35 at 8:12/mi, HR 150-155. Start controlled \u2014 bank nothing, let the first 10K feel almost easy. Settle into 8:12, fuel every 30-40 min. The tib has been managed all block; race pace is safely outside your flare zone, so run your race. Adjust to what the day gives: 3:40 B-goal, sub-3:45 C, and you beat 3:59 comfortably. Trust the block.",
+          "pace": "target 8:30 (3:43)",
+          "hr": "148-153",
+          "focus": "RACE DAY. Goal 3:43 at 8:30/mi, HR 148-153. Start controlled - bank nothing, let the first 10K feel almost easy. Settle into 8:30, fuel every 30-40 min. The knee and tib have been managed all block; race pace is safely outside your flare zone, so run your race. Adjust to what the day gives: sub-3:50 B-goal, and you beat 3:59 comfortably. Trust the block.",
           "date": "Nov 1"
         }
       ],
-      "totalMiles": 39.2
+      "totalMiles": 38.2
     }
   ]
 }
