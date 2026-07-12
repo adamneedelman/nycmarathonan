@@ -833,31 +833,31 @@
         {
           "dow": "Tue",
           "kind": "easy",
-          "type": "Easy + strides",
-          "miles": 6,
-          "pace": "9:15-9:45 + 4 strides",
+          "type": "Easy aerobic",
+          "miles": 5,
+          "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy with a few strides. Freshening up for Saturday's check.",
+          "focus": "Easy, moderate volume - the week's bigger midweek effort now sits Wednesday, giving more distance from Saturday's long run.",
           "date": "Sep 15"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 4,
-          "pace": "9:15-9:45",
+          "type": "Easy + strides",
+          "miles": 6,
+          "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy. Keep the legs loose, don't add load before the race.",
+          "focus": "This week's longest midweek run, with strides. Placed Wednesday to maximize freshness heading into Saturday's sustainability check.",
           "date": "Sep 16"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 3,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Short easy. Pre-race legs.",
+          "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run.",
           "date": "Sep 17"
         },
         {
@@ -912,30 +912,30 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy \u2014 absorbing the validation run. Keep it relaxed.",
+          "focus": "Easy, moderate volume - the bigger midweek effort sits Wednesday this week.",
           "date": "Sep 22"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 5,
-          "pace": "9:15-9:45",
+          "type": "Easy + strides",
+          "miles": 6,
+          "pace": "9:15-9:45 + 6 strides",
           "hr": "<=145",
-          "focus": "Easy aerobic, building volume back.",
+          "focus": "This week's longest midweek run, with strides, placed Wednesday for maximum freshness heading into Saturday's 18-mile long run.",
           "date": "Sep 23"
         },
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy + strides",
+          "type": "Easy aerobic",
           "miles": 4,
-          "pace": "9:15-9:45 + 6 strides",
+          "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy with strides.",
+          "focus": "Light, taper day into Friday's rest ahead of the long run.",
           "date": "Sep 24"
         },
         {
@@ -990,30 +990,30 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 7,
+          "miles": 6,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic. No threshold work this cycle.",
+          "focus": "Easy, moderate volume - the week's bigger midweek effort now sits Wednesday instead, giving more distance from Saturday's long run.",
           "date": "Sep 29"
         },
         {
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 7,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
-          "focus": "Easy with 5x20s strides.",
+          "focus": "This week's longest midweek run. Placed Wednesday (4 days post-long-run, 3 days pre-long-run) to maximize freshness heading into Saturday's 20-miler. Still fully easy effort.",
           "date": "Sep 30"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 4,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic.",
+          "focus": "Short and light, taper day into Friday's rest ahead of the 20-mile long run.",
           "date": "Oct 1"
         },
         {
@@ -1068,20 +1068,20 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 7,
+          "miles": 6,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy. Big week \u2014 the peak long run is Saturday, so keep everything else controlled.",
+          "focus": "Easy, moderate volume - the bigger midweek effort sits Wednesday this week.",
           "date": "Oct 6"
         },
         {
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 7,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
-          "focus": "Easy with strides.",
+          "focus": "This week's longest midweek run, placed Wednesday for maximum freshness heading into Saturday's 22-miler, the peak long run of the block.",
           "date": "Oct 7"
         },
         {
@@ -1091,7 +1091,7 @@
           "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic.",
+          "focus": "Light, taper day into Friday's rest ahead of the 22.",
           "date": "Oct 8"
         },
         {
