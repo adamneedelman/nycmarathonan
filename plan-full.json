@@ -522,7 +522,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic. No threshold work this cycle.",
@@ -532,7 +532,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 6.5,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
           "focus": "Easy with 5x20s strides. Controlled speed.",
@@ -540,22 +540,22 @@
         },
         {
           "dow": "Thu",
-          "kind": "easy",
-          "type": "Easy (short)",
-          "miles": 4,
-          "pace": "9:15-9:45",
-          "hr": "<=145",
-          "focus": "Easy shakeout before tomorrow's long run (moved up due to travel).",
+          "kind": "rest",
+          "type": "Rest",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Rest before tomorrow's moved-up long run. The shakeout is dropped so there's a genuine rest day ahead of the Friday long (that miles went to Tue/Wed). Tib check.",
           "date": "Aug 20"
         },
         {
           "dow": "Fri",
           "kind": "long",
           "type": "Long run (easy) - moved",
-          "miles": 12,
+          "miles": 13.5,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Long run pulled to Friday because of Sat-Sun travel. Easy effort, HR under 150, no MP segment this week. Fuel well. After this you travel, so the weekend is off.",
+          "focus": "Long run pulled to Friday because of Sat-Sun travel. Easy effort, HR under 150, no MP segment this week. Sits between last week's 12 and next week's 13, so it fits the ramp. Fuel well. Weekend is travel/off.",
           "date": "Aug 21"
         },
         {
@@ -588,22 +588,22 @@
       "days": [
         {
           "dow": "Mon",
-          "kind": "rest",
-          "type": "Rest",
-          "miles": 0,
-          "pace": "",
-          "hr": "",
-          "focus": "Full rest. Structural, not conditional. Morning tib check: touch-tenderness + first flight of stairs.",
-          "date": "Aug 24"
-        },
-        {
-          "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
           "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy. Back to normal rhythm after travel week.",
+          "focus": "Exception to the usual Monday rest: the run that was on Tuesday moves here to break up the post-travel stretch (Fri long, then two travel-rest days). Easy pace off the travel. Tuesday is rest to compensate.",
+          "date": "Aug 24"
+        },
+        {
+          "dow": "Tue",
+          "kind": "rest",
+          "type": "Rest",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Rest to compensate for the Monday run. Tib check.",
           "date": "Aug 25"
         },
         {
