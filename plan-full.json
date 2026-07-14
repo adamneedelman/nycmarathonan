@@ -219,11 +219,11 @@
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy + strides",
-          "miles": 3.5,
-          "pace": "9:15-9:45 + 4 strides",
+          "type": "Easy (short)",
+          "miles": 3.0,
+          "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Strides reintroduced: easy run, then 4x ~20s relaxed strides on flat ground. Smooth turnover, never sprint-fast, well short of your flare pace. Full walk recovery between.",
+          "focus": "Short easy shakeout - travel day, so keep it minimal and plain, no strides. The half-mile trimmed here goes into Saturday's longer run.",
           "date": "Jul 22"
         },
         {
@@ -250,10 +250,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long run (easy)",
-          "miles": 8,
+          "miles": 8.5,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Easy long run, no pace-up yet. Practice fueling every 30-40 min. HR under 150.",
+          "focus": "8.5 mi easy, first step up the ladder from last week's 8. All easy, no pace-up. Conditional on the 8-miler and its morning-afters coming back clean - if the knee left any tenderness, hold this at 8. Fuel every 30-40 min, HR under 150.",
           "date": "Jul 25"
         },
         {
@@ -328,10 +328,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP touch",
-          "miles": 9,
+          "miles": 9.5,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "7 mi easy, then 1 mi @ 8:30 (MP), then 1 mi easy. First taste of goal pace on a long run - it should feel controlled, not hard. Drop the MP mile to easy if the knee or tib speaks.",
+          "focus": "7.5 mi easy, then 1 mi @ 8:30 (MP), then 1 mi easy. First taste of goal pace on a long run - controlled, not hard. Drop the MP mile to easy if the knee or tib speaks.",
           "date": "Aug 1"
         },
         {
@@ -345,7 +345,7 @@
           "date": "Aug 2"
         }
       ],
-      "totalMiles": 20
+      "totalMiles": 20.5
     },
     {
       "week": 5,
@@ -406,10 +406,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP segment",
-          "miles": 10,
+          "miles": 10.5,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "7 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. Building MP volume within the long run, controlled effort. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "7.5 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. Building MP volume within the long run, controlled effort. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 8"
         },
         {
@@ -423,7 +423,7 @@
           "date": "Aug 9"
         }
       ],
-      "totalMiles": 22
+      "totalMiles": 22.5
     },
     {
       "week": 6,
@@ -484,10 +484,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP segment",
-          "miles": 12,
+          "miles": 12.5,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "8 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Building MP volume within the long run - the goal is time at goal pace on tiring legs, not to hammer. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "8.5 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Bigger step up (from 10.5), so this one is conditional on clean morning-afters off last week's long run - if anything lingered, hold this at 11.5 instead. Time at goal pace on tiring legs, not a hammer session. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 15"
         },
         {
@@ -501,7 +501,7 @@
           "date": "Aug 16"
         }
       ],
-      "totalMiles": 24
+      "totalMiles": 24.5
     },
     {
       "week": 7,
