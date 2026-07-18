@@ -83,6 +83,13 @@
   .sheet-focus { font-size:15.5px; line-height:1.6; color:var(--chalk); }
   .sheet-connect { margin-top:20px; padding-top:16px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--fog-dim); display:flex; align-items:center; gap:9px; }
   .sheet-connect .dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--fog-dim); }
+  .segments { margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-soft); }
+  .segments-h { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fog); font-weight:700; margin-bottom:8px; }
+  .segment-row { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; font-size:13.5px; color:var(--chalk); padding:5px 0; }
+  .segment-order { font-family:'Inconsolata',monospace; font-size:11px; color:var(--fog-dim); flex:0 0 auto; }
+  .segment-miles { font-weight:700; }
+  .segment-detail { font-size:12px; color:var(--fog); }
+  .segment-note { flex-basis:100%; font-size:12px; color:var(--fog); line-height:1.5; margin-top:1px; }
   .dow { font-size:15px; letter-spacing:0.06em; color:var(--chalk); text-transform:uppercase; width:42px; flex:0 0 auto; font-weight:700; display:flex; flex-direction:column; gap:2px; }
   .daydate { font-size:10px; font-weight:600; letter-spacing:0.04em; color:var(--fog-dim); text-transform:none; }
   .day.rest .dow { color:var(--fog); }
@@ -305,6 +312,7 @@ function openSheet(d, w){
     ${stats}
     <div class="sheet-h">Workout overview</div>
     <div class="sheet-focus">${d.focus || 'No guidance set for this day yet.'}</div>
+    ${renderSegments(d)}
     ${connect}`;
   document.getElementById('scrim').classList.add('open');
   document.getElementById('sheet').classList.add('open');
@@ -430,6 +438,7 @@ function renderTodayCard(){
         ${d.pace?`<div class="today-stat"><div class="k">Pace</div><div class="v" style="font-size:16px">${d.pace}</div></div>`:''}
         ${d.hr?`<div class="today-stat"><div class="k">HR</div><div class="v" style="font-size:16px">${d.hr}</div></div>`:''}
       </div>
+      ${renderSegments(d)}
       ${renderCompletionBlock(activity, d, w)}`;
   }
 
@@ -479,6 +488,37 @@ loadPlan();
 // Re-fetch when returning to the app (e.g. after a chat edit), so changes appear.
 document.addEventListener('visibilitychange', ()=>{ if(!document.hidden) loadPlan(); });
 
+function round1(n){ return Math.round(n*10)/10; }
+function formatPaceFromSeconds(secondsPerMile){
+  if(!Number.isFinite(secondsPerMile) || secondsPerMile <= 0) return null;
+  const total = Math.round(secondsPerMile);
+  const min = Math.floor(total/60), sec = total%60;
+  return `${min}:${String(sec).padStart(2,'0')}`;
+}
+// Combines every run logged on the same date into one activity-shaped object:
+// distance/time sum, pace recomputed from the combined total, HR averaged
+// weighted by each run's moving time, and max HR taken across all runs.
+// Single-run days pass through unchanged (including their original id).
+function combineDayRuns(runs){
+  if(runs.length === 1) return runs[0];
+  const distance = round1(runs.reduce((s,r)=>s+(r.distance||0), 0));
+  const moving_time = runs.reduce((s,r)=>s+(r.moving_time||0), 0);
+  const avg_pace = formatPaceFromSeconds(distance > 0 ? moving_time/distance : null);
+  const hrRuns = runs.filter(r=>r.average_heartrate!=null && r.moving_time);
+  const hrWeight = hrRuns.reduce((s,r)=>s+r.moving_time, 0);
+  const average_heartrate = hrWeight > 0
+    ? Math.round(hrRuns.reduce((s,r)=>s+r.average_heartrate*r.moving_time, 0)/hrWeight)
+    : null;
+  const maxHrs = runs.map(r=>r.max_heartrate).filter(v=>v!=null);
+  const max_heartrate = maxHrs.length ? Math.max(...maxHrs) : null;
+  return {
+    id: runs.map(r=>r.id).sort().join('-'),
+    date: runs[0].date,
+    distance, moving_time, avg_pace, average_heartrate, max_heartrate,
+    name: runs.map(r=>r.name).filter(Boolean).join(' + '),
+    runs,
+  };
+}
 async function loadActivities(){
   try {
     const res = await fetch('/api/strava/activities?t=' + Date.now(), { cache: 'no-store' });
@@ -486,11 +526,13 @@ async function loadActivities(){
     const data = await res.json();
     stravaActivitiesConnected = !!data.connected;
     stravaActivitiesError = !!data.error;
-    activitiesByDate = new Map();
+    const runsByDate = new Map();
     (data.activities || []).forEach(a=>{
-      const existing = activitiesByDate.get(a.date);
-      if(!existing || a.distance > existing.distance) activitiesByDate.set(a.date, a);
+      const existing = runsByDate.get(a.date);
+      if(existing) existing.push(a); else runsByDate.set(a.date, [a]);
     });
+    activitiesByDate = new Map();
+    runsByDate.forEach((runs, date)=> activitiesByDate.set(date, combineDayRuns(runs)));
   } catch(err){
     console.error('Strava activities fetch failed:', err);
     stravaActivitiesConnected = false;
@@ -503,6 +545,21 @@ loadActivities();
 
 function escapeHtml(str){
   return String(str).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// Renders a plan day's optional "segments" array (e.g. a long run split
+// into separate same-day blocks, like a treadmill split for bad AQI).
+function renderSegments(d){
+  if(!d.segments || !d.segments.length) return '';
+  const rows = d.segments.slice().sort((a,b)=>a.order-b.order).map(s => `
+    <div class="segment-row">
+      <span class="segment-order">${s.order}</span>
+      <span class="segment-miles">${s.miles} mi</span>
+      ${s.pace?`<span class="segment-detail">${s.pace}</span>`:''}
+      ${s.surface?`<span class="segment-detail">${s.surface}</span>`:''}
+      ${s.note?`<div class="segment-note">${escapeHtml(s.note)}</div>`:''}
+    </div>`).join('');
+  return `<div class="segments"><div class="segments-h">Segments</div>${rows}</div>`;
 }
 
 function renderStravaPill(state){

@@ -171,12 +171,28 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long run (easy)",
+          "type": "Long run · treadmill split (AQI)",
           "miles": 8,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "Easy long run, no pace-up. All easy this week - the point is volume tolerance, not speed. Stop early if the knee speaks.",
-          "date": "Jul 18"
+          "focus": "Air quality is too high to run outside, so this moves to the treadmill and splits into two easy blocks: 5 mi, then 3 mi, both today. Together they are the 8-mile easy long run; keep both at the same easy effort with no pace-up. Log each block to Strava as its own run; the app now sums both same-day runs into today's total. Stop early if the knee speaks.",
+          "date": "Jul 18",
+          "segments": [
+            {
+              "order": 1,
+              "miles": 5,
+              "pace": "9:20-9:50",
+              "surface": "treadmill",
+              "note": "First block. Easy effort, settle in and get the legs moving."
+            },
+            {
+              "order": 2,
+              "miles": 3,
+              "pace": "9:20-9:50",
+              "surface": "treadmill",
+              "note": "Second block, finishes today's 8. Same easy effort - no pace-up to make up for the treadmill."
+            }
+          ]
         },
         {
           "dow": "Sun",
