@@ -209,21 +209,21 @@
         {
           "dow": "Tue",
           "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 3.5,
+          "type": "Easy (short)",
+          "miles": 3.0,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic. No threshold work this cycle - everything stays comfortably easy.",
+          "focus": "Short and easy - the slightly bigger midweek run moves to Wednesday this week. The half-mile trimmed here goes into Saturday's longer run.",
           "date": "Jul 21"
         },
         {
           "dow": "Wed",
           "kind": "easy",
-          "type": "Easy (short)",
-          "miles": 3.0,
+          "type": "Easy aerobic",
+          "miles": 3.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Short easy shakeout - travel day, so keep it minimal and plain, no strides. The half-mile trimmed here goes into Saturday's longer run.",
+          "focus": "Travel day, so keep it plain and easy, no strides. Slightly bigger of the two midweek runs this week, with Tuesday trimmed to compensate.",
           "date": "Jul 22"
         },
         {
