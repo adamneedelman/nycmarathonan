@@ -110,6 +110,9 @@ function buildUserMessage(activity, plannedWorkout, nextWorkout, weather) {
   lines.push(
     `Actual run: ${activity.distance} mi, avg pace ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}.`
   );
+  if (activity.note) {
+    lines.push(`Runner's note on this run: ${activity.note}`);
+  }
   if (nextWorkout) {
     const nw = nextWorkout;
     const isRest = !nw.miles;
