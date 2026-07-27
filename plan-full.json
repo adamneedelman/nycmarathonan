@@ -19,18 +19,18 @@
       "vo2": "164+"
     },
     "tibRules": [
-      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days - with no work scheduled faster than marathon pace (8:30) anywhere in this plan, that band is never approached.",
-      "Nothing sustained faster than 8:30/mi anywhere in the plan. Marathon pace 8:30 is the safe race-specific workhorse - there is no dedicated threshold work this cycle.",
-      "Fast bursts (strides, <=90s reps) are safe but never sprint-fast - the only faster-than-MP stimulus in the block.",
-      "Marathon pace 8:30 is the safe, goal-pace workhorse.",
+      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days. Nothing in this plan is scheduled faster than 8:00/mi, so that band is never approached.",
+      "The fastest sustained work in the block is the Wednesday tempo: continuous 1-mile efforts at 8:00-8:15, never more than 2 x 1 mi, in weeks 4, 6, 8, 12 and 14 only. 8:00 is a firm floor, not a target - pace creep during a continuous mile is the primary risk to monitor.",
+      "Marathon pace 8:30 is the race-specific workhorse and the only pace used in long-run pace-up segments. There is no dedicated threshold work this cycle.",
+      "Fast bursts (strides, <=90s reps) are safe but never sprint-fast.",
       "Long-run pace-up segments are capped at MP (8:30), built gradually within an easy base, and dropped immediately if the knee or tib speaks.",
-      "Max one MP-focused bout per week, living mostly in the long run.",
+      "At most one dedicated tempo session per week, and at most one MP segment within that week's long run.",
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel."
     ],
     "structure": {
-      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5->22 mpw, easy aerobic + strides (knee return protocol wks 1-2), LR 8->10 (no weekend long wk1 - travel/knee)",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 24->30 mpw (dips to 18 in travel-cutback wk9), easy aerobic + strides, MP (8:30) touches enter gradually within the long run, LR 12->14, no threshold work",
-      "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 33->40 mpw, LR to 22 on Oct 10, one MP-focused (8:30) long run per week, no threshold",
+      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23 mpw with a down week at wk5 (20.5). Easy aerobic + strides, knee return protocol wks 1-2, Wed tempo enters wk4. LR 7.6 -> 11; first MP touch lands in the wk5 long run.",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 27 -> 35.5 mpw, dipping to 22.5 in the wk9 travel cutback. Easy aerobic + strides, Wed tempo in wks 6 and 8, MP (8:30) segments grow inside the long run. LR 12.5 -> 17. No threshold work.",
+      "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 40 -> 45 mpw with a long-run unload at wk13 (35 mpw, LR 15). LR 20 / 15 / 22, the 22 on Oct 10. Wed tempo in wks 12 and 14; wk14's is droppable if peak-week fatigue warrants.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
     }
   },
@@ -272,7 +272,7 @@
     {
       "week": 4,
       "phase": "Base",
-      "label": "Pace-up long \u00b7 first MP touch",
+      "label": "Long run steps to 11 - all easy",
       "days": [
         {
           "dow": "Mon",
@@ -298,17 +298,17 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + tempo",
-          "miles": 4,
+          "miles": 4.5,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 4 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
+          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 4.5 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
           "date": "Jul 29"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 3,
+          "miles": 3.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -327,11 +327,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP touch",
-          "miles": 9.5,
-          "pace": "see focus",
-          "hr": "<=153",
-          "focus": "7.5 mi easy, then 1 mi @ 8:30 (MP), then 1 mi easy. First taste of goal pace on a long run - controlled, not hard. Drop the MP mile to easy if the knee or tib speaks.",
+          "type": "Long run (easy)",
+          "miles": 11,
+          "pace": "9:20-9:50",
+          "hr": "<=150",
+          "focus": "11 mi fully easy, no pace-up. This is the biggest single step on the long-run ladder in the whole block (8.5 to 11), so distance is the only new variable today; the MP touch moves to next week. HR under 150, fuel every 30-40 min. Ease the pace rather than shortening if anything feels off.",
           "date": "Aug 1"
         },
         {
@@ -345,12 +345,12 @@
           "date": "Aug 2"
         }
       ],
-      "totalMiles": 20.5
+      "totalMiles": 23
     },
     {
       "week": 5,
       "phase": "Base",
-      "label": "Base consolidation",
+      "label": "Down week 1 - first MP touch",
       "days": [
         {
           "dow": "Mon",
@@ -386,7 +386,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 3.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -405,11 +405,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ MP segment",
-          "miles": 10.5,
+          "type": "Long w/ first MP touch",
+          "miles": 9,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "7.5 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. Building MP volume within the long run, controlled effort. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "6 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. First taste of goal pace in a long run, deliberately placed in a down week on a shorter run so pace is the only new variable. Controlled, not hard. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 8"
         },
         {
@@ -423,7 +423,7 @@
           "date": "Aug 9"
         }
       ],
-      "totalMiles": 22.5
+      "totalMiles": 20.5
     },
     {
       "week": 6,
@@ -444,7 +444,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 4,
+          "miles": 5,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 4 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -454,17 +454,17 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + tempo",
-          "miles": 4,
+          "miles": 5,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 4 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
+          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 5 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
           "date": "Aug 12"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 4.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -501,7 +501,7 @@
           "date": "Aug 16"
         }
       ],
-      "totalMiles": 24.5
+      "totalMiles": 27
     },
     {
       "week": 7,
@@ -522,7 +522,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 6,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -532,7 +532,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6.5,
+          "miles": 7.5,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
           "focus": "Easy with 5x20s strides. Controlled speed.",
@@ -579,7 +579,7 @@
           "date": "Aug 23"
         }
       ],
-      "totalMiles": 25
+      "totalMiles": 27
     },
     {
       "week": 8,
@@ -590,7 +590,7 @@
           "dow": "Mon",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 5.5,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Exception to the usual Monday rest: the run that was on Tuesday moves here to break up the post-travel stretch (Fri long, then two travel-rest days). Easy pace off the travel, then 4 x 20s relaxed strides at the end, flat ground, never sprint-fast. This week's second stride day lands here since Tuesday is rest. Tuesday is rest to compensate. Inclusive of the 5 miles.",
@@ -610,17 +610,17 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + tempo",
-          "miles": 5,
+          "miles": 6.5,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "About 1.5 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 5 mi total and inclusive. Two separate miles, not one continuous block: the float resets you so no single fast stretch exceeds a mile. Comfortably hard; ease off if either mile drifts under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
+          "focus": "About 1.5 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 6.5 mi total and inclusive. Two separate miles, not one continuous block: the float resets you so no single fast stretch exceeds a mile. Comfortably hard; ease off if either mile drifts under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
           "date": "Aug 26"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic.",
@@ -640,10 +640,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP segment",
-          "miles": 14,
+          "miles": 15,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "9 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Longest MP block yet, one mile added to the easy warm-up to start the ladder toward a 20-miler in a few weeks. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "10 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Longest MP block yet, one mile added to the easy warm-up to start the ladder toward a 20-miler in a few weeks. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 29"
         },
         {
@@ -657,12 +657,12 @@
           "date": "Aug 30"
         }
       ],
-      "totalMiles": 28
+      "totalMiles": 32
     },
     {
       "week": 9,
       "phase": "Build",
-      "label": "Travel cutback (recovery)",
+      "label": "Down week 2 - travel cutback",
       "days": [
         {
           "dow": "Mon",
@@ -678,7 +678,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 6,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Easy aerobic. Enjoy the lighter week.",
@@ -698,7 +698,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy (light)",
-          "miles": 3,
+          "miles": 5,
           "pace": "9:30-10:00",
           "hr": "<=140",
           "focus": "Lighter easy run - short and gentle, travel week. No pressure on pace.",
@@ -708,7 +708,7 @@
           "dow": "Fri",
           "kind": "easy",
           "type": "Easy (light)",
-          "miles": 3,
+          "miles": 3.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
           "focus": "Another short, light easy run. Keep it truly relaxed.",
@@ -718,7 +718,7 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long (short/travel)",
-          "miles": 7,
+          "miles": 8,
           "pace": "9:20-9:50",
           "hr": "<=150",
           "focus": "Travel-shortened long - only 7, easy-steady, no MP. You're banking recovery this week, not fitness. Finish feeling fresh.",
@@ -735,7 +735,7 @@
           "date": "Sep 6"
         }
       ],
-      "totalMiles": 18
+      "totalMiles": 22.5
     },
     {
       "week": 10,
@@ -766,20 +766,20 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 7.5,
           "pace": "9:15-9:45 + 6 strides",
           "hr": "<=145",
-          "focus": "Easy with strides. Back into the swing after the down week.",
+          "focus": "Easy with strides. Back into the swing after the down week. If the tib is not clean off week 9, hold this at 7.0 (Wed) / 6.0 (Thu) instead of the bumped figure.",
           "date": "Sep 9"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 6.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
-          "focus": "Easy aerobic.",
+          "focus": "Easy aerobic. If the tib is not clean off week 9, hold this at 7.0 (Wed) / 6.0 (Thu) instead of the bumped figure.",
           "date": "Sep 10"
         },
         {
@@ -796,10 +796,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP segment",
-          "miles": 14,
+          "miles": 15,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "9 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Historical danger window (post-travel re-ramp) - keep the re-entry controlled, drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "10 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Historical danger window (post-travel re-ramp) - keep the re-entry controlled, drop the MP segment to easy if the knee or tib speaks. The MP segment is the first thing to drop this week, not the last.",
           "date": "Sep 12"
         },
         {
@@ -813,7 +813,7 @@
           "date": "Sep 13"
         }
       ],
-      "totalMiles": 27
+      "totalMiles": 31
     },
     {
       "week": 11,
@@ -834,7 +834,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 6,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -844,7 +844,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 8,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "This week's longest midweek run, with strides. Placed Wednesday to maximize freshness heading into Saturday's sustainability check.",
@@ -854,7 +854,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 3,
+          "miles": 4.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run.",
@@ -874,10 +874,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "8:30 sustainability check",
-          "miles": 16,
+          "miles": 17,
           "pace": "see focus",
           "hr": "148-153",
-          "focus": "4 mi easy, then 6 mi @ 8:30 (MP) continuous, then 6 mi easy. The MP block itself is unchanged from the original sustainability check - only the easy miles around it grew, to keep building toward the 20-miler. If 8:30 settles in comfortably with HR around 150, that validates the goal pace. Drop the MP block to easy if the knee or tib speaks.",
+          "focus": "4 mi easy, then 6 mi @ 8:30 (MP) continuous, then 7 mi easy. The MP block itself is unchanged from the original sustainability check - only the easy miles around it grew, to keep building toward the 20-miler. If 8:30 settles in comfortably with HR around 150, that validates the goal pace. Drop the MP block to easy if the knee or tib speaks.",
           "date": "Sep 19"
         },
         {
@@ -891,12 +891,12 @@
           "date": "Sep 20"
         }
       ],
-      "totalMiles": 30
+      "totalMiles": 35.5
     },
     {
       "week": 12,
       "phase": "Peak",
-      "label": "Peak opens \u00b7 MP long",
+      "label": "Peak opens - 20 w/ MP block",
       "days": [
         {
           "dow": "Mon",
@@ -912,7 +912,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
+          "miles": 6,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -922,17 +922,17 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + tempo",
-          "miles": 6,
+          "miles": 8,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "About 2 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 6 mi total and inclusive. Two separate miles with a float reset, so no single fast stretch exceeds a mile. Comfortably hard; ease off if either drifts under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
+          "focus": "About 2 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 8 mi total and inclusive. Two separate miles with a float reset, so no single fast stretch exceeds a mile. Comfortably hard; ease off if either drifts under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
           "date": "Sep 23"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 6,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Light, taper day into Friday's rest ahead of the long run.",
@@ -952,10 +952,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ MP block",
-          "miles": 18,
+          "miles": 20,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "10 mi easy, then 5 mi @ 8:30 (MP), then 3 mi easy. Big race-specific long run, growing toward the 20 next week. Drop the MP block to easy if the knee or tib speaks.",
+          "focus": "12 mi easy, then 5 mi @ 8:30 (MP), then 3 mi easy. Big race-specific long run, growing toward the 20 next week. Drop the MP block to easy if the knee or tib speaks.",
           "date": "Sep 26"
         },
         {
@@ -969,12 +969,12 @@
           "date": "Sep 27"
         }
       ],
-      "totalMiles": 33
+      "totalMiles": 40
     },
     {
       "week": 13,
       "phase": "Peak",
-      "label": "Peak volume \u00b7 long easy (time on feet)",
+      "label": "Down week 3 - long-run unload before the 22",
       "days": [
         {
           "dow": "Mon",
@@ -990,7 +990,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 6.5,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 6 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -1000,7 +1000,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 7,
+          "miles": 8,
           "pace": "9:15-9:45 + 5 strides",
           "hr": "<=145",
           "focus": "This week's longest midweek run. Placed Wednesday (4 days post-long-run, 3 days pre-long-run) to maximize freshness heading into Saturday's 20-miler. Still fully easy effort.",
@@ -1010,7 +1010,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 5.5,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Short and light, taper day into Friday's rest ahead of the 20-mile long run.",
@@ -1029,11 +1029,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long run (easy)",
-          "miles": 20,
-          "pace": "9:20-9:50",
-          "hr": "<=150",
-          "focus": "20 miles, fully easy - the new peak-before-peak, slotting between the 18 you'd built to and the 22 the following week. Time on feet on tired legs, HR under 150. Fuel every 30-40 min. Cap effort, not distance - if anything feels off, ease the pace, never push.",
+          "type": "Long unload w/ MP segment",
+          "miles": 15,
+          "pace": "see focus",
+          "hr": "<=153",
+          "focus": "10 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. This is a long-run unload, not a full down week: volume comes off the long run (20 to 15) while midweek holds, so you arrive at next week's 22 recovered without losing race-pace continuity. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Oct 3"
         },
         {
@@ -1047,12 +1047,12 @@
           "date": "Oct 4"
         }
       ],
-      "totalMiles": 37
+      "totalMiles": 35
     },
     {
       "week": 14,
       "phase": "Peak",
-      "label": "LONGEST RUN 22 (Sat 10/10)",
+      "label": "PEAK 45 - LONGEST RUN 22 (Sat 10/10)",
       "days": [
         {
           "dow": "Mon",
@@ -1068,7 +1068,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 7,
           "pace": "9:15-9:45 + 4 strides",
           "hr": "<=145",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 6 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
@@ -1078,17 +1078,17 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + tempo",
-          "miles": 7,
+          "miles": 9,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "About 2.5 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 7 mi total and inclusive. Peak week: this Wednesday sits 3 days before the 22-miler, so if the legs already feel like the 22 is enough, drop this to easy + strides and lose nothing. Otherwise keep it controlled, comfortably hard, ease off under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
+          "focus": "About 2.5 mi easy, then 2 x 1 mi @ 8:00-8:15 with a short easy float between, then easy to finish, about 9 mi total and inclusive. Peak week: this Wednesday sits 3 days before the 22-miler, so if the legs already feel like the 22 is enough, drop this to easy + strides and lose nothing. Otherwise keep it controlled, comfortably hard, ease off under 8:00. Drop to easy if the knee or tib speaks; morning-after check governs.",
           "date": "Oct 7"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 5,
+          "miles": 7,
           "pace": "9:15-9:45",
           "hr": "<=145",
           "focus": "Light, taper day into Friday's rest ahead of the 22.",
@@ -1125,7 +1125,7 @@
           "date": "Oct 11"
         }
       ],
-      "totalMiles": 40
+      "totalMiles": 45
     },
     {
       "week": 15,
