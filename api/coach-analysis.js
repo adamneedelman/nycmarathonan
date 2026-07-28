@@ -39,7 +39,18 @@ const WEATHER_CODES = {
 };
 
 function cacheKey(activityId) {
-  return `coach:blurb:v3:${activityId}`;
+  return `coach:blurb:v4:${activityId}`;
+}
+
+// Runner's rule of thumb: air temp + dew point (F) predicts heat stress
+// better than relative humidity alone.
+function heatStressBand(sum) {
+  if (sum == null) return null;
+  if (sum < 100) return 'negligible';
+  if (sum < 120) return 'slight';
+  if (sum < 130) return 'noticeable';
+  if (sum < 150) return 'severe';
+  return 'dangerous';
 }
 
 // Free, no-key Open-Meteo forecast for the next workout's date, summarized over
@@ -51,7 +62,7 @@ async function fetchNextDayWeather(dateIso) {
     const params = new URLSearchParams({
       latitude: WEATHER_LAT,
       longitude: WEATHER_LON,
-      hourly: 'weathercode,temperature_2m,apparent_temperature,precipitation_probability,windspeed_10m',
+      hourly: 'weathercode,temperature_2m,apparent_temperature,relativehumidity_2m,dewpoint_2m,precipitation_probability,windspeed_10m',
       temperature_unit: 'fahrenheit',
       windspeed_unit: 'mph',
       timezone: WEATHER_TZ,
@@ -77,6 +88,10 @@ async function fetchNextDayWeather(dateIso) {
     const winds = pick(h.windspeed_10m);
     const codes = pick(h.weathercode);
 
+    // Open-Meteo accepts both legacy and current field names; read either.
+    const humid = pick(h.relativehumidity_2m ?? h.relative_humidity_2m);
+    const dew = pick(h.dewpoint_2m ?? h.dew_point_2m);
+
     // Report the wettest hour's condition so rain in the window isn't hidden.
     let condIdx = 0;
     if (precip.length && precip.length === codes.length) {
@@ -90,6 +105,11 @@ async function fetchNextDayWeather(dateIso) {
       feelsMax: feels.length ? Math.max(...feels) : undefined,
       precipProb: precip.length ? Math.max(...precip) : undefined,
       windMax: winds.length ? Math.max(...winds) : undefined,
+      humidityMax: humid.length ? Math.max(...humid) : undefined,
+      dewMax: dew.length ? Math.max(...dew) : undefined,
+      heatSum: temps.length && dew.length
+        ? Math.round(Math.max(...temps) + Math.max(...dew))
+        : undefined,
     };
   } catch (err) {
     console.error('coach-analysis: weather fetch failed:', err);
@@ -130,6 +150,12 @@ function buildUserMessage(activity, plannedWorkout, nextWorkout, weather) {
     if (weather.lo != null && weather.hi != null) parts.push(`${Math.round(weather.lo)}-${Math.round(weather.hi)}°F`);
     else if (weather.hi != null) parts.push(`high ${Math.round(weather.hi)}°F`);
     if (weather.feelsMax != null) parts.push(`feels like up to ${Math.round(weather.feelsMax)}°F`);
+    if (weather.humidityMax != null) parts.push(`humidity up to ${Math.round(weather.humidityMax)}%`);
+    if (weather.dewMax != null) parts.push(`dew point up to ${Math.round(weather.dewMax)}°F`);
+    if (weather.heatSum != null) {
+      const band = heatStressBand(weather.heatSum);
+      parts.push(`temp+dew ${weather.heatSum}${band ? ` (${band} heat stress)` : ''}`);
+    }
     if (weather.precipProb != null) parts.push(`${weather.precipProb}% chance of precip`);
     if (weather.windMax != null) parts.push(`wind up to ${Math.round(weather.windMax)} mph`);
     if (parts.length) {
