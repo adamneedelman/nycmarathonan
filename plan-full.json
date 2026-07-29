@@ -20,7 +20,7 @@
     },
     "tibRules": [
       "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days. Nothing in this plan is scheduled faster than 8:00/mi, so that band is never approached.",
-      "The fastest sustained work in the block is the tempo session: continuous 1-mile efforts at 8:00-8:15, never more than 2 x 1 mi, in weeks 4, 6, 8, 12 and 14 only. 8:00 is a firm floor, not a target - pace creep during a continuous mile is the primary risk to monitor.",
+      "The fastest sustained work in the block is the Wednesday tempo session, in weeks 4, 6, 8, 12 and 14 only, always at 8:00-8:15 and never faster. Rep length progresses deliberately: 3 x 0.5 mi (wk 4), 3 x 0.75 mi (wk 6), then 2 x 1 mi (wks 8, 12, 14). Broken reps with easy floats are used early to limit continuous time under tension while the stimulus is new; rep length extends only off clean morning-after checks. Shorter reps do not license faster paces. 8:00 is a firm floor at every rep length, and pace creep is the primary risk to monitor.",
       "Marathon pace 8:30 is the race-specific workhorse and the only pace used in long-run pace-up segments. There is no dedicated threshold work this cycle.",
       "Fast bursts (strides, <=90s reps) are safe but never sprint-fast. Strides run twice weekly throughout.",
       "Long-run pace-up segments are capped at MP (8:30), built gradually within an easy base, and dropped immediately if the knee or tib speaks.",
@@ -302,7 +302,7 @@
           "miles": 4.5,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 4.5 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
+          "focus": "1 mi easy, then 3 x 0.5 mi @ 8:00-8:15 with a 0.5 mi easy float between each, then 1 mi easy to finish. 4.5 mi total, inclusive of planned mileage. Broken reps rather than one continuous mile, per PT guidance: shorter bouts limit continuous time under tension while the stimulus is new. The shorter format is not permission to run faster. Each half mile should land in 4:00-4:07; if they drift into the 3:50s you are in the flare band and should back off. Drop to easy if the knee or tib speaks; the morning-after check governs.",
           "date": "Jul 29"
         },
         {
@@ -458,7 +458,7 @@
           "miles": 5,
           "pace": "see focus",
           "hr": "150-156",
-          "focus": "1.5 mi easy, then 1 mi @ 8:00-8:15, then easy to finish, about 5 mi total and inclusive of planned mileage. One continuous mile, so watch the pace: comfortably hard, could-hold-longer effort, and if it drifts under 8:00, back off. A full mile at 8:00-8:15 sits below your 7:30-7:45 flare band and inside your 2-3 mi tolerance. Drop to easy if the knee or tib speaks; the morning-after check governs.",
+          "focus": "1.25 mi easy, then 3 x 0.75 mi @ 8:00-8:15 with a 0.35 mi easy float between each, then 0.8 mi easy to finish. 5 mi total, inclusive of planned mileage. Rep length steps up from week 4's half miles and the floats shorten, so density rises on both axes. Conditional on week 4's tempo returning clean morning-afters; if it did not, repeat the week 4 session as written instead. Same ceiling: 6:00-6:11 per rep, ease off if anything drifts under 8:00 pace. Drop to easy if the knee or tib speaks.",
           "date": "Aug 12"
         },
         {
