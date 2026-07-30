@@ -299,7 +299,12 @@ async function loadPlan(){
       + '<span style="color:#5c6f68;font-size:12px">'+String(err)+'</span></div>';
   }
 }
+// The day/week currently shown in the sheet, so a blurb that regenerates while
+// the sheet is open can be swapped into it (the sheet's HTML is built once, on
+// open, and is not touched by render()).
+let openSheetEntry = null;
 function openSheet(d, w){
+  openSheetEntry = { d, w };
   const isRest = !d.miles;
   const c = PHASE_COLOR[w.phase] || '#8ea39c';
   let stats = '';
@@ -329,7 +334,7 @@ function openSheet(d, w){
     <div class="sheet-h">Workout overview</div>
     <div class="sheet-focus">${d.focus || 'No guidance set for this day yet.'}</div>
     ${renderSegments(d)}
-    ${connect}
+    <div id="sheetConnect">${connect}</div>
     ${noteEditor}`;
   if(activity){
     const saveBtn = document.getElementById('coachNoteSave');
@@ -339,8 +344,12 @@ function openSheet(d, w){
       saveBtn.disabled = true;
       statusEl.textContent = 'Saving…';
       try {
-        await saveCoachNote(activity.id, val);
-        statusEl.textContent = 'Saved — Coach Claude will factor this in.';
+        const result = await saveCoachNote(activity.id, val, toIsoDate(d.date, planYear()));
+        statusEl.textContent = 'Saved — Coach Claude is rewriting this take…';
+        await regenerateCoachBlurb(activity, d, w);
+        statusEl.textContent = result && result.weeklyReviewReset
+          ? `Updated — week ${result.weekNumber}'s review will be rewritten too.`
+          : 'Updated — Coach Claude rewrote this take.';
       } catch(err){
         console.error('Save note failed:', err);
         statusEl.textContent = 'Save failed — try again.';
@@ -353,6 +362,7 @@ function openSheet(d, w){
   document.body.style.overflow = 'hidden';
 }
 function closeSheet(){
+  openSheetEntry = null;
   document.getElementById('scrim').classList.remove('open');
   document.getElementById('sheet').classList.remove('open');
   document.body.style.overflow = '';
@@ -386,20 +396,28 @@ async function loadCoachNotes(){
     activityNotes = new Map();
   }
 }
-async function saveCoachNote(activityId, note){
+// Persists the note and returns what the server invalidated, so the caller can
+// tell the runner whether the week's review is being redone too. activityDate
+// lets the server find which week's review to drop.
+async function saveCoachNote(activityId, note, activityDate){
   const res = await fetch('/api/coach-notes', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ activityId, note }),
+    body: JSON.stringify({ activityId, note, activityDate }),
   });
   if(!res.ok) throw new Error('HTTP '+res.status);
   const trimmed = (note || '').trim();
   if(trimmed) activityNotes.set(activityId, trimmed);
   else activityNotes.delete(activityId);
-  // The note changes what Coach Claude should say, so drop any in-session
-  // blurb state for this activity and let it regenerate on next render.
-  coachBlurbs.delete(activityId);
-  render();
+  return res.json().catch(()=>({}));
+}
+// The note changes what Coach Claude should say about the run, so the blurb is
+// thrown away on both sides - the server's copy by /api/coach-notes, this
+// in-session copy here - and asked for again with the note attached.
+async function regenerateCoachBlurb(activity, d, w){
+  coachBlurbs.delete(activity.id);
+  const note = activityNotes.get(activity.id) || null;
+  await requestCoachAnalysis({ ...activity, note }, buildPlannedWorkoutPayload(d, w), nextDayWorkoutPayload(d));
 }
 function weeklyActualMiles(w){
   const year = planYear();
@@ -454,6 +472,19 @@ async function requestCoachAnalysis(activity, plannedWorkout, nextWorkout){
     coachBlurbs.set(activity.id, { status:'error' });
   }
   render();
+}
+// Swaps the open sheet's completion/coach block in place. render() rebuilds the
+// Today card and the schedule, but the sheet is static once opened, so without
+// this a blurb regenerated after a note was saved would only appear behind it.
+function refreshSheetCoachBlock(){
+  const host = document.getElementById('sheetConnect');
+  if(!host || !openSheetEntry) return;
+  const { d, w } = openSheetEntry;
+  if(!d.miles) return;
+  const activity = d.date ? matchActivityForIso(toIsoDate(d.date, planYear())) : null;
+  host.innerHTML = activity
+    ? renderCompletionBlock(activity, d, w)
+    : `<div class="sheet-connect"><span class="dot"></span>No run logged yet</div>`;
 }
 // showCoach gates the Coach Claude blurb (and its analysis request) so it only
 // appears on the Today card and in the day's workout overview sheet — not in the
@@ -552,6 +583,7 @@ function render(){
     el.onclick=()=>openSheet(w.days[+el.dataset.di], w);
   });
   document.getElementById('railfill').style.width=Math.max(6,(activeWeek/PLAN.weeks.length)*100)+'%';
+  refreshSheetCoachBlock();
 }
 loadPlan();
 // Re-fetch when returning to the app (e.g. after a chat edit), so changes appear.

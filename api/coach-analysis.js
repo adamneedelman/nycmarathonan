@@ -1,6 +1,7 @@
 import { Redis } from '@upstash/redis';
 import Anthropic from '@anthropic-ai/sdk';
 import { COACH_SYSTEM_PROMPT } from '../lib/coach-prompt.js';
+import { blurbCacheKey } from '../lib/coach-cache.js';
 
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
@@ -37,10 +38,6 @@ const WEATHER_CODES = {
   85: 'snow showers', 86: 'snow showers', 95: 'thunderstorm', 96: 'thunderstorm with hail',
   99: 'thunderstorm with hail',
 };
-
-function cacheKey(activityId) {
-  return `coach:blurb:v4:${activityId}`;
-}
 
 // Runner's rule of thumb: air temp + dew point (F) predicts heat stress
 // better than relative humidity alone.
@@ -182,7 +179,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const cached = await redis.get(cacheKey(activityId));
+    const cached = await redis.get(blurbCacheKey(activityId));
     if (cached) {
       res.status(200).json({ blurb: cached, cached: true });
       return;
@@ -212,7 +209,7 @@ export default async function handler(req, res) {
     }
 
     try {
-      await redis.set(cacheKey(activityId), blurb);
+      await redis.set(blurbCacheKey(activityId), blurb);
     } catch (err) {
       console.error('coach-analysis: redis write failed:', err);
     }

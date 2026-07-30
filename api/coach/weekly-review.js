@@ -2,42 +2,90 @@ import { Redis } from '@upstash/redis';
 import Anthropic from '@anthropic-ai/sdk';
 import { getValidAccessToken } from '../../lib/strava-tokens.js';
 import { fetchPlan, getWeekByNumber, isWeekReviewAvailableEastern } from '../../lib/plan-week.js';
-import { fetchActivitiesInRange, round1 } from '../../lib/strava-activities.js';
+import { fetchActivitiesInRange, round1, formatPace } from '../../lib/strava-activities.js';
 import { COACH_SYSTEM_PROMPT, WEEKLY_REVIEW_PROMPT_ADDENDUM } from '../../lib/coach-prompt.js';
+import { NOTES_KEY, weeklyReviewKey as reviewKey, weeklyActualsKey as actualsKey, noteLookups } from '../../lib/coach-cache.js';
 
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
 
-function reviewKey(week) {
-  return `weekly-review:week-${week}`;
-}
-function actualsKey(week) {
-  return `weekly-actuals:week-${week}`;
+// The runner's own notes on individual runs ("did strides at the end", "knee
+// felt tight"). Matched by date first, since a day with two logged runs is one
+// activity here but a composite id on the client. Never throws: a notes outage
+// should cost the review its colour, not block it.
+async function fetchNoteLookups() {
+  try {
+    return noteLookups((await redis.get(NOTES_KEY)) || {});
+  } catch (err) {
+    console.error('weekly-review: notes read failed:', err);
+    return { byDate: new Map(), byActivityId: new Map() };
+  }
 }
 
-// Longest logged run per calendar date (mirrors the frontend's matching rule
-// for days with more than one recorded activity).
+function noteForDay(notes, dateIso, activity) {
+  return notes.byDate.get(dateIso)
+    || (activity ? notes.byActivityId.get(String(activity.id)) : null)
+    || null;
+}
+
+// Every run logged on one calendar date, combined into a single day record:
+// distance and time summed, pace recomputed from the combined total, HR
+// averaged weighted by moving time, max HR taken across the runs. Mirrors
+// combineDayRuns() in index.html so a double-run day reads the same here as it
+// does in the app.
+//
+// This previously kept only the day's longest run, which left the day lines
+// short of the weekly total computed below from every activity: on a day with
+// a 2.5mi and a 1.4mi run the model was told the day was 2.5mi while the
+// week's total counted all 3.9mi of it.
+function combineDayRuns(runs) {
+  if (runs.length === 1) return runs[0];
+  const distance = round1(runs.reduce((s, r) => s + (r.distance || 0), 0));
+  const movingTime = runs.reduce((s, r) => s + (r.moving_time || 0), 0);
+  const hrRuns = runs.filter((r) => r.average_heartrate != null && r.moving_time);
+  const hrWeight = hrRuns.reduce((s, r) => s + r.moving_time, 0);
+  const maxHrs = runs.map((r) => r.max_heartrate).filter((v) => v != null);
+  const elevs = runs.map((r) => r.elevation_gain_ft).filter((v) => v != null);
+  return {
+    // Same composite-id formula the client uses, so an id-keyed note still matches.
+    id: runs.map((r) => r.id).sort().join('-'),
+    date: runs[0].date,
+    distance,
+    moving_time: movingTime,
+    avg_pace: formatPace(distance > 0 ? movingTime / distance : null),
+    average_heartrate: hrWeight > 0
+      ? Math.round(hrRuns.reduce((s, r) => s + r.average_heartrate * r.moving_time, 0) / hrWeight)
+      : null,
+    max_heartrate: maxHrs.length ? Math.max(...maxHrs) : null,
+    elevation_gain_ft: elevs.length ? elevs.reduce((s, v) => s + v, 0) : null,
+    name: runs.map((r) => r.name).filter(Boolean).join(' + '),
+  };
+}
+
 function activitiesByDate(activities) {
-  const map = new Map();
+  const runsByDate = new Map();
   activities.forEach((a) => {
-    const existing = map.get(a.date);
-    if (!existing || a.distance > existing.distance) map.set(a.date, a);
+    const runs = runsByDate.get(a.date);
+    if (runs) runs.push(a); else runsByDate.set(a.date, [a]);
   });
+  const map = new Map();
+  runsByDate.forEach((runs, date) => map.set(date, combineDayRuns(runs)));
   return map;
 }
 
-function formatDayLine(day, activity) {
+function formatDayLine(day, activity, note) {
   const planned = day.miles
     ? `${day.miles}mi planned @ ${day.pace || 'n/a'}, target HR ${day.hr || 'n/a'}`
     : 'Rest planned';
+  const noteBit = note ? ` Runner's note on this day: ${note}` : '';
   if (!activity) {
-    return `${day.dow} ${day.date}: ${planned}. Actual: none logged.`;
+    return `${day.dow} ${day.date}: ${planned}. Actual: none logged.${noteBit}`;
   }
   const hrBits = [];
   if (activity.average_heartrate) hrBits.push(`avg HR ${activity.average_heartrate}`);
   if (activity.max_heartrate) hrBits.push(`max HR ${activity.max_heartrate}`);
   const elev = activity.elevation_gain_ft ? `, ${activity.elevation_gain_ft}ft gain` : '';
-  return `${day.dow} ${day.date}: ${planned}. Actual: ${activity.distance}mi @ ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}${elev}.`;
+  return `${day.dow} ${day.date}: ${planned}. Actual: ${activity.distance}mi @ ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}${elev}.${noteBit}`;
 }
 
 function formatFullDayLine(day) {
@@ -156,7 +204,11 @@ export default async function handler(req, res) {
   }
 
   const byDate = activitiesByDate(thisWeekActivities);
-  const dayLines = wk.days.map((d) => formatDayLine(d, byDate.get(d.dateIso) || null));
+  const notes = await fetchNoteLookups();
+  const dayLines = wk.days.map((d) => {
+    const activity = byDate.get(d.dateIso) || null;
+    return formatDayLine(d, activity, noteForDay(notes, d.dateIso, activity));
+  });
   const actualMilesThisWeek = round1(thisWeekActivities.reduce((sum, a) => sum + a.distance, 0));
 
   const thisWeekActuals = { weekNumber, phase: wk.phase, plannedMiles: wk.totalMiles, actualMiles: actualMilesThisWeek };
