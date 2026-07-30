@@ -521,14 +521,17 @@ function render(){
   renderTodayCard();
   const raceDate = (PLAN.meta && PLAN.meta.raceDate) || PLAN.race || '2026-11-01';
   document.getElementById('dcount').textContent = Math.max(0, Math.ceil((new Date(raceDate+'T00:00:00')-new Date())/(86400000*7)));
-  const wb = document.getElementById('weekbar'); wb.innerHTML='';
+  // Clearing innerHTML resets scrollLeft, so hold it and put it back once the
+  // new .wk elements are in place - otherwise the strip snaps to week 1 on tap.
+  const wb = document.getElementById('weekbar'); const wbScrollLeft = wb.scrollLeft; wb.innerHTML='';
   PLAN.weeks.forEach((w,i)=>{
     const el=document.createElement('div');
     el.className='wk'+(i===activeWeek?' active':'')+(i<activeWeek?' done':'');
     el.innerHTML=`<span class="ph" style="background:${PHASE_COLOR[w.phase]||'#8ea39c'}"></span><span class="n">WK ${w.week}</span><span class="mi">${weeklyMiles(w)}</span>`;
-    el.onclick=()=>{ activeWeek=i; render(); window.scrollTo({top:0,behavior:'smooth'}); };
+    el.onclick=()=>{ activeWeek=i; render(); };
     wb.appendChild(el);
   });
+  wb.scrollLeft = wbScrollLeft;
   const w=PLAN.weeks[activeWeek];
   const runningDays=w.days.filter(d=>d.miles>0).length;
   const app=document.getElementById('app');
