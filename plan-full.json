@@ -29,7 +29,7 @@
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel."
     ],
     "structure": {
-      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23 mpw with a down week at wk5 (20.5). Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch lands in the wk5 long run.",
+      "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw with a down week at wk5 (21). Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch lands in the wk5 long run.",
       "Build": "Weeks 6-11 (Aug 10 - Sep 20): 27 -> 35.5 mpw, dipping to 23.5 in the wk9 travel cutback. Easy aerobic + strides, tempo in wks 6 and 8, MP (8:30) segments grow inside the long run. LR 12.5 -> 17. No threshold work.",
       "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 40 -> 45 mpw with a long-run unload at wk13 (35 mpw, LR 15). LR 20 / 15 / 22, the 22 on Oct 10. Tempo in wks 12 and 14; wk14's is droppable if peak-week fatigue warrants.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
@@ -254,7 +254,7 @@
           "miles": 8.5,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "8.5 mi easy, first step up the ladder from last week's 8. All easy, no pace-up. Conditional on the 8-miler and its morning-afters coming back clean - if the knee left any tenderness, hold this at 8. Fuel every 30-40 min, HR under 150.",
+          "focus": "8.5 mi easy, first step up the ladder from last week's 7.6. All easy, no pace-up. Conditional on the 7.6-miler and its morning-afters coming back clean - if the knee left any tenderness, hold this at 8. Fuel every 30-40 min, HR under 150.",
           "date": "Jul 25"
         },
         {
@@ -332,7 +332,7 @@
           "miles": 11,
           "pace": "9:20-9:50",
           "hr": "<=150",
-          "focus": "11 mi fully easy, no pace-up. This is the biggest single step on the long-run ladder in the whole block (8.5 to 11), so distance is the only new variable today; the first MP touch moves to next week. HR under 150, fuel every 30-40 min. Ease the pace rather than cutting the distance if anything feels off.",
+          "focus": "11 mi fully easy, no pace-up. This is the biggest step on the long-run ladder so far (8.5 to 11), so distance is the only new variable today; the first MP touch moves to next week. HR under 150, fuel every 30-40 min. Ease the pace rather than cutting the distance if anything feels off.",
           "date": "Aug 1"
         },
         {
@@ -741,12 +741,12 @@
     {
       "week": 10,
       "phase": "Build",
-      "label": "Short Mon shakeout \u00b7 pace-up long",
+      "label": "Mon shakeout \u00b7 pace-up long",
       "days": [
         {
           "dow": "Mon",
           "kind": "easy",
-          "type": "Very short shakeout",
+          "type": "Easy shakeout",
           "miles": 3.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
@@ -800,7 +800,7 @@
           "miles": 16,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Historical danger window (post-travel re-ramp), and the largest week-over-week jump in the block. Keep the re-entry controlled. The MP segment is the first thing to drop this week, not the last.",
+          "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Historical danger window (post-travel re-ramp), and the largest week-over-week jump in the Build phase. Keep the re-entry controlled. The MP segment is the first thing to drop this week, not the last.",
           "date": "Sep 12"
         },
         {
