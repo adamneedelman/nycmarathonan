@@ -382,7 +382,7 @@
           "miles": 4.5,
           "pace": "9:00-10:00 + 5 strides",
           "hr": "<=145; <=152 if dew pt >65",
-          "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast. Half a mile added here off a strong week 4; placed on Wednesday rather than the weekend so Saturday's first 8:30 MP touch stays a single-variable session, and so Thursday keeps its role as the light taper day into Friday's rest.",
+          "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast. Half a mile added here off a strong week 4; placed on Wednesday rather than the weekend so Saturday's MP repeat stays a single-variable session, and so Thursday keeps its role as the light taper day into Friday's rest.",
           "date": "Aug 5"
         },
         {
@@ -408,7 +408,7 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ first MP touch",
+          "type": "Long w/ MP repeat",
           "miles": 9,
           "pace": "see focus",
           "hr": "<=153; drift to 157 OK in heat",
