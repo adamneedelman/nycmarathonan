@@ -13,9 +13,9 @@
     },
     "zones": {
       "recovery": "<130",
-      "easy": "130-145 (9:00-10:00); to 152 bpm in heat through wk11",
+      "easy": "130-145 (9:00-10:00); avg to 152 in heat through wk11",
       "steady": "145-155",
-      "threshold": "155-164 (not used this cycle - no dedicated threshold sessions; MP 8:30 sits well below this zone)",
+      "threshold": "155-164 (not used this cycle - no dedicated threshold sessions; MP 8:30 sits well below this zone). The 164 LT figure is anchored to the Apr 2025 Jersey City Half (162 avg); re-anchor off the Sep 19 sustainability check.",
       "vo2": "164+"
     },
     "tibRules": [
@@ -27,8 +27,9 @@
       "At most one dedicated tempo session per week, and at most one MP segment within that week's long run.",
       "Maximum three consecutive running days.",
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel.",
-      "Watch instantaneous pace is not evidence. It reads fast during efforts and swings hard; the Jul 29 session logged a 5:58 max speed that never happened, and a perceived 7:30 turned out to be 7:56 on the splits. Judge pace only from lap splits or Strava best-effort data after the run. That distinction is the difference between a flare risk and a session run exactly to plan.",
-      "Heat and humidity drift HR upward at unchanged pace. Through week 11, easy-day HR may run to 152 and long-run HR to 157 when the dew point is above 65, provided pace is not increasing. HR climbing while pace slows is environmental drift; keep going. Having to work to hold pace is not; cut it short. On hot days the pace band governs and HR is context, not a gate."
+      "Instantaneous watch readings are not evidence, for pace or for HR. Watch pace reads fast during efforts and swings hard: the Jul 29 2026 session logged a 5:58 max speed that never happened, and a perceived 7:30 turned out to be 7:56 on the splits. HR behaves the same way; the Jul 25 2026 long run peaked at 168 while averaging 152.7 at a genuinely easy 9:34 pace. Judge both from run averages and lap splits after the fact, never from the number on the wrist mid-run. Momentary HR spikes cresting a hill carry no information.",
+      "Heat and humidity drift HR upward at unchanged pace, and that drift is real cardiovascular strain rather than a measurement error, so the correct response is to slow down, not to work harder. Through week 11, long-run HR may average 150-157 on easy portions and up to 160 within MP segments, and easy weekday runs may average to 152. These are averages across the run, not spot ceilings. Abort gate: if a run's full average exceeds 158 at easy pace, conditions are winning; shorten it or slow it rather than pushing through.",
+      "The 164 LT anchor comes from the Apr 2025 Jersey City Half (162 avg) and is about fifteen months old. The Jul 25 2026 easy long run peaked at 168, which means either the anchor has moved or the optical sensor spikes; both are plausible. Every HR zone in this plan inherits that uncertainty. Re-anchor off the Sep 19 sustainability check, which is already built to measure it, and do not widen any HR allowance on the strength of the current number before then."
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw with a down week at wk5 (21). Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch lands in the wk4 long run (Aug 1) and repeats in wk5.",
@@ -333,8 +334,8 @@
           "type": "Long w/ first MP touch",
           "miles": 11,
           "pace": "see focus",
-          "hr": "<=153; drift to 157 OK in heat",
-          "focus": "7 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Biggest step on the long-run ladder so far (8.5 to 11) and the first MP touch, so keep every easy mile genuinely easy. The course is hilly, so run the MP segment by effort rather than by the number: hold 150-155 on the climbs and let the pace slide, and do not chase the time back on the descents. Cutting the MP block to 1 mile is a planned option, not a failure; take it if the legs or the hills say so. Drop to easy entirely if the knee or tib speaks. Fuel every 30-40 min.",
+          "hr": "avg 150-157 easy; to 160 in MP",
+          "focus": "7 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Biggest step on the long-run ladder so far (8.5 to 11) and the first MP touch, so keep every easy mile genuinely easy. The course is hilly, so run the MP segment by effort rather than by the number: hold the effort on the climbs and let the pace slide, and do not chase the time back on the descents. Expect HR a few beats above the Jul 25 flat-course baseline of 152.7 avg; that is terrain, not a problem. Cutting the MP block to 1 mile is a planned option, not a failure; take it if the legs or the hills say so. Drop to easy entirely if the knee or tib speaks. Fuel every 30-40 min.",
           "date": "Aug 1"
         },
         {
@@ -371,7 +372,7 @@
           "type": "Easy + strides",
           "miles": 4,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 4 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 4"
         },
@@ -381,7 +382,7 @@
           "type": "Easy + strides",
           "miles": 4.5,
           "pace": "9:00-10:00 + 5 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast. Half a mile added here off a strong week 4; placed on Wednesday rather than the weekend so Saturday's MP repeat stays a single-variable session, and so Thursday keeps its role as the light taper day into Friday's rest.",
           "date": "Aug 5"
         },
@@ -391,7 +392,7 @@
           "type": "Easy aerobic",
           "miles": 3.5,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy aerobic.",
           "date": "Aug 6"
         },
@@ -411,7 +412,7 @@
           "type": "Long w/ MP repeat",
           "miles": 9,
           "pace": "see focus",
-          "hr": "<=153; drift to 157 OK in heat",
+          "hr": "avg 150-157 easy; to 160 in MP",
           "focus": "6 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy. Same MP dose as last Saturday, repeated on a shorter run in a down week so goal pace gets a second controlled exposure on fresher legs and on flatter ground. Controlled, not hard. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 8"
         },
@@ -449,7 +450,7 @@
           "type": "Easy + strides",
           "miles": 5,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 11"
         },
@@ -469,7 +470,7 @@
           "type": "Easy aerobic",
           "miles": 4.5,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy aerobic.",
           "date": "Aug 13"
         },
@@ -489,7 +490,7 @@
           "type": "Long w/ MP segment",
           "miles": 12.5,
           "pace": "see focus",
-          "hr": "<=153; drift to 157 OK in heat",
+          "hr": "avg 150-157 easy; to 160 in MP",
           "focus": "8.5 mi easy, then 2 mi @ 8:30 (MP), then 2 mi easy. Steps up 1.5 from the 11 in week 4; week 5's 9 was a deliberate unload, so measure the ladder against week 4, not against last Saturday. Conditional on clean morning-afters off last week's long run: if anything lingered, hold this at 11.5. Time at goal pace on tiring legs, not a hammer session. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 15"
         },
@@ -517,7 +518,7 @@
           "type": "Easy aerobic",
           "miles": 4,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Exception to the usual Monday rest. Added to spread this week's load across Mon-Tue-Wed rather than stacking it into two heavy midweek runs, since the long run moves to Friday. Genuinely easy, no strides; this day exists to distribute miles, not to add a stimulus. Three consecutive running days Mon-Wed is the structural ceiling, not a cushion.",
           "date": "Aug 17"
         },
@@ -527,7 +528,7 @@
           "type": "Easy + strides",
           "miles": 5,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 18"
         },
@@ -537,7 +538,7 @@
           "type": "Easy + strides",
           "miles": 6,
           "pace": "9:00-10:00 + 5 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 5x20s strides. Controlled speed.",
           "date": "Aug 19"
         },
@@ -557,7 +558,7 @@
           "type": "Long run (easy) - moved",
           "miles": 14,
           "pace": "9:20-10:00",
-          "hr": "<=150; drift to 157 OK in heat",
+          "hr": "avg 150-157",
           "focus": "Long run pulled to Friday because of Sat-Sun travel. 14 mi easy, HR under 150, no MP segment this week. Sits between last week's 12.5 and next week's 15, so it holds the ladder cleanly despite the reshuffle. Fuel well. Weekend is travel and off.",
           "date": "Aug 21"
         },
@@ -595,7 +596,7 @@
           "type": "Easy + strides",
           "miles": 4.5,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Exception to the usual Monday rest: first run back after the travel weekend, kept short and easy to reopen the week gently. Then 4 x 20s relaxed strides at the end, flat ground, never sprint-fast. First of this week's two stride days. Wednesday is rest to compensate.",
           "date": "Aug 24"
         },
@@ -625,7 +626,7 @@
           "type": "Easy + strides",
           "miles": 6.5,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "This week's longest weekday run, off a rest day so the legs are fresh for it. Fully easy, then 4 x 20s relaxed strides at the end. Second of this week's two stride days.",
           "date": "Aug 27"
         },
@@ -645,7 +646,7 @@
           "type": "Long w/ MP segment",
           "miles": 15,
           "pace": "see focus",
-          "hr": "<=153; drift to 157 OK in heat",
+          "hr": "avg 150-157 easy; to 160 in MP",
           "focus": "10 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Longest MP block yet, with a mile added to the easy warm-up to keep building the ladder toward the 20 in week 12. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Aug 29"
         },
@@ -683,7 +684,7 @@
           "type": "Easy aerobic",
           "miles": 6.5,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy aerobic. Enjoy the lighter week.",
           "date": "Sep 1"
         },
@@ -723,7 +724,7 @@
           "type": "Long (short/travel)",
           "miles": 8.5,
           "pace": "9:20-10:00",
-          "hr": "<=150; drift to 157 OK in heat",
+          "hr": "avg 150-157",
           "focus": "Travel-shortened long, 8.5 mi easy-steady, no MP. You are banking recovery this week, not fitness. Finish feeling fresh.",
           "date": "Sep 5"
         },
@@ -771,7 +772,7 @@
           "type": "Easy + strides",
           "miles": 6.5,
           "pace": "9:00-10:00 + 6 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with strides. Back into the swing after the down week. If the tib is not clean off week 9, hold this at 6.0 rather than 6.5.",
           "date": "Sep 9"
         },
@@ -781,7 +782,7 @@
           "type": "Easy aerobic",
           "miles": 6.0,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy aerobic. If the tib is not clean off week 9, hold this at 5.5 rather than 6.0.",
           "date": "Sep 10"
         },
@@ -801,7 +802,7 @@
           "type": "Long w/ MP segment",
           "miles": 16,
           "pace": "see focus",
-          "hr": "<=153; drift to 157 OK in heat",
+          "hr": "avg 150-157 easy; to 160 in MP",
           "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Historical danger window (post-travel re-ramp), and the largest week-over-week jump in the Build phase. Keep the re-entry controlled. The MP segment is the first thing to drop this week, not the last.",
           "date": "Sep 12"
         },
@@ -839,7 +840,7 @@
           "type": "Easy + strides",
           "miles": 6,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 6 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Sep 15"
         },
@@ -849,7 +850,7 @@
           "type": "Easy + strides",
           "miles": 8,
           "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "This week's longest midweek run, with strides. Placed Wednesday to maximize freshness heading into Saturday's sustainability check.",
           "date": "Sep 16"
         },
@@ -859,7 +860,7 @@
           "type": "Easy aerobic",
           "miles": 4.5,
           "pace": "9:00-10:00",
-          "hr": "<=145; <=152 if dew pt >65",
+          "hr": "<=145; avg to 152 in heat",
           "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run.",
           "date": "Sep 17"
         },
