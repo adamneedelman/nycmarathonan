@@ -7,6 +7,13 @@ import { COACH_SYSTEM_PROMPT, WEEKLY_REVIEW_PROMPT_ADDENDUM } from '../../lib/co
 import { NOTES_KEY, weeklyReviewKey as reviewKey, weeklyActualsKey as actualsKey, noteLookups } from '../../lib/coach-cache.js';
 import { ensureHillMetrics, readHillIndex, hillHistoryLines } from '../../lib/strava-streams.js';
 
+// The terrain backfill adds up to STREAM_BUDGET serial Strava calls in front of
+// an Anthropic call that already runs 10-20s, and a platform timeout kills the
+// function outright - the try/catch around the backfill cannot catch that. The
+// generous ceiling keeps the first review after deploy, which triggers the
+// largest backfill, from being cut off mid-flight.
+export const config = { maxDuration: 60 };
+
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
 // Caps Strava stream calls per review so the backfill spreads over several
