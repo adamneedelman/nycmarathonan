@@ -5,9 +5,21 @@ import { fetchPlan, getWeekByNumber, isWeekReviewAvailableEastern } from '../../
 import { fetchActivitiesInRange, round1, formatPace } from '../../lib/strava-activities.js';
 import { COACH_SYSTEM_PROMPT, WEEKLY_REVIEW_PROMPT_ADDENDUM } from '../../lib/coach-prompt.js';
 import { NOTES_KEY, weeklyReviewKey as reviewKey, weeklyActualsKey as actualsKey, noteLookups } from '../../lib/coach-cache.js';
+import { ensureHillMetrics, readHillIndex, hillHistoryLines } from '../../lib/strava-streams.js';
+
+// The terrain backfill adds up to STREAM_BUDGET serial Strava calls in front of
+// an Anthropic call that already runs 10-20s, and a platform timeout kills the
+// function outright - the try/catch around the backfill cannot catch that. The
+// generous ceiling keeps the first review after deploy, which triggers the
+// largest backfill, from being cut off mid-flight.
+export const config = { maxDuration: 60 };
 
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
+// Caps Strava stream calls per review so the backfill spreads over several
+// weeks rather than hitting the 100-per-15-minutes limit.
+const STREAM_BUDGET = 20;
+const MAX_HILL_LINES = 12;
 
 // The runner's own notes on individual runs ("did strides at the end", "knee
 // felt tight"). Matched by date first, since a day with two logged runs is one
@@ -46,6 +58,7 @@ function combineDayRuns(runs) {
   const hrWeight = hrRuns.reduce((s, r) => s + r.moving_time, 0);
   const maxHrs = runs.map((r) => r.max_heartrate).filter((v) => v != null);
   const elevs = runs.map((r) => r.elevation_gain_ft).filter((v) => v != null);
+  const elevTotal = elevs.length ? elevs.reduce((s, v) => s + v, 0) : null;
   return {
     // Same composite-id formula the client uses, so an id-keyed note still matches.
     id: runs.map((r) => r.id).sort().join('-'),
@@ -57,7 +70,9 @@ function combineDayRuns(runs) {
       ? Math.round(hrRuns.reduce((s, r) => s + r.average_heartrate * r.moving_time, 0) / hrWeight)
       : null,
     max_heartrate: maxHrs.length ? Math.max(...maxHrs) : null,
-    elevation_gain_ft: elevs.length ? elevs.reduce((s, v) => s + v, 0) : null,
+    elevation_gain_ft: elevTotal,
+    elev_per_mile: elevTotal != null && distance > 0
+      ? Math.round(elevTotal / distance) : null,
     name: runs.map((r) => r.name).filter(Boolean).join(' + '),
   };
 }
@@ -84,7 +99,9 @@ function formatDayLine(day, activity, note) {
   const hrBits = [];
   if (activity.average_heartrate) hrBits.push(`avg HR ${activity.average_heartrate}`);
   if (activity.max_heartrate) hrBits.push(`max HR ${activity.max_heartrate}`);
-  const elev = activity.elevation_gain_ft ? `, ${activity.elevation_gain_ft}ft gain` : '';
+  const elev = activity.elevation_gain_ft
+    ? `, ${activity.elevation_gain_ft}ft gain${activity.elev_per_mile != null ? ` (${activity.elev_per_mile}ft/mi)` : ''}`
+    : '';
   return `${day.dow} ${day.date}: ${planned}. Actual: ${activity.distance}mi @ ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}${elev}.${noteBit}`;
 }
 
@@ -116,7 +133,23 @@ async function getWeekActualTotal(plan, weekNumber, accessToken) {
   return result;
 }
 
-function buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextWeekLines, isRaceWeek }) {
+// Fills in terrain metrics for activities missing from the hill index, newest
+// first, until the budget runs out. Returns what's left of the budget so a
+// second pass (the block-to-date backfill) can pick up where this left off.
+async function fillTerrain(accessToken, activities, index, budget) {
+  let left = budget;
+  const pending = activities
+    .filter((a) => a?.id && !index[String(a.id)])
+    .sort((a, b) => String(b.date || '').localeCompare(String(a.date || '')));
+  for (const activity of pending) {
+    if (left <= 0) break;
+    await ensureHillMetrics(accessToken, activity, index);
+    left -= 1;
+  }
+  return left;
+}
+
+function buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextWeekLines, isRaceWeek, hillLines }) {
   const parts = [
     `This Week: Week ${wk.weekNumber} (${wk.phase})${wk.label ? ` — ${wk.label}` : ''}, ${wk.totalMiles}mi planned.`,
     dayLines.join('\n'),
@@ -124,6 +157,14 @@ function buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextW
     'Season-to-date, planned vs. actual mileage by week (computed - trust these numbers exactly):',
     seasonTable.map((r) => `Week ${r.weekNumber} (${r.phase}): planned ${r.plannedMiles}mi, actual ${r.actualMiles}mi`).join('\n'),
   ];
+
+  if (hillLines && hillLines.length) {
+    parts.push(
+      '',
+      "Hilly runs to date (40ft of gain per mile or more; grade-adjusted pace is the equivalent flat-ground pace for the same effort):",
+      hillLines.join('\n')
+    );
+  }
 
   if (isRaceWeek) {
     parts.push('', 'This is the final week of the plan - race week. There is no schedule beyond this.');
@@ -230,6 +271,27 @@ export default async function handler(req, res) {
   }
   seasonTable.push(thisWeekActuals);
 
+  // A hill-history failure should cost the review a paragraph, never the
+  // whole review, so it's isolated in its own try/catch.
+  let hillLines = [];
+  try {
+    const hillIndex = await readHillIndex();
+    let budget = await fillTerrain(accessToken, thisWeekActivities, hillIndex, STREAM_BUDGET);
+    if (budget > 0 && weekNumber > 1) {
+      const blockStart = getWeekByNumber(plan, 1);
+      const earlier = await fetchActivitiesInRange(
+        accessToken,
+        Math.floor(blockStart.startEpochMs / 1000) - 1,
+        Math.floor(wk.startEpochMs / 1000) - 1
+      );
+      await fillTerrain(accessToken, earlier, hillIndex, budget);
+    }
+    hillLines = hillHistoryLines(hillIndex, wk.days[wk.days.length - 1]?.dateIso || null)
+      .slice(-MAX_HILL_LINES);
+  } catch (err) {
+    console.error('weekly-review: hill history failed:', err);
+  }
+
   const isRaceWeek = weekNumber === totalWeeks;
   const remainingOneLiners = isRaceWeek
     ? []
@@ -237,7 +299,7 @@ export default async function handler(req, res) {
   const nextWeekPlan = isRaceWeek ? null : getWeekByNumber(plan, weekNumber + 1);
   const nextWeekLines = nextWeekPlan ? nextWeekPlan.days.map(formatFullDayLine) : null;
 
-  const userMessage = buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextWeekLines, isRaceWeek });
+  const userMessage = buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextWeekLines, isRaceWeek, hillLines });
 
   let reviewText;
   try {

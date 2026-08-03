@@ -133,6 +133,9 @@
   .today-tomorrow-detail { font-size:12.5px; color:var(--fog); margin-top:3px; }
   .completed-row { display:flex; align-items:center; gap:8px; padding:9px 15px; font-size:12.5px; color:var(--chalk); border-top:1px dashed var(--line-soft); }
   .completed-check { color:var(--sig); font-weight:700; }
+  /* min-width:0 lets the stats wrap instead of overflowing once elevation is appended. */
+  .completed-text { min-width:0; }
+  .completed-hill { color:var(--sig); font-weight:600; }
   .day.completed { border-color:rgba(216,255,62,0.28); }
   .today-card .completed-row { margin-top:14px; padding:12px 0 0 0; }
   .coach-box { margin-top:0; padding:10px 15px 13px; border-top:1px dashed var(--line-soft); }
@@ -486,6 +489,28 @@ function refreshSheetCoachBlock(){
     ? renderCompletionBlock(activity, d, w)
     : `<div class="sheet-connect"><span class="dot"></span>No run logged yet</div>`;
 }
+// Mirrors HILLY_FT_PER_MILE in lib/strava-streams.js. At or above this, the run
+// is what Coach Claude counts as a hill session, so the card flags it on the
+// same threshold the coach's hilly-runs history uses.
+const HILLY_FT_PER_MILE = 40;
+
+// Elevation is only worth the space when there is some: treadmill and flat
+// river runs report 0 or null and stay out of the way. Gain per mile is the
+// number that says whether a run was actually hilly, so it only appears once
+// the run clears the threshold, where it earns its place.
+function elevationText(activity){
+  const gain = activity.elevation_gain_ft;
+  if(gain == null || gain <= 0) return '';
+  // Fall back to computing per-mile if the field is absent, so a run cached
+  // under the older activity shape still reads correctly.
+  const perMile = activity.elev_per_mile != null
+    ? activity.elev_per_mile
+    : (activity.distance > 0 ? Math.round(gain / activity.distance) : null);
+  if(perMile != null && perMile >= HILLY_FT_PER_MILE){
+    return ` · <span class="completed-hill">${gain} ft (${perMile}/mi)</span>`;
+  }
+  return ` · ${gain} ft`;
+}
 // showCoach gates the Coach Claude blurb (and its analysis request) so it only
 // appears on the Today card and in the day's workout overview sheet — not in the
 // core weekly schedule rows below.
@@ -496,7 +521,7 @@ function renderCompletionBlock(activity, d, w, showCoach=true){
   if(activity.max_heartrate) hrParts.push(`${activity.max_heartrate} max`);
   const hrText = hrParts.length ? ` · HR ${hrParts.join(' / ')}` : '';
   const paceText = activity.avg_pace ? ` @ ${activity.avg_pace}` : '';
-  const completedRow = `<div class="completed-row"><span class="completed-check">✓</span><span class="completed-text">${activity.distance} mi${paceText}${hrText}</span></div>`;
+  const completedRow = `<div class="completed-row"><span class="completed-check">✓</span><span class="completed-text">${activity.distance} mi${paceText}${hrText}${elevationText(activity)}</span></div>`;
   if(!showCoach) return completedRow;
   const note = activityNotes.get(activity.id) || null;
   requestCoachAnalysis({ ...activity, note }, buildPlannedWorkoutPayload(d, w), nextDayWorkoutPayload(d));
@@ -598,7 +623,8 @@ function formatPaceFromSeconds(secondsPerMile){
 }
 // Combines every run logged on the same date into one activity-shaped object:
 // distance/time sum, pace recomputed from the combined total, HR averaged
-// weighted by each run's moving time, and max HR taken across all runs.
+// weighted by each run's moving time, max HR taken across all runs, and
+// elevation summed. Mirrors combineDayRuns() in api/coach/weekly-review.js.
 // Single-run days pass through unchanged (including their original id).
 function combineDayRuns(runs){
   if(runs.length === 1) return runs[0];
@@ -612,10 +638,15 @@ function combineDayRuns(runs){
     : null;
   const maxHrs = runs.map(r=>r.max_heartrate).filter(v=>v!=null);
   const max_heartrate = maxHrs.length ? Math.max(...maxHrs) : null;
+  const elevs = runs.map(r=>r.elevation_gain_ft).filter(v=>v!=null);
+  const elevation_gain_ft = elevs.length ? elevs.reduce((s,v)=>s+v, 0) : null;
   return {
     id: runs.map(r=>r.id).sort().join('-'),
     date: runs[0].date,
     distance, moving_time, avg_pace, average_heartrate, max_heartrate,
+    elevation_gain_ft,
+    elev_per_mile: elevation_gain_ft != null && distance > 0
+      ? Math.round(elevation_gain_ft/distance) : null,
     name: runs.map(r=>r.name).filter(Boolean).join(' + '),
     runs,
   };

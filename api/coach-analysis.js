@@ -2,6 +2,8 @@ import { Redis } from '@upstash/redis';
 import Anthropic from '@anthropic-ai/sdk';
 import { COACH_SYSTEM_PROMPT } from '../lib/coach-prompt.js';
 import { blurbCacheKey } from '../lib/coach-cache.js';
+import { getValidAccessToken } from '../lib/strava-tokens.js';
+import { ensureHillMetrics, formatTerrainLine } from '../lib/strava-streams.js';
 
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
@@ -114,7 +116,17 @@ async function fetchNextDayWeather(dateIso) {
   }
 }
 
-function buildUserMessage(activity, plannedWorkout, nextWorkout, weather) {
+async function fetchTerrain(activityId, activity) {
+  try {
+    const accessToken = await getValidAccessToken();
+    return await ensureHillMetrics(accessToken, { ...activity, id: activityId });
+  } catch (err) {
+    console.error('coach-analysis: terrain fetch failed:', err);
+    return null;
+  }
+}
+
+function buildUserMessage(activity, plannedWorkout, nextWorkout, weather, terrain) {
   const lines = [
     `Planned workout: ${plannedWorkout.type || 'n/a'} (${plannedWorkout.kind || 'n/a'}), ${plannedWorkout.miles ?? 'n/a'} mi, target pace ${plannedWorkout.pace || 'n/a'}, target HR ${plannedWorkout.hr || 'n/a'}. Week ${plannedWorkout.week ?? 'n/a'}, ${plannedWorkout.phase || 'n/a'} phase.`,
   ];
@@ -127,6 +139,8 @@ function buildUserMessage(activity, plannedWorkout, nextWorkout, weather) {
   lines.push(
     `Actual run: ${activity.distance} mi, avg pace ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}.`
   );
+  const terrainLine = formatTerrainLine(terrain);
+  if (terrainLine) lines.push(terrainLine);
   if (activity.note) {
     lines.push(`Runner's note on this run: ${activity.note}`);
   }
@@ -190,16 +204,17 @@ export default async function handler(req, res) {
 
   try {
     // Only pull a forecast when the next day is an actual run.
-    const weather = nextWorkout && nextWorkout.miles
-      ? await fetchNextDayWeather(nextWorkout.dateIso)
-      : null;
+    const [weather, terrain] = await Promise.all([
+      nextWorkout && nextWorkout.miles ? fetchNextDayWeather(nextWorkout.dateIso) : null,
+      fetchTerrain(activityId, activity),
+    ]);
 
     const client = new Anthropic();
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 400,
       system: COACH_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: buildUserMessage(activity, plannedWorkout, nextWorkout, weather) }],
+      messages: [{ role: 'user', content: buildUserMessage(activity, plannedWorkout, nextWorkout, weather, terrain) }],
     });
 
     const textBlock = response.content.find((b) => b.type === 'text');
