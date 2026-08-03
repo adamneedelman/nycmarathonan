@@ -1,39 +1,11 @@
 import { Redis } from '@upstash/redis';
 import { getValidAccessToken } from '../../lib/strava-tokens.js';
+import { transformActivity } from '../../lib/strava-activities.js';
 
 const redis = Redis.fromEnv();
-const CACHE_KEY = 'strava:activities:cache';
+const CACHE_KEY = 'strava:activities:cache:v2';
 const CACHE_TTL_SECONDS = 10 * 60;
-const METERS_PER_MILE = 1609.34;
 const LOOKBACK_DAYS = 30;
-
-function round1(n) {
-  return Math.round(n * 10) / 10;
-}
-
-function formatPace(secondsPerMile) {
-  if (!Number.isFinite(secondsPerMile) || secondsPerMile <= 0) return null;
-  const total = Math.round(secondsPerMile);
-  const min = Math.floor(total / 60);
-  const sec = total % 60;
-  return `${min}:${String(sec).padStart(2, '0')}`;
-}
-
-function transformActivity(a) {
-  const distanceMiles = (a.distance || 0) / METERS_PER_MILE;
-  const movingTime = a.moving_time || 0;
-  const avgPaceSecPerMile = distanceMiles > 0 ? movingTime / distanceMiles : null;
-  return {
-    id: a.id,
-    date: (a.start_date_local || a.start_date || '').slice(0, 10),
-    distance: round1(distanceMiles),
-    moving_time: movingTime,
-    avg_pace: formatPace(avgPaceSecPerMile),
-    average_heartrate: a.average_heartrate != null ? Math.round(a.average_heartrate) : null,
-    max_heartrate: a.max_heartrate != null ? Math.round(a.max_heartrate) : null,
-    name: a.name || '',
-  };
-}
 
 export default async function handler(req, res) {
   res.setHeader('Cache-Control', 'no-store');
