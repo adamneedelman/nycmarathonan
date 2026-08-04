@@ -380,20 +380,20 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 4,
-          "pace": "9:00-10:00 + 4 strides",
+          "miles": 4.5,
+          "pace": "9:00-10:00 + 5 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 4 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast. Half a mile added here off a strong week 4; kept midweek rather than on the weekend so Saturday's MP repeat stays a single-variable session.",
           "date": "Aug 5"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 4.5,
-          "pace": "9:00-10:00 + 5 strides",
+          "miles": 4,
+          "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 5x20s strides. Controlled speed, never sprint-fast. Half a mile added here off a strong week 4; kept midweek rather than on the weekend so Saturday's MP repeat stays a single-variable session.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. This is the added second stride day that brings strides to 2x/week. Inclusive of the 4 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 6"
         },
         {
