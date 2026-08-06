@@ -80,7 +80,9 @@
   .sheet-stat .k { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--fog); }
   .sheet-stat .v { font-family:'Fraunces',serif; font-size:22px; font-weight:600; margin-top:2px; }
   .sheet-h { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--sig); font-weight:700; margin-bottom:9px; }
-  .sheet-focus { font-size:15.5px; line-height:1.6; color:var(--chalk); }
+  /* pre-wrap so the paragraph breaks and numbered lists written into a day's
+     focus survive; without it HTML collapses them into one run-on block. */
+  .sheet-focus { font-size:15.5px; line-height:1.6; color:var(--chalk); white-space:pre-wrap; }
   .sheet-connect { margin-top:20px; padding-top:16px; border-top:1px solid var(--line-soft); font-size:12px; color:var(--fog-dim); display:flex; align-items:center; gap:9px; }
   .sheet-connect .dot { width:8px; height:8px; border-radius:50%; border:1.5px solid var(--fog-dim); }
   .segments { margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-soft); }
@@ -125,7 +127,7 @@
   .today-stats .k { font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--fog); }
   .today-stats .v { font-family:'Fraunces',serif; font-size:20px; font-weight:600; margin-top:2px; color:var(--chalk); }
   .today-rest-badge { font-family:'Fraunces',serif; font-size:22px; font-weight:600; color:var(--fog); }
-  .today-rest-note { font-size:13.5px; color:var(--fog); margin-top:6px; line-height:1.55; }
+  .today-rest-note { font-size:13.5px; color:var(--fog); margin-top:6px; line-height:1.55; white-space:pre-wrap; }
   .today-tomorrow { margin-top:16px; padding-top:14px; border-top:1px dashed var(--line-soft); }
   .today-tomorrow-label { font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--fog-dim); font-weight:700; margin-bottom:6px; }
   .today-tomorrow-body { display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:15px; font-weight:600; color:var(--chalk); }
