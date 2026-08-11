@@ -516,7 +516,7 @@
           "dow": "Mon",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4,
+          "miles": 4.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
           "focus": "Exception to the usual Monday rest. This day spreads the week's load across Mon-Tue-Wed rather than stacking it into two heavy midweek runs, since the long run falls on Friday. Genuinely easy, no strides; this day exists to distribute miles, not to add a stimulus. Three consecutive running days Mon-Wed is the structural ceiling, not a cushion.",
@@ -526,20 +526,20 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 5,
-          "pace": "9:00-10:00 + 4 strides",
+          "miles": 6,
+          "pace": "9:00-10:00 + 5 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 5x20s strides. Controlled speed.",
           "date": "Aug 18"
         },
         {
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
-          "pace": "9:00-10:00 + 5 strides",
+          "miles": 5,
+          "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 5x20s strides. Controlled speed.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 19"
         },
         {
@@ -549,7 +549,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest before tomorrow's moved-up long run. The shakeout stays dropped so there is a genuine rest day ahead of the Friday long; those miles are now spread across Mon, Tue and Wed. Tib check.",
+          "focus": "Rest before Friday's long run. A genuine rest day ahead of it, with the week's easy miles carried by Mon, Tue and Wed. Tib check.",
           "date": "Aug 20"
         },
         {
@@ -583,7 +583,7 @@
           "date": "Aug 23"
         }
       ],
-      "totalMiles": 29
+      "totalMiles": 29.5
     },
     {
       "week": 8,
@@ -594,7 +594,7 @@
           "dow": "Mon",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 6,
+          "miles": 5,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
           "focus": "Exception to the usual Monday rest: first run back after the travel weekend. Then 4 x 20s relaxed strides at the end, flat ground, never sprint-fast. First of this week's two stride days. Fully easy, and Wednesday is rest to compensate.",
@@ -661,7 +661,7 @@
           "date": "Aug 30"
         }
       ],
-      "totalMiles": 33.5
+      "totalMiles": 32.5
     },
     {
       "week": 9,
