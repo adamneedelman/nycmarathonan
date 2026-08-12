@@ -700,7 +700,7 @@
           "dow": "Mon",
           "kind": "easy",
           "type": "Easy (light)",
-          "miles": 3.5,
+          "miles": 4.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
           "focus": "The lightest day of the week by design. Short, easy, fully relaxed.",
@@ -767,7 +767,7 @@
           "date": "Sep 6"
         }
       ],
-      "totalMiles": 23.5
+      "totalMiles": 24.5
     },
     {
       "week": 10,
