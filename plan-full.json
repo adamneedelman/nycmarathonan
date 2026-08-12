@@ -698,12 +698,12 @@
       "days": [
         {
           "dow": "Mon",
-          "kind": "rest",
-          "type": "Rest",
-          "miles": 0,
-          "pace": "",
-          "hr": "",
-          "focus": "Full rest. This whole week is a forced cutback from travel - treat it as a genuine recovery/down week. Well-timed at the block midpoint.",
+          "kind": "easy",
+          "type": "Easy (light)",
+          "miles": 3.5,
+          "pace": "9:30-10:00",
+          "hr": "<=140",
+          "focus": "The lightest day of the week by design. Short, easy, fully relaxed.",
           "date": "Aug 31"
         },
         {
@@ -738,12 +738,12 @@
         },
         {
           "dow": "Fri",
-          "kind": "easy",
-          "type": "Easy (light)",
-          "miles": 3.5,
-          "pace": "9:30-10:00",
-          "hr": "<=140",
-          "focus": "The lightest day of the week by design. Short, easy, fully relaxed.",
+          "kind": "rest",
+          "type": "Rest",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Full rest. This whole week is a forced cutback from travel - treat it as a genuine recovery/down week. Well-timed at the block midpoint.",
           "date": "Sep 4"
         },
         {
