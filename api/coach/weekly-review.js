@@ -92,7 +92,10 @@ function formatDayLine(day, activity, note) {
   const planned = day.miles
     ? `${day.miles}mi planned @ ${day.pace || 'n/a'}, target HR ${day.hr || 'n/a'}`
     : 'Rest planned';
-  const noteBit = note ? ` Runner's note on this day: ${note}` : '';
+  // Two different things: the plan note was written onto the day in advance,
+  // the runner's note was written after the run.
+  const planBit = day.note ? ` Plan note for this day: ${day.note}` : '';
+  const noteBit = (planBit) + (note ? ` Runner's note on this day: ${note}` : '');
   if (!activity) {
     return `${day.dow} ${day.date}: ${planned}. Actual: none logged.${noteBit}`;
   }
@@ -107,7 +110,8 @@ function formatDayLine(day, activity, note) {
 
 function formatFullDayLine(day) {
   if (!day.miles) return `${day.dow} ${day.date}: Rest.`;
-  return `${day.dow} ${day.date}: ${day.type} (${day.kind}), ${day.miles}mi, pace ${day.pace || 'n/a'}, HR ${day.hr || 'n/a'}. ${day.focus || ''}`.trim();
+  const planBit = day.note ? ` Plan note: ${day.note}` : '';
+  return `${day.dow} ${day.date}: ${day.type} (${day.kind}), ${day.miles}mi, pace ${day.pace || 'n/a'}, HR ${day.hr || 'n/a'}. ${day.focus || ''}${planBit}`.trim();
 }
 
 function weekOneLiner(week) {

@@ -133,6 +133,11 @@ function buildUserMessage(activity, plannedWorkout, nextWorkout, weather, terrai
   if (plannedWorkout.focus) {
     lines.push(`Workout notes: ${plannedWorkout.focus}`);
   }
+  // A flag written onto the planned day itself, e.g. an injury being watched.
+  // Distinct from the runner's post-run note further down.
+  if (plannedWorkout.note) {
+    lines.push(`Plan note for this day: ${plannedWorkout.note}`);
+  }
   const hrBits = [];
   if (activity.average_heartrate) hrBits.push(`avg HR ${activity.average_heartrate}`);
   if (activity.max_heartrate) hrBits.push(`max HR ${activity.max_heartrate}`);
