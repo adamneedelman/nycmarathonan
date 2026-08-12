@@ -24,7 +24,7 @@
       "Marathon pace 8:30 is the race-specific workhorse and sits 45-60 sec clear of the flare band, which makes added MP volume the cheapest way to add quality. It appears in long-run pace-up segments throughout and in one midweek session, week 13 Wednesday. Dedicated threshold work exists this cycle but only in weeks 8 and 12.",
       "Fast bursts (strides, <=90s reps) are safe but never sprint-fast. Strides run twice weekly throughout.",
       "Long-run pace-up segments are capped at MP (8:30), built gradually within an easy base, and dropped immediately if the knee or tib speaks.",
-      "At most one dedicated fast session per week, counting tempo and midweek MP alike, and at most one MP segment within that week's long run. Weeks 7 and 9 carry no quality at all; both are travel weeks and that is intentional.",
+      "At most one dedicated fast session per week, counting tempo and midweek MP alike, and at most one MP dose within that week's long run. A dose may be delivered as one continuous block or as two blocks separated by an easy float; the broken format is a way of delivering the same dose with less continuous time under tension, not a way of taking two doses. Floats within a long run run at full easy pace, 9:00-10:00; a float run faster than that turns the whole span into a continuous progression run and voids the distinction. Weeks 7 and 9 carry no quality at all; both are travel weeks and that is intentional.",
       "Maximum three consecutive running days.",
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel.",
       "Instantaneous watch readings are not evidence, for pace or for HR. Watch pace reads fast during efforts and swings hard: the Jul 29 2026 session logged a 5:58 max speed that never happened, and a perceived 7:30 turned out to be 7:56 on the splits. HR behaves the same way; the Jul 25 2026 long run peaked at 168 while averaging 152.7 at a genuinely easy 9:34 pace. Judge both from run averages and lap splits after the fact, never from the number on the wrist mid-run. Momentary HR spikes cresting a hill carry no information.",
@@ -675,7 +675,7 @@
           "miles": 15,
           "pace": "see focus",
           "hr": "avg 150-157 easy; to 160 in MP",
-          "focus": "10 mi easy, then 3 mi @ 8:30 (MP), then 2 mi easy. Longest MP block yet, with a mile added to the easy warm-up to keep building the ladder toward the 20 in week 12. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "9 mi easy, then 2 mi @ 8:30 (MP), then 1 mi easy float, then 2 mi @ 8:30 (MP), then 1 mi easy. 15 mi total, 4 MP miles. First broken-block long run of the block: two MP blocks separated by an easy float rather than one continuous segment. Same logic as the broken tempo reps, applied to race pace: splitting the block buys a fourth MP mile while cutting continuous time under tension, and each block starts fresh so pace does not decay across it. FLOAT DISCIPLINE IS THE WHOLE SESSION. The float mile runs 9:00-10:00, no faster. A float at 8:45 turns this into a 7-mile progression run, which is a materially harder session than the one written and is not what you are testing. Judge it off the splits afterward, not the watch mid-run. Drop the second MP block, or both, to easy if the knee or tib speaks.",
           "date": "Aug 29"
         },
         {
@@ -987,7 +987,7 @@
           "miles": 20,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "12 mi easy, then 5 mi @ 8:30 (MP), then 3 mi easy. The big race-specific long run of the block. Next week unloads the long run to 15 so you arrive at the 22 recovered, so this is the one to execute well. Drop the MP block to easy if the knee or tib speaks.",
+          "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. The big race-specific long run of the block, in broken-block format: block length steps 2 to 3 at the established float structure from week 8, one variable moving. Next week unloads the long run to 15 so you arrive at the 22 recovered, so this is the one to execute well. Float mile runs 9:00-10:00; a fast float converts this into an 8-mile progression and invalidates the session. Drop the second MP block, or both, to easy if the knee or tib speaks.",
           "date": "Sep 26"
         },
         {
@@ -1035,7 +1035,7 @@
           "miles": 9,
           "pace": "see focus",
           "hr": "<=150 easy; to 157 in MP",
-          "focus": "About 3 mi easy, then 3 mi @ 8:30 (MP) continuous, then 3 mi easy. 9 mi total, inclusive. This is the block's only midweek MP session, and the only non-tempo week that could take one: weeks 5, 7, 9, 10 and 11 each rule themselves out on travel, danger-window or measurement grounds. MP at 8:30 sits 45-60 sec clear of the flare band, so the tendon cost is low; this is cumulative race-pace volume, which is the variable most worth adding. Comfortable and controlled, not a workout. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "About 2.5 mi easy, then 4 mi @ 8:30 (MP) continuous, then 2.5 mi easy. 9 mi total, inclusive. This is the block's only midweek MP session, and the only non-tempo week that could take one: weeks 5, 7, 9, 10 and 11 each rule themselves out on travel, danger-window or measurement grounds. Grown from 3 MP miles to 4 by trimming the warm-up and cool-down half a mile each. Stays CONTINUOUS deliberately, unlike the week 8 and 12 long runs: on fresh midweek legs the useful stimulus is sustained rhythm at race pace, and the broken format exists to manage fatigue that is not present here. MP at 8:30 sits 45-60 sec clear of the flare band, so the tendon cost is low; this is cumulative race-pace volume, which is the variable most worth adding. Comfortable and controlled, not a workout. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Sep 30"
         },
         {
