@@ -92,6 +92,10 @@
   .segment-miles { font-weight:700; }
   .segment-detail { font-size:12px; color:var(--fog); }
   .segment-note { flex-basis:100%; font-size:12px; color:var(--fog); line-height:1.5; margin-top:1px; }
+  /* A standing flag on the planned workout itself, e.g. an injury being watched.
+     Distinct from Coach's Notes, which attach to a run after it is logged. */
+  .day-note { margin-top:16px; padding:10px 12px; border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:8px; background:var(--ink-2); font-size:13px; line-height:1.55; color:var(--chalk); white-space:pre-wrap; }
+  .day-note-h { font-size:9.5px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); font-weight:700; display:block; margin-bottom:4px; }
   .dow { font-size:15px; letter-spacing:0.06em; color:var(--chalk); text-transform:uppercase; width:42px; flex:0 0 auto; font-weight:700; display:flex; flex-direction:column; gap:2px; }
   .daydate { font-size:10px; font-weight:600; letter-spacing:0.04em; color:var(--fog-dim); text-transform:none; }
   .day.rest .dow { color:var(--fog); }
@@ -339,6 +343,7 @@ function openSheet(d, w){
     <div class="sheet-h">Workout overview</div>
     <div class="sheet-focus">${d.focus || 'No guidance set for this day yet.'}</div>
     ${renderSegments(d)}
+    ${renderDayNote(d)}
     <div id="sheetConnect">${connect}</div>
     ${noteEditor}`;
   if(activity){
@@ -438,7 +443,7 @@ function weeklyActualMiles(w){
 // (server caches indefinitely); this map just tracks in-session render state.
 let coachBlurbs = new Map();
 function buildPlannedWorkoutPayload(d, w){
-  return { type:d.type, kind:d.kind, miles:d.miles, pace:d.pace, hr:d.hr, focus:d.focus, phase:w.phase, week:w.week, dow:d.dow, date:d.date };
+  return { type:d.type, kind:d.kind, miles:d.miles, pace:d.pace, hr:d.hr, focus:d.focus, note:d.note, phase:w.phase, week:w.week, dow:d.dow, date:d.date };
 }
 // The planned workout for the day after `d`, so Coach Claude can offer a
 // forward-looking tip. Resolved via the flattened ALL_DAYS date list.
@@ -553,7 +558,7 @@ function renderTodayCard(){
         ${!tomorrowIsRest && td.pace ? `<div class="today-tomorrow-detail">${td.pace}</div>` : ''}
       </div>`;
     }
-    bodyHtml = `<div class="today-rest-badge">Rest day</div><div class="today-rest-note">${d.focus || 'Full rest.'}</div>${tomorrowHtml}`;
+    bodyHtml = `<div class="today-rest-badge">Rest day</div><div class="today-rest-note">${d.focus || 'Full rest.'}</div>${renderDayNote(d)}${tomorrowHtml}`;
   } else {
     const activity = matchActivityForIso(entry.iso);
     bodyHtml = `<div class="today-type">${d.type}<span class="tag ${d.kind}">${d.kind}</span></div>
@@ -563,6 +568,7 @@ function renderTodayCard(){
         ${d.hr?`<div class="today-stat"><div class="k">HR</div><div class="v" style="font-size:16px">${d.hr}</div></div>`:''}
       </div>
       ${renderSegments(d)}
+      ${renderDayNote(d)}
       ${renderCompletionBlock(activity, d, w)}`;
   }
 
@@ -685,6 +691,13 @@ function escapeHtml(str){
 
 // Renders a plan day's optional "segments" array (e.g. a long run split
 // into separate same-day blocks, like a treadmill split for bad AQI).
+// A flag carried by the planned workout (injury watch, surface caveat). This is
+// not the same thing as a Coach's Note: those are keyed to a logged Strava
+// activity and only exist once a run is done, so they cannot mark a future day.
+function renderDayNote(d){
+  if(!d.note) return '';
+  return `<div class="day-note"><span class="day-note-h">Note</span>${escapeHtml(d.note)}</div>`;
+}
 function renderSegments(d){
   if(!d.segments || !d.segments.length) return '';
   const rows = d.segments.slice().sort((a,b)=>a.order-b.order).map(s => `
