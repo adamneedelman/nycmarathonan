@@ -447,22 +447,32 @@
         {
           "dow": "Tue",
           "kind": "easy",
+          "type": "Easy + strides",
+          "miles": 4,
+          "pace": "9:00-10:00 + 4 strides",
+          "hr": "<=145; avg to 152 in heat",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 4 miles, no added distance. A light day by design: it sits directly before the tempo, and arriving fresh matters because both pace creep and pace shortfall get worse on tired legs. Drop the strides if the tib is tender on the morning-after check.",
+          "date": "Aug 11"
+        },
+        {
+          "dow": "Wed",
+          "kind": "easy",
           "type": "Easy aerobic",
           "miles": 6,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
           "focus": "Easy aerobic.",
-          "date": "Aug 11"
+          "date": "Aug 12"
         },
         {
-          "dow": "Wed",
+          "dow": "Thu",
           "kind": "easy",
           "type": "Easy + tempo",
           "miles": 4.5,
           "pace": "see focus",
           "hr": "150-156",
           "focus": "1 mi easy warm-up, then 2 x 0.75 mi @ 8:00-8:15 with a 1 mi easy float between, then 1 mi easy to finish. 4.5 mi total, inclusive. Treat 8:00-8:15 as the target and 8:30 as the bad-day floor for heat or heavy legs, not as the middle of an equally valid range: at 8:30 this session is indistinguishable from marathon pace, which you already get in the long run. Each 0.75 should land in 6:00-6:11. 8:00 is a firm floor. Drop to easy if the knee or tib speaks.",
-          "date": "Aug 12",
+          "date": "Aug 13",
           "segments": [
             {
               "order": 1,
@@ -491,16 +501,6 @@
             }
           ],
           "note": "Monitoring hip flexor - convert fast segments to easy if sharp pain occurs."
-        },
-        {
-          "dow": "Thu",
-          "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 4.5,
-          "pace": "9:00-10:00",
-          "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy aerobic.",
-          "date": "Aug 13"
         },
         {
           "dow": "Fri",
@@ -533,7 +533,7 @@
           "date": "Aug 16"
         }
       ],
-      "totalMiles": 27.5
+      "totalMiles": 27
     },
     {
       "week": 7,
