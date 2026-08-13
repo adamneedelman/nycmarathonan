@@ -20,7 +20,7 @@
     },
     "tibRules": [
       "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days. This block deliberately tests the top edge of that band: weeks 8 and 12 prescribe 7:45 in broken reps with easy floats. Everything else stays clear of it. Verified Jul 29 2026 at 8:00-8:15: fastest 400m 7:51, fastest half mile 7:56, fastest mile 8:18, max HR 162 against a threshold of 164. Week 8 (Aug 25) is the decision point for whether 7:45 is viable at all.",
-      "Tempo sessions run in weeks 4, 6, 8 and 12 only; no other week carries one. Week 4 (done) and week 6 run at 8:00-8:15 with 8:30 as a bad-day floor. Weeks 8 and 12 run at 7:45 and are conditional: week 12 happens at 7:45 only if week 8's 48-hour check was clean, otherwise it runs at 8:00-8:15. Rep length progresses 3 x 0.5 (wk 4) -> 3 x 0.75 (wk 6) -> 3 x 0.5 at 7:45 (wk 8) -> 3 x 0.75 at 7:45 (wk 12). Rep length drops when pace rises: one variable at a time. Mile reps at 7:45 are deliberately absent from this block. Pace creep is the primary risk; a rep split under 7:38 invalidates the session as a data point. Placement: Wednesday in weeks 4 and 6, Tuesday in weeks 8 and 12 so recovery falls directly after.",
+      "Tempo sessions run in weeks 4, 8 and 12 only; no other week carries one. Week 6's tempo was converted to an easy run on the day (Aug 13) and is not made up. Week 4 (done) ran at 8:00-8:15 with 8:30 as a bad-day floor. Weeks 8 and 12 run at 7:45 and are conditional: week 12 happens at 7:45 only if week 8's 48-hour check was clean, otherwise it runs at 8:00-8:15. Rep length progresses 3 x 0.5 (wk 4) -> 3 x 0.5 at 7:45 (wk 8) -> 3 x 0.75 at 7:45 (wk 12). Rep length drops when pace rises: one variable at a time. Mile reps at 7:45 are deliberately absent from this block. Pace creep is the primary risk; a rep split under 7:38 invalidates the session as a data point. Placement: Wednesday in week 4, Tuesday in weeks 8 and 12 so recovery falls directly after.",
       "Marathon pace 8:30 is the race-specific workhorse and sits 45-60 sec clear of the flare band, which makes added MP volume the cheapest way to add quality. It appears in long-run pace-up segments throughout and in one midweek session, week 13 Wednesday. Dedicated threshold work exists this cycle but only in weeks 8 and 12.",
       "Fast bursts (strides, <=90s reps) are safe but never sprint-fast. Strides run twice weekly throughout.",
       "Long-run pace-up segments are capped at MP (8:30), built gradually within an easy base, and dropped immediately if the knee or tib speaks.",
@@ -33,7 +33,7 @@
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw. Week 5 is a flat week at 23.0 rather than a down week; the absolute load does not warrant an unload there. Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch in the wk4 long run (Aug 1), repeated at the same 2 mi dose in wk5.",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 27 -> 37 mpw, dipping to 23.5 in the wk9 travel cutback. Volume sits in midweek rather than in longer long runs, which keeps the long run well under half the week. Tempo in wks 6 and 8, with wk8 the first 7:45 exposure. MP (8:30) segments grow inside the long run. LR 12.5 -> 18. Wk 6 carries the block's highest acute:chronic ratio, though the denominator is understated by the suppressed weeks 1-3.",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 27 -> 37 mpw, dipping to 23.5 in the wk9 travel cutback. Volume sits in midweek rather than in longer long runs, which keeps the long run well under half the week. Tempo in wk 8 only, which is also the first 7:45 exposure; week 6's tempo was converted to an easy run on the day. MP (8:30) segments grow inside the long run. LR 12.5 -> 18. Wk 6 carries the block's highest acute:chronic ratio, though the denominator is understated by the suppressed weeks 1-3.",
       "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 42 -> 46 mpw with a long-run unload at wk13 (38 mpw, LR 15). LR 20 / 15 / 22, the 22 on Oct 10. Tempo in wk12 only, on Tuesday; wk14 carries none. Wk13 holds the block's only midweek MP session, and its midweek volume keeps the step into wk14 at +21 percent.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
     }
@@ -467,40 +467,13 @@
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy + tempo",
+          "type": "Easy aerobic",
           "miles": 4.5,
-          "pace": "see focus",
-          "hr": "150-156",
-          "focus": "1 mi easy warm-up, then 2 x 0.75 mi @ 8:00-8:15 with a 1 mi easy float between, then 1 mi easy to finish. 4.5 mi total, inclusive. Treat 8:00-8:15 as the target and 8:30 as the bad-day floor for heat or heavy legs, not as the middle of an equally valid range: at 8:30 this session is indistinguishable from marathon pace, which you already get in the long run. Each 0.75 should land in 6:00-6:11. 8:00 is a firm floor. Drop to easy if the knee or tib speaks.",
+          "pace": "9:00-10:00",
+          "hr": "<=145; avg to 152 in heat",
+          "focus": "Easy aerobic, converted from the planned tempo. No reps and no pace-ups: run the whole 4.5 at full easy pace. Week 6 now carries no tempo, so the MP segment in Saturday's long run is the week's only quality.",
           "date": "Aug 13",
-          "segments": [
-            {
-              "order": 1,
-              "miles": 1,
-              "pace": "9:00-10:00"
-            },
-            {
-              "order": 2,
-              "miles": 0.75,
-              "pace": "8:00-8:15"
-            },
-            {
-              "order": 3,
-              "miles": 1,
-              "pace": "9:00-10:00"
-            },
-            {
-              "order": 4,
-              "miles": 0.75,
-              "pace": "8:00-8:15"
-            },
-            {
-              "order": 5,
-              "miles": 1,
-              "pace": "9:00-10:00"
-            }
-          ],
-          "note": "Monitoring hip flexor - convert fast segments to easy if sharp pain occurs."
+          "note": "Monitoring hip flexor - tempo converted to easy."
         },
         {
           "dow": "Fri",
