@@ -30,7 +30,7 @@
       "Instantaneous watch readings are not evidence, for pace or for HR. Watch pace reads fast during efforts and swings hard: the Jul 29 2026 session logged a 5:58 max speed that never happened, and a perceived 7:30 turned out to be 7:56 on the splits. HR behaves the same way; the Jul 25 2026 long run peaked at 168 while averaging 152.7 at a genuinely easy 9:34 pace. Judge both from run averages and lap splits after the fact, never from the number on the wrist mid-run. Momentary HR spikes cresting a hill carry no information.",
       "Heat and humidity drift HR upward at unchanged pace, and that drift is real cardiovascular strain rather than a measurement error, so the correct response is to slow down, not to work harder. Through week 11, long-run HR may average 150-157 on easy portions and up to 160 within MP segments, and easy weekday runs may average to 152. These are averages across the run, not spot ceilings. Abort gate: if a run's full average exceeds 158 at easy pace, conditions are winning; shorten it or slow it rather than pushing through.",
       "The 164 LT anchor comes from the Apr 2025 Jersey City Half (162 avg) and is about fifteen months old. The Jul 25 2026 easy long run peaked at 168, which means either the anchor has moved or the optical sensor spikes; both are plausible. Every HR zone in this plan inherits that uncertainty. Re-anchor off the Sep 19 sustainability check, which is already built to measure it, and do not widen any HR allowance on the strength of the current number before then.",
-      "Altitude changes what the numbers mean. Week 8 Thu-Sat sits at roughly 1,800-2,000m at Alpe di Siusi, which costs about 6 to 8 percent of aerobic capacity, so the same effort buys a pace 20 to 40 sec/mi slower and HR runs high at any given pace. Up there, run by HR and effort and disregard pace targets entirely; do not treat the slower number as lost fitness, and do not chase it back. This is the same logic as the heat rule: real physiological strain, met by slowing down rather than working harder. MP targets are meaningless at altitude and no MP is prescribed there. The first two to four days are the worst of it, which is exactly when the week 8 long run falls. Descending is the part that carries tendon risk: controlled, shorter stride, quicker cadence, no braking."
+      "Altitude changes what the numbers mean. Week 8 Thu-Sat sits at roughly 1,800-2,000m at Alpe di Siusi, which costs about 6 to 8 percent of aerobic capacity, so the same effort buys a pace 20 to 40 sec/mi slower and HR runs high at any given pace. Up there, run by HR and effort and disregard pace targets entirely; do not treat the slower number as lost fitness, and do not chase it back. This is the same logic as the heat rule: real physiological strain, met by slowing down rather than working harder. MP targets are meaningless at altitude and no MP is prescribed there. The first two to four days are the worst of it, which is exactly when the week 8 long run falls. Descending is the part that carries tendon risk: controlled, shorter stride, quicker cadence, no braking. Hiking at altitude is cross-training and is logged separately from mileage; it buys aerobic work and time on feet but not running-specific mechanical loading, so it supplements an easy run rather than replacing one, and lifts are taken downhill wherever offered because descent is the part that carries tendon cost."
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw. Week 5 is a flat week at 23.0 rather than a down week; the absolute load does not warrant an unload there. Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch in the wk4 long run (Aug 1), repeated at the same 2 mi dose in wk5.",
@@ -541,7 +541,7 @@
           "miles": 4.0,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Aug 19"
         },
         {
@@ -561,7 +561,7 @@
           "miles": 13.5,
           "pace": "9:20-10:00",
           "hr": "avg 150-157",
-          "focus": "Long run falls on Friday this week because of Sat-Sun travel to Italy. 13.5 mi easy, no MP segment. Trimmed from 14 as part of a block-wide volume reduction: week 6 landed at 22.5 after the Thursday knee skip, so the original 29.5 would have been a 31 percent jump off a week where something new spoke up. At 27.5 the step is 22 percent and the 4-week rolling ratio sits near 1.26 instead of 1.35. This is also the last long run on familiar ground before two weeks abroad, so execute it clean and fuel it properly. Weekend is travel and off.",
+          "focus": "Long run falls on Friday this week because of Sat-Sun travel to Italy. 13.5 mi easy, no MP segment. Trimmed from 14 as part of a block-wide volume reduction: week 6 landed at 22.5 after the Thursday knee skip, so the original 29.5 would have been a 31 percent jump off a week where something new spoke up. The trimmed week keeps the 4-week rolling ratio near 1.25 instead of 1.35. This is also the last long run on familiar ground before two weeks abroad, so execute it clean and fuel it properly. Weekend is travel and off.",
           "date": "Aug 21"
         },
         {
@@ -625,12 +625,13 @@
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy + strides",
-          "miles": 5.5,
-          "pace": "9:00-10:00 + 4 strides",
-          "hr": "<=145; avg to 152 in heat",
-          "focus": "First day at roughly 1,800-2,000m. Run entirely by HR and let the pace go; expect 10:00-10:45 and do not fight it. Altitude costs roughly 6 to 8 percent of aerobic capacity, so the same effort buys a slower number, and that is terrain and air rather than lost fitness. Strides are barely affected by altitude, so keep 4 x 20s relaxed at the end, flat ground, never sprint-fast. Do the morning check before you run; that is the verdict on Tuesday's session.",
-          "date": "Aug 27"
+          "type": "Easy + strides, then hike",
+          "miles": 3.5,
+          "pace": "by HR, expect 10:00-10:45 + 4 strides",
+          "hr": "<=145 by HR; disregard pace",
+          "focus": "MORNING RUN, 3.5 MI. First day at roughly 1,800-2,000m. Run entirely by HR and let the pace go; expect 10:00-10:45 and do not fight it. Altitude costs about 6 to 8 percent of aerobic capacity, so the same effort buys a slower number, and that is air rather than lost fitness. Route: the Hans and Paula Steger trail runs past Compatsch and is rolling meadow, which is what you want on an altitude day. Then 4 x 20s relaxed strides at the end, flat ground, never sprint-fast. Strides are barely affected by altitude and this is the week's only stride day, since Monday's were dropped for travel fatigue.\nDO THE MORNING CHECK BEFORE YOU RUN. Thursday morning is the 48-hour verdict on Tuesday's 7:45 session, and it governs the run, the hike, and Saturday. If it is off, the hike shrinks too, not just the run.\n\nAFTERNOON HIKE (cross-training, not counted in mileage). Cut from 5.5 to 3.5 running miles to pay for the time on feet. A hike is not a like-for-like swap for an easy run: running puts roughly 2.5 to 3x bodyweight through the leg each step with a flight phase, walking is nearer 1.25x with none, so the hike gives aerobic work and time on feet but not the running-specific mechanical loading. Keeping a short run preserves the pattern; three straight non-running days before a 13-mile hilly run at altitude is the version to avoid.\n\nHIKE: Bullaccia / Puflatsch loop, SHORT version. Signed PU (Puflatschumrundung / Giro del Bullaccia). From COMO Alpina at Compatsch it is a few minutes on the flat to the Bullaccia telemix valley station. Ride up to the top station at Bergrestaurant Puflatsch, about 1,950m, and start the loop there. Highlights are the Engelrast viewing platform, the Witches' Benches (Hexenbaenke / Panche delle Streghe), and Arnika Huette for a stop.\nAbout 3 mi with roughly 500 ft of gain from the top station, 1.5 to 2 hours. The full circuit is 5.4 mi and 3 to 3.5 hours; do NOT take the full version this week. Check lift opening before you go, the Alpe di Siusi lifts run seasonal hours.\n\nRIDE THE LIFT BACK DOWN. Not optional. The climb is nearly free for you; the descent is what costs, and walking down adds descent load 48 hours before the run whose entire stimulus is controlled descending. Cap the whole thing at 2 hours. Poles on anything steep. Kayanos are fine on this loop, no scree. Hydrate hard, altitude raises fluid loss.\n\nDO NOT DO THE BIG ONE TODAY. Panorama chairlift to Forcella Denti di Terrarossa and Rifugio Alpe di Tires is the better hike and the wrong day: 14km out and back, 5-6 hours, and the final approach to the 2,499m saddle is steep switchbacks on loose scree. Braking down scree is sustained eccentric loading on exactly the tissue this block protects. Do it Sunday Aug 30 instead, which is a rest and leg-strength day, with week 9 a cutback that can absorb it.\n\nIF THE HIKE RUNS LONG or the descent was rougher than planned, Saturday becomes 10-11 mi on the plateau with no sustained descent. Make that call Friday morning, not at mile 6 on Saturday.",
+          "date": "Aug 27",
+          "note": "Bullaccia/Puflatsch short loop as cross-training. Lift both directions. Cap 2 hours."
         },
         {
           "dow": "Fri",
@@ -663,7 +664,7 @@
           "date": "Aug 30"
         }
       ],
-      "totalMiles": 29.5
+      "totalMiles": 27.5
     },
     {
       "week": 9,
@@ -843,7 +844,7 @@
           "miles": 6.0,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 6.5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Sep 15"
         },
         {
@@ -961,7 +962,7 @@
           "miles": 20,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. The big race-specific long run of the block, in broken-block format: block length steps 2 to 3 at the established float structure from week 8, one variable moving. Next week unloads the long run to 15 so you arrive at the 22 recovered, so this is the one to execute well. Float mile runs 9:00-10:00; a fast float converts this into an 8-mile progression and invalidates the session. Drop the second MP block, or both, to easy if the knee or tib speaks.",
+          "focus": "11 mi easy, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. The big race-specific long run of the block, in broken-block format: block length steps 2 to 3 at the established float structure from week 8, one variable moving. Next week unloads the long run to 14.5 so you arrive at the 22 recovered, so this is the one to execute well. Float mile runs 9:00-10:00; a fast float converts this into an 8-mile progression and invalidates the session. Drop the second MP block, or both, to easy if the knee or tib speaks.",
           "date": "Sep 26"
         },
         {
@@ -999,7 +1000,7 @@
           "miles": 7.0,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 7.5 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Sep 29"
         },
         {
@@ -1019,7 +1020,7 @@
           "miles": 6.0,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Short and light, taper day into Friday's rest ahead of Saturday's 15.",
+          "focus": "Short and light, taper day into Friday's rest ahead of Saturday's 14.5.",
           "date": "Oct 1"
         },
         {
@@ -1077,7 +1078,7 @@
           "miles": 6.5,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the 7 miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Drop the strides if the tib is tender on the morning-after check.",
           "date": "Oct 6"
         },
         {
