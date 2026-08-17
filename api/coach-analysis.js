@@ -1,9 +1,10 @@
 import { Redis } from '@upstash/redis';
 import Anthropic from '@anthropic-ai/sdk';
-import { COACH_SYSTEM_PROMPT } from '../lib/coach-prompt.js';
+import { COACH_SYSTEM_PROMPT, buildPlanContext } from '../lib/coach-prompt.js';
 import { blurbCacheKey } from '../lib/coach-cache.js';
 import { getValidAccessToken } from '../lib/strava-tokens.js';
 import { ensureHillMetrics, formatTerrainLine } from '../lib/strava-streams.js';
+import { fetchPlan } from '../lib/plan-week.js';
 
 const redis = Redis.fromEnv();
 const MODEL = 'claude-sonnet-4-6';
@@ -126,6 +127,18 @@ async function fetchTerrain(activityId, activity) {
   }
 }
 
+// Live plan.meta (goals, zones, injury rules, block structure) gets appended
+// to the system prompt so it can't drift out of sync with plan-full.json. A
+// fetch failure here should cost the blurb that context, never the request.
+async function fetchPlanSafely() {
+  try {
+    return await fetchPlan();
+  } catch (err) {
+    console.error('coach-analysis: plan fetch failed:', err);
+    return null;
+  }
+}
+
 function buildUserMessage(activity, plannedWorkout, nextWorkout, weather, terrain) {
   const lines = [
     `Planned workout: ${plannedWorkout.type || 'n/a'} (${plannedWorkout.kind || 'n/a'}), ${plannedWorkout.miles ?? 'n/a'} mi, target pace ${plannedWorkout.pace || 'n/a'}, target HR ${plannedWorkout.hr || 'n/a'}. Week ${plannedWorkout.week ?? 'n/a'}, ${plannedWorkout.phase || 'n/a'} phase.`,
@@ -209,16 +222,21 @@ export default async function handler(req, res) {
 
   try {
     // Only pull a forecast when the next day is an actual run.
-    const [weather, terrain] = await Promise.all([
+    const [weather, terrain, plan] = await Promise.all([
       nextWorkout && nextWorkout.miles ? fetchNextDayWeather(nextWorkout.dateIso) : null,
       fetchTerrain(activityId, activity),
+      fetchPlanSafely(),
     ]);
+
+    const systemPrompt = plan?.meta
+      ? COACH_SYSTEM_PROMPT + '\n\n' + buildPlanContext(plan.meta)
+      : COACH_SYSTEM_PROMPT;
 
     const client = new Anthropic();
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 400,
-      system: COACH_SYSTEM_PROMPT,
+      system: systemPrompt,
       messages: [{ role: 'user', content: buildUserMessage(activity, plannedWorkout, nextWorkout, weather, terrain) }],
     });
 
