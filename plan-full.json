@@ -521,7 +521,7 @@
           "miles": 4.0,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Exception to the usual Monday rest. This day spreads the week's load rather than stacking it into two heavy midweek runs, since the long run falls on Friday. Genuinely easy, no strides; this day exists to distribute miles, not to add a stimulus. The week now runs Mon-Tue, rest Wednesday, then Thu-Fri, so it never exceeds two consecutive running days.",
+          "focus": "Easy aerobic, no strides.",
           "date": "Aug 17"
         },
         {
@@ -531,7 +531,7 @@
           "miles": 5.0,
           "pace": "see focus",
           "hr": "no HR gate; see focus",
-          "focus": "FIRST SHORT-INTERVAL SESSION OF THE BLOCK. 1.5 mi easy, then 0.25 mi @ 7:00-7:15, 0.25 mi easy jog, 0.25 mi @ 7:00-7:15, then 0.5 mi easy, then 0.25 mi @ 7:00-7:15, 0.25 mi easy jog, 0.25 mi @ 7:00-7:15, then 1.5 mi easy. 5.0 mi total, inclusive. Fast volume is 1.0 mi. No strides today; the reps cover turnover.\n\nPACE FLOOR 6:50, CEILING 7:20, judged on split averages. The band sits deliberately BELOW the 7:30-7:45 flare band rather than inside it. A 7:15-7:45 band was considered and rejected: it reads as the gentler option but its top half is the flare band, and it would preview the Aug 25 session seven days early and blur that session's read. If the intensity feels like too much, cut to three reps. Rep count is the dial, not pace.\n\nNO HR GATE, deliberately, and this is the only session in the plan without one. Reps of 1:45 to 1:49 never reach steady state and the watch is unreliable for intervals. Judge on split averages and the morning-after only.\n\nRep length is fixed at 0.25 for a first exposure; half-mile reps would move pace and duration in the same session.\n\nWEDNESDAY IS REST, which gives a clean 48-hour window on the same design week 8 uses. Check Wednesday and again Thursday morning before running. If Thursday's check is off, Friday's MP miles drop to easy and the 14 runs entirely easy.",
+          "focus": "1.5 mi easy, then 0.25 mi @ 7:00-7:15, 0.25 mi easy jog, 0.25 mi @ 7:00-7:15, then 0.5 mi easy, then 0.25 mi @ 7:00-7:15, 0.25 mi easy jog, 0.25 mi @ 7:00-7:15, then 1.5 mi easy. 5.0 mi total, no strides. Pace floor 6:50, ceiling 7:20, judged on split averages. No HR gate on the reps. Cut to three reps if it feels like too much; do not run them faster. Wednesday is rest; check Wednesday and again Thursday morning before running.",
           "date": "Aug 18"
         },
         {
@@ -541,7 +541,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest. Moved here from an easy 4.0 so Tuesday's intervals get a clean 48-hour tendon window, the same structure week 8 uses after the 7:45 session. The miles moved to Thursday and Friday rather than out of the week. Do not fill this day. Check today and again tomorrow morning before running; Thursday morning is the verdict.",
+          "focus": "Rest. Do not fill this day. Check today and again tomorrow morning before running; Thursday morning is the verdict on Tuesday's reps.",
           "date": "Aug 19"
         },
         {
@@ -551,7 +551,7 @@
           "miles": 3.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy aerobic, no strides. Moved from Wednesday and shortened from 4.0. This breaks the plan's usual full-rest-before-the-long-run pattern, so keep it genuinely easy and short, and run it early if Friday's long run is a morning run. DO THE MORNING CHECK BEFORE YOU RUN: this is the 48-hour verdict on Tuesday's intervals and it governs Friday's MP miles.",
+          "focus": "Easy aerobic, no strides. Run it early if Friday's long run is a morning run. DO THE MORNING CHECK BEFORE YOU RUN: it is the 48-hour verdict on Tuesday and it governs Friday's MP miles.",
           "date": "Aug 20"
         },
         {
@@ -561,7 +561,7 @@
           "miles": 14.0,
           "pace": "see focus",
           "hr": "avg 150-157 easy; to 160 in MP",
-          "focus": "14 mi. 8 mi easy (9:20-10:00), then a 3 mi descending ramp at 9:00 / 8:45 / 8:30, then 2 mi @ 8:30 (MP), then 1 mi easy. Raised from 13.5 easy and given its first MP dose.\n\nWHY THE MP IS HERE: without it there would be a four-week gap with no marathon-pace running, Aug 15 to Sep 12, because week 8's long run carries none at altitude. The Sep 19 check asks for 6 continuous MP miles and should not be opened cold. 8:30 sits 45-60 sec clear of the flare band, so this is cheap quality.\n\nRAMP FLOOR 8:20, hard stop 8:15 on any split, judged on split averages after the fact. The ramp is shaping, not added dose: it converts easy miles that already sat in front of the MP block, so the MP dose stays at 2.\n\nCONDITIONAL ON THURSDAY MORNING'S CHECK off Tuesday's intervals. If it is off, drop the ramp and the MP block and run all 14 easy. Last long run on familiar ground before two weeks abroad, so execute it clean and fuel every 30-40 min. Weekend is travel and off.",
+          "focus": "14 mi. 8 mi easy (9:20-10:00), then a 3 mi descending ramp at 9:00 / 8:45 / 8:30, then 2 mi @ 8:30 (MP), then 1 mi easy. Ramp floor 8:20, hard stop 8:15 on any split, judged on split averages. Conditional on Thursday morning's check: if it is off, drop the ramp and the MP block and run all 14 easy. Fuel every 30-40 min.",
           "date": "Aug 21"
         },
         {
@@ -581,7 +581,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Travel day. Rest - no leg strength this week given the moved long run and travel.",
+          "focus": "Travel day. Rest, no leg strength.",
           "date": "Aug 23"
         }
       ],
@@ -599,7 +599,7 @@
           "miles": 5.0,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Exception to the usual Monday rest: first run back after the flight to Venice. No strides today, deliberately. This is day two off a transatlantic flight and the day before the most consequential session in the block; strides add nothing here and arriving fresh tomorrow is the whole point. Fully easy, and Wednesday is rest to compensate.",
+          "focus": "Easy aerobic, no strides. First run back after the flight to Venice. Fully easy.",
           "date": "Aug 24"
         },
         {
@@ -609,7 +609,7 @@
           "miles": 6.0,
           "pace": "see focus",
           "hr": "reps avg 158-165; hard gate 164",
-          "focus": "FIRST 7:45 EXPOSURE. About 1.5 mi easy warm-up including the full tib protocol, then 3 x 0.5 mi @ 7:45 with 0.5 mi easy floats between, then easy to finish. 6 mi total, inclusive. Fast volume is 1.5 mi.\n\nThis is the first session in the 7:30-7:45 band, so rep length drops back to half miles to buy the pace increase: one variable at a time, and you do not get to progress pace and rep length in the same session.\n\nRationale: 8:00-8:15 sits only 15-30 sec/mi off MP and is not a distinct physiological stimulus. Half pace from Apr 2025 was 7:28, which puts true LT near 7:45, so this is a genuine threshold session rather than brisk marathon pace.\n\nTHREE GATES, all judged on split averages, never on the watch mid-run:\n1. HR: expect reps averaging 158-165. If any single rep AVERAGES above 164, that was above threshold, not at it. End the session there.\n2. Pace: if any rep split comes back under 7:38, that was a 7:30-band session and does not count as a clean data point regardless of how the tib felt.\n3. Morning-after: the informative read for tendon work is 48 hours, not 24. Wednesday is rest specifically to give a clean window; Thursday morning is the verdict.\n\nSTOP CONDITION: one bad morning-after and the tempo ceiling drops to 8:00-8:15 for the rest of the block. Not 'back off a bit.' The question is closed until the Sep 19 re-anchor, and week 12's session runs at 8:00-8:15.\n\nLOCATION AND CONDITIONS: this runs at sea level in Venice, which is why it stays on. Run it on the Lido, via the vaporetto from San Zaccaria; the Lungomare or the Murazzi seawall gives flat uninterrupted ground long enough that you never turn around mid-rep. Not in Venice proper: every canal crossing is a stepped bridge and you cannot hold 800m at pace. Zattere is closer but too short, and turning inside every rep makes the splits meaningless.\nHEAT: late-August Venice will likely put the dew point near 70, which drifts HR 5 to 8 beats up at unchanged pace. The 164 gate does not loosen for that. Accept that this session may end at two reps instead of three; two reps still answer the question you are actually asking, which is how the tendon responds to 7:45. In these conditions only the pace gate and the morning-after gate are fully trustworthy. Run at dawn.",
+          "focus": "First 7:45 exposure. About 1.5 mi easy warm-up including the full tib protocol, then 3 x 0.5 mi @ 7:45 with 0.5 mi easy floats between, then easy to finish. 6 mi total.\n\nGates, all judged on split averages, never on the watch mid-run: reps should average HR 158-165, and any rep averaging above 164 ends the session; any rep split under 7:38 voids the session as a data point; the morning-after read is Thursday, not Wednesday. If that 48-hour check is bad, the tempo ceiling drops to 8:00-8:15 for the rest of the block.\n\nRun at dawn on the Lido, via the vaporetto from San Zaccaria; the Lungomare or the Murazzi seawall gives flat uninterrupted ground so you never turn mid-rep. Not Venice proper, where every canal crossing is a stepped bridge. Heat may end this at two reps, which is fine; the 164 gate does not loosen for humidity.",
           "date": "Aug 25"
         },
         {
@@ -619,7 +619,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest, and it lands on the travel day up to Alpe di Siusi, so the 48-hour window after the first 7:45 session is a genuine no-running day by circumstance rather than by discipline. That makes it the cleanest version of this check you will get. Do not fill it. Check today and again tomorrow morning, before running: Thursday morning is the verdict.",
+          "focus": "Rest. Do not fill it. Check today and again tomorrow morning, before running; Thursday morning is the verdict.",
           "date": "Aug 26"
         },
         {
@@ -629,7 +629,7 @@
           "miles": 3.5,
           "pace": "by HR, expect 10:00-10:45 + 4 strides",
           "hr": "<=145 by HR; disregard pace",
-          "focus": "MORNING RUN, 3.5 MI. First day at roughly 1,800-2,000m. Run entirely by HR and let the pace go; expect 10:00-10:45 and do not fight it. Altitude costs about 6 to 8 percent of aerobic capacity, so the same effort buys a slower number, and that is air rather than lost fitness. Route: the Hans and Paula Steger trail runs past Compatsch and is rolling meadow, which is what you want on an altitude day. Then 4 x 20s relaxed strides at the end, flat ground, never sprint-fast. Strides are barely affected by altitude and this is the week's only stride day, since Monday's were dropped for travel fatigue.\nDO THE MORNING CHECK BEFORE YOU RUN. Thursday morning is the 48-hour verdict on Tuesday's 7:45 session, and it governs the run, the hike, and Saturday. If it is off, the hike shrinks too, not just the run.\n\nAFTERNOON HIKE (cross-training, not counted in mileage). Cut from 5.5 to 3.5 running miles to pay for the time on feet. A hike is not a like-for-like swap for an easy run: running puts roughly 2.5 to 3x bodyweight through the leg each step with a flight phase, walking is nearer 1.25x with none, so the hike gives aerobic work and time on feet but not the running-specific mechanical loading. Keeping a short run preserves the pattern; three straight non-running days before a 13-mile hilly run at altitude is the version to avoid.\n\nHIKE: Bullaccia / Puflatsch loop, SHORT version. Signed PU (Puflatschumrundung / Giro del Bullaccia). From COMO Alpina at Compatsch it is a few minutes on the flat to the Bullaccia telemix valley station. Ride up to the top station at Bergrestaurant Puflatsch, about 1,950m, and start the loop there. Highlights are the Engelrast viewing platform, the Witches' Benches (Hexenbaenke / Panche delle Streghe), and Arnika Huette for a stop.\nAbout 3 mi with roughly 500 ft of gain from the top station, 1.5 to 2 hours. The full circuit is 5.4 mi and 3 to 3.5 hours; do NOT take the full version this week. Check lift opening before you go, the Alpe di Siusi lifts run seasonal hours.\n\nRIDE THE LIFT BACK DOWN. Not optional. The climb is nearly free for you; the descent is what costs, and walking down adds descent load 48 hours before the run whose entire stimulus is controlled descending. Cap the whole thing at 2 hours. Poles on anything steep. Kayanos are fine on this loop, no scree. Hydrate hard, altitude raises fluid loss.\n\nDO NOT DO THE BIG ONE TODAY. Panorama chairlift to Forcella Denti di Terrarossa and Rifugio Alpe di Tires is the better hike and the wrong day: 14km out and back, 5-6 hours, and the final approach to the 2,499m saddle is steep switchbacks on loose scree. Braking down scree is sustained eccentric loading on exactly the tissue this block protects. Do it Sunday Aug 30 instead, which is a rest and leg-strength day, with week 9 a cutback that can absorb it.\n\nIF THE HIKE RUNS LONG or the descent was rougher than planned, Saturday becomes 10-11 mi on the plateau with no sustained descent. Make that call Friday morning, not at mile 6 on Saturday.",
+          "focus": "Morning run, 3.5 mi at roughly 1,800-2,000m. Run by HR and let pace go; expect 10:00-10:45. Route: the Hans and Paula Steger trail past Compatsch, rolling meadow. Then 4 x 20s relaxed strides at the end, flat ground.\n\nDo the morning check before you run. It is the 48-hour verdict on Tuesday and it governs the run, the hike and Saturday; if it is off, the hike shrinks too.\n\nAfternoon hike, cross-training, not counted in mileage: Bullaccia / Puflatsch short loop, signed PU. Telemix from Compatsch up to Bergrestaurant Puflatsch at about 1,950m and loop from there. About 3 mi, roughly 500 ft gain, 1.5 to 2 hours. Engelrast platform, the Witches' Benches, Arnika Huette. Check lift hours before you go.\n\nRide the lift back down, not optional. Cap the whole thing at 2 hours; poles on anything steep. Not the Tires hike today, that is Sunday Aug 30. If the hike runs long, decide Friday morning to make Saturday 10-11 mi on the plateau with no sustained descent.",
           "date": "Aug 27",
           "note": "Bullaccia/Puflatsch short loop as cross-training. Lift both directions. Cap 2 hours."
         },
@@ -650,7 +650,7 @@
           "miles": 13.0,
           "pace": "see focus",
           "hr": "by effort; see focus",
-          "focus": "13 mi at Alpe di Siusi, roughly 1,800-2,000m, hilly. NO MP SEGMENT, and that is deliberate rather than a concession. At this altitude 8:30 is not 8:30 of effort, so an MP block up here would measure nothing while costing real load. A 13-mile hilly run at 1,900m is a harder session than the 15-mile flat one it replaces, which is why the distance comes down and the week still steps up. Run the whole thing by effort. Expect 10:00-11:00 and treat any faster number as a warning rather than a win.\nTHE ACTUAL STIMULUS IS THE DESCENDING. This is the block's first sustained downhill exposure, which was flagged for week 8 anyway, and Verrazzano and the Queensboro are the reason it matters. Controlled descents: shorter stride, quicker cadence, no braking, no free speed.\nCONDITIONAL ON THURSDAY MORNING'S CHECK. If it is off: stay on the Compatsch plateau, which is rolling meadow at moderate grades, skip any sustained descent toward Siusi or Castelrotto, and cut to 10-11 mi. Downhill is the thing that would compound a flare, and it is also the part you would otherwise want most. Fuel every 30-40 min; altitude raises fluid loss more than you expect.",
+          "focus": "13 mi at Alpe di Siusi, roughly 1,800-2,000m, hilly. No MP segment. Run by effort; expect 10:00-11:00 and treat a faster number as a warning. Descend controlled: shorter stride, quicker cadence, no braking. Conditional on Thursday morning's check: if it is off, stay on the Compatsch plateau, skip any sustained descent toward Siusi or Castelrotto, and cut to 10-11 mi. Fuel every 30-40 min; altitude raises fluid loss.",
           "date": "Aug 29"
         },
         {
@@ -678,7 +678,7 @@
           "miles": 4.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "The lightest day of the week by design. Short, easy, fully relaxed.",
+          "focus": "Short, easy, fully relaxed.",
           "date": "Aug 31"
         },
         {
@@ -688,7 +688,7 @@
           "miles": 7.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "The week's longest run, moved here from Saturday. A down week does not need its longest run to fall on the weekend, and 7.5 on a Tuesday is easier to protect than 7.5 the day before travel. Still a cutback week, so keep the effort genuinely relaxed even though the distance is up. If you are still at altitude, run by HR and ignore the pace entirely.",
+          "focus": "The week's longest run, moved here from Saturday. Keep the effort genuinely relaxed. If you are still at altitude, run by HR and ignore pace.",
           "date": "Sep 1"
         },
         {
@@ -708,7 +708,7 @@
           "miles": 5,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Easy aerobic, still a cutback week so keep the effort genuinely relaxed even though the distance is up. No pressure on pace.",
+          "focus": "Easy aerobic, genuinely relaxed. No pressure on pace.",
           "date": "Sep 3"
         },
         {
@@ -718,7 +718,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Full rest. This whole week is a forced cutback from travel - treat it as a genuine recovery/down week. Well-timed at the block midpoint.",
+          "focus": "Full rest.",
           "date": "Sep 4"
         },
         {
@@ -728,7 +728,7 @@
           "miles": 7.5,
           "pace": "9:20-10:00",
           "hr": "avg 150-157",
-          "focus": "7.5 mi easy-steady, no MP. Shortened by a mile with that mile moved to Tuesday. You are banking recovery this week, not fitness. Finish feeling fresh, with travel home right behind it.",
+          "focus": "7.5 mi easy-steady, no MP. Finish feeling fresh; travel home is right behind it.",
           "date": "Sep 5"
         },
         {
@@ -738,7 +738,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "No run today (travel). Rest - no leg strength this week; the cutback is doing the work.",
+          "focus": "No run today (travel). Rest, no leg strength.",
           "date": "Sep 6"
         }
       ],
@@ -756,7 +756,7 @@
           "miles": 3.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Exception to the usual Monday rest: an easy 3.5-mi shakeout. Legs are fresh off the cutback, just loosening up. Tuesday is rest to compensate.",
+          "focus": "Easy 3.5 mi shakeout, just loosening up.",
           "date": "Sep 7"
         },
         {
@@ -766,7 +766,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest today to compensate for the Monday shakeout. Tib check.",
+          "focus": "Rest. Tib check.",
           "date": "Sep 8"
         },
         {
@@ -776,7 +776,7 @@
           "miles": 6.5,
           "pace": "9:00-10:00 + 6 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with strides. Back into the swing after the down week. If the tib is not clean off week 9, hold this at 6.0 rather than 6.5.",
+          "focus": "Easy with 6 x 20s relaxed strides at the end. If the tib is not clean off week 9, hold this at 6.0.",
           "date": "Sep 9"
         },
         {
@@ -806,7 +806,7 @@
           "miles": 15.5,
           "pace": "see focus",
           "hr": "avg 150-157 easy; to 160 in MP",
-          "focus": "9.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 2 mi @ 8:30 (MP), then 2 mi easy. The ramp converts easy miles that sat in front of the MP block; the MP dose stays at 2 and the distance stays at 15.5. Trimmed from 17 earlier in the block and the MP dose from 3 miles to 2. This is the historical danger window, the post-travel re-ramp, and the re-entry jump off week 9 sits near 26 percent. No midweek MP this week, deliberately; the week does not need a second stressor.\nRamp floor 8:20, hard stop 8:15 on any split. Drop the ramp first and the MP block second if anything speaks. If you drop the MP miles here, open Sep 19 at 4 MP miles and extend to 6 by feel rather than starting cold at 6.",
+          "focus": "9.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 2 mi @ 8:30 (MP), then 2 mi easy. Ramp floor 8:20, hard stop 8:15 on any split. Drop the ramp first and the MP block second if anything speaks. If you drop the MP miles here, open Sep 19 at 4 MP miles and extend by feel rather than starting cold at 6.",
           "date": "Sep 12"
         },
         {
@@ -854,7 +854,7 @@
           "miles": 7.5,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "This week's longest midweek run, with strides. Placed Wednesday to maximize freshness heading into Saturday's sustainability check.",
+          "focus": "This week's longest midweek run, with 4 x 20s relaxed strides at the end.",
           "date": "Sep 16"
         },
         {
@@ -884,7 +884,7 @@
           "miles": 18,
           "pace": "see focus",
           "hr": "148-153",
-          "focus": "4 mi easy, then 6 mi @ 8:30 (MP) continuous, then 8 mi easy. No midweek MP this week by design, so this run is the week's only race-pace exposure and gives a clean read. If 8:30 settles in comfortably with HR around 150, that validates the goal pace. This is also the LT re-anchor point for the whole plan: the 164 figure is 15 months old and every HR zone in this file inherits that uncertainty. Drop the MP block to easy if the knee or tib speaks.",
+          "focus": "4 mi easy, then 6 mi @ 8:30 (MP) continuous, then 8 mi easy. No ramp today. HR 148-153 through the MP miles. Drop the MP block to easy if the knee or tib speaks.",
           "date": "Sep 19"
         },
         {
@@ -894,7 +894,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Light leg strength or rest depending on how the tib feels after Saturday's validation run. Prioritize recovery.",
+          "focus": "Light leg strength or rest, depending on how the tib feels. Prioritize recovery.",
           "date": "Sep 20"
         }
       ],
@@ -922,7 +922,7 @@
           "miles": 7.5,
           "pace": "see focus",
           "hr": "reps avg 158-165; hard gate 164",
-          "focus": "Tempo sits on Tuesday because at 7:45 it cannot sit three days ahead of a 20-miler with 5 MP miles. About 1.75 mi easy warm-up including the full tib protocol, then 3 x 0.75 mi @ 7:45 with 0.5 mi easy floats, then easy to finish. 7.5 mi total, inclusive. Fast volume is 2.25 mi.\n\nCONDITIONAL: run this only if week 8's 7:45 session returned a clean 48-hour check. If it did not, this session is 3 x 0.75 mi @ 8:00-8:15 instead and the 7:45 experiment is over for the block.\n\nRep length steps from 0.5 to 0.75 at the established pace. Mile reps at 7:45 are deliberately not in this plan: the gain over 0.75 at the same pace is small, and what it adds is continuous time under tension at flare-band force, which is exactly what the broken-rep format exists to limit.\n\nSame three gates as week 8: reps averaging 158-165 with a hard stop if any rep averages above 164; no rep split under 7:38; morning-after governs. Note that Wednesday is an easy run this week rather than rest, so the tendon read is softer here than in week 8. Wednesday morning's check, before running, is the one that counts.",
+          "focus": "About 1.75 mi easy warm-up including the full tib protocol, then 3 x 0.75 mi @ 7:45 with 0.5 mi easy floats, then easy to finish. 7.5 mi total. Run this at 7:45 only if week 8's 48-hour check was clean; otherwise 3 x 0.75 mi @ 8:00-8:15. Same gates as week 8: reps averaging HR 158-165 with a hard stop if any rep averages above 164, and no rep split under 7:38. Wednesday is an easy run this week, so Wednesday morning's check, before running, is the one that counts.",
           "date": "Sep 22"
         },
         {
@@ -932,7 +932,7 @@
           "miles": 6.5,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Easy aerobic, the day after the tempo. Genuinely easy, no strides, no pace-ups. Do the morning tib check before you run; that check is the week's tendon verdict and running first contaminates it.",
+          "focus": "Easy aerobic, no strides, no pace-ups. Do the morning tib check before you run; running first contaminates it.",
           "date": "Sep 23"
         },
         {
@@ -962,7 +962,7 @@
           "miles": 20,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "9 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. The ramp converts easy miles that sat in front of the first MP block; the dose, the broken-block structure and the distance are all unchanged. The big race-specific long run of the block: block length steps 2 to 3 at the established float structure from week 8, one variable moving. Next week unloads the long run to 14.5 so you arrive at the 22 recovered, so this is the one to execute well. Ramp floor 8:20, hard stop 8:15. Float mile runs 9:00-10:00; a fast float converts this into a progression run and invalidates the session. Drop the ramp first, then the second MP block, then both, if the knee or tib speaks.",
+          "focus": "9 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. Ramp floor 8:20, hard stop 8:15. The float mile runs 9:00-10:00; a faster float invalidates the session. Drop the ramp first, then the second MP block, then both, if the knee or tib speaks.",
           "date": "Sep 26"
         },
         {
@@ -1010,7 +1010,7 @@
           "miles": 8.5,
           "pace": "see focus",
           "hr": "<=150 easy; to 157 in MP",
-          "focus": "About 2.25 mi easy, then 4 mi @ 8:30 (MP) continuous, then 2.25 mi easy. 8.5 mi total, inclusive. This is the block's only midweek MP session, and the only non-tempo week that could take one: weeks 5, 7, 9, 10 and 11 each rule themselves out on travel, danger-window or measurement grounds. Grown from 3 MP miles to 4 by trimming the warm-up and cool-down half a mile each. Stays CONTINUOUS deliberately, unlike the week 8 and 12 long runs: on fresh midweek legs the useful stimulus is sustained rhythm at race pace, and the broken format exists to manage fatigue that is not present here. MP at 8:30 sits 45-60 sec clear of the flare band, so the tendon cost is low; this is cumulative race-pace volume, which is the variable most worth adding. Comfortable and controlled, not a workout. Drop the MP segment to easy if the knee or tib speaks.",
+          "focus": "About 2.25 mi easy, then 4 mi @ 8:30 (MP) continuous, then 2.25 mi easy. 8.5 mi total. Continuous, not broken. Comfortable and controlled, not a workout. Drop the MP segment to easy if the knee or tib speaks.",
           "date": "Sep 30"
         },
         {
@@ -1040,7 +1040,7 @@
           "miles": 14.5,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "7.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 2 mi easy. A long-run unload, not a full down week: volume comes off the long run (20 to 14.5) while midweek holds, so you reach next week's 22 recovered without losing race-pace continuity. The ramp converts easy miles in front of the MP block; the dose stays at 3. Ramp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything speaks.",
+          "focus": "7.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 2 mi easy. Ramp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything speaks.",
           "date": "Oct 3"
         },
         {
@@ -1088,7 +1088,7 @@
           "miles": 9.0,
           "pace": "9:00-10:00 + 5 strides",
           "hr": "<=145",
-          "focus": "Easy with 5 x 20s relaxed strides at the end. No quality this week beyond the long run: three days before the 22-miler, in the block's highest-volume week and at its highest acute:chronic load, a tempo would not earn its keep. Fully easy throughout.",
+          "focus": "Easy with 5 x 20s relaxed strides at the end. Fully easy, no quality.",
           "date": "Oct 7"
         },
         {
@@ -1118,7 +1118,7 @@
           "miles": 22,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "The peak long run, mostly easy. 13 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 5 mi @ 8:30 (MP), then 2 mi easy. The ramp converts easy miles in front of the MP block; the 5 MP miles and the 22 total are unchanged. Holding MP late is the race skill you need. Ramp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything is off; finishing 22 easy is still the win. Full race fueling rehearsal.",
+          "focus": "13 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 5 mi @ 8:30 (MP), then 2 mi easy. Ramp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything is off; finishing 22 easy is still the win. Full race fueling rehearsal.",
           "date": "Oct 10"
         },
         {
@@ -1156,7 +1156,7 @@
           "miles": 6,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Easy. No dedicated quality session - MP work now lives in the long run only.",
+          "focus": "Easy.",
           "date": "Oct 13"
         },
         {
@@ -1166,7 +1166,7 @@
           "miles": 5,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Easy. Legs should start feeling fresher as taper takes hold.",
+          "focus": "Easy.",
           "date": "Oct 14"
         },
         {
@@ -1176,7 +1176,7 @@
           "miles": 5,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with strides to keep turnover crisp.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end.",
           "date": "Oct 15"
         },
         {
@@ -1196,7 +1196,7 @@
           "miles": 14,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "Reduced long run; taper means less volume. 9.5 mi easy, then 1.5 mi descending from 8:55 to 8:40, then 2 mi @ 8:30 (MP), then 1 mi easy. HR under 150 on the easy portion. Ramp floor 8:20, hard stop 8:15. Drop the ramp and the MP segment if anything feels off.",
+          "focus": "9.5 mi easy, then 1.5 mi descending from 8:55 to 8:40, then 2 mi @ 8:30 (MP), then 1 mi easy. HR under 150 on the easy portion. Ramp floor 8:20, hard stop 8:15. Drop the ramp and the MP segment if anything feels off.",
           "date": "Oct 17"
         },
         {
@@ -1234,7 +1234,7 @@
           "miles": 5,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with strides. Stay loose, resist adding work - the fitness is banked.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end.",
           "date": "Oct 20"
         },
         {
@@ -1244,7 +1244,7 @@
           "miles": 4,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Easy. No dedicated quality session - MP work now lives in the long run only.",
+          "focus": "Easy.",
           "date": "Oct 21"
         },
         {
@@ -1274,7 +1274,7 @@
           "miles": 11,
           "pace": "see focus",
           "hr": "<=153",
-          "focus": "Last moderately-long run. 9 mi easy, then 2 mi @ 8:30 (MP). Keep it comfortable - the work is done, this is just maintaining rhythm.",
+          "focus": "9 mi easy, then 2 mi @ 8:30 (MP). Keep it comfortable.",
           "date": "Oct 24"
         },
         {
@@ -1284,7 +1284,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Light leg strength only. Prioritize freshness for race week.",
+          "focus": "Light leg strength only.",
           "date": "Oct 25"
         }
       ],
@@ -1312,7 +1312,7 @@
           "miles": 4,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145",
-          "focus": "Easy with a few strides. Legs should feel springy and rested now.",
+          "focus": "Easy with 4 x 20s relaxed strides at the end.",
           "date": "Oct 27"
         },
         {
@@ -1322,7 +1322,7 @@
           "miles": 3,
           "pace": "9:00-10:00",
           "hr": "<=145",
-          "focus": "Short easy. Nothing hard this week - just keep the blood moving.",
+          "focus": "Short easy.",
           "date": "Oct 28"
         },
         {
@@ -1332,7 +1332,7 @@
           "miles": 3,
           "pace": "2-3 x 90s @ 8:30",
           "hr": "<=150",
-          "focus": "Very short. Warm up easy, then 2-3 x 90s at MP (8:30) just to feel goal pace. Stop feeling fresh, not tired. Last real pace touch before the race.",
+          "focus": "Very short. Warm up easy, then 2-3 x 90s @ 8:30 (MP). Stop feeling fresh, not tired.",
           "date": "Oct 29"
         },
         {
@@ -1352,7 +1352,7 @@
           "miles": 2,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Optional tiny 2-mi shakeout to calm nerves, or full rest if you prefer. Lay out your kit, plan your fueling, hydrate. Early night.",
+          "focus": "Optional 2 mi shakeout, or full rest. Lay out kit, plan fueling, hydrate. Early night.",
           "date": "Oct 31"
         },
         {
@@ -1362,7 +1362,7 @@
           "miles": 26.2,
           "pace": "target 8:30 (3:43)",
           "hr": "148-153",
-          "focus": "RACE DAY. Goal 3:43 at 8:30/mi, HR 148-153. Start controlled - bank nothing, let the first 10K feel almost easy. Settle into 8:30, fuel every 30-40 min. The knee and tib have been managed all block; race pace is safely outside your flare zone, so run your race. Adjust to what the day gives: sub-3:50 B-goal, and you beat 3:59 comfortably. Trust the block.",
+          "focus": "Race day. Goal 3:43 at 8:30/mi, HR 148-153. Start controlled, bank nothing, let the first 10K feel almost easy. Settle into 8:30 and fuel every 30-40 min. Adjust to what the day gives.",
           "date": "Nov 1"
         }
       ],

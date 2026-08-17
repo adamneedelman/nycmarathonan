@@ -3,7 +3,7 @@ import Anthropic from '@anthropic-ai/sdk';
 import { getValidAccessToken } from '../../lib/strava-tokens.js';
 import { fetchPlan, getWeekByNumber, isWeekReviewAvailableEastern } from '../../lib/plan-week.js';
 import { fetchActivitiesInRange, round1, formatPace } from '../../lib/strava-activities.js';
-import { COACH_SYSTEM_PROMPT, WEEKLY_REVIEW_PROMPT_ADDENDUM } from '../../lib/coach-prompt.js';
+import { COACH_SYSTEM_PROMPT, WEEKLY_REVIEW_PROMPT_ADDENDUM, buildPlanContext } from '../../lib/coach-prompt.js';
 import { NOTES_KEY, weeklyReviewKey as reviewKey, weeklyActualsKey as actualsKey, noteLookups } from '../../lib/coach-cache.js';
 import { ensureHillMetrics, readHillIndex, hillHistoryLines } from '../../lib/strava-streams.js';
 
@@ -92,12 +92,13 @@ function formatDayLine(day, activity, note) {
   const planned = day.miles
     ? `${day.miles}mi planned @ ${day.pace || 'n/a'}, target HR ${day.hr || 'n/a'}`
     : 'Rest planned';
+  const focusBit = day.focus ? ` Workout notes: ${day.focus}` : '';
   // Two different things: the plan note was written onto the day in advance,
   // the runner's note was written after the run.
   const planBit = day.note ? ` Plan note for this day: ${day.note}` : '';
   const noteBit = (planBit) + (note ? ` Runner's note on this day: ${note}` : '');
   if (!activity) {
-    return `${day.dow} ${day.date}: ${planned}. Actual: none logged.${noteBit}`;
+    return `${day.dow} ${day.date}: ${planned}.${focusBit} Actual: none logged.${noteBit}`;
   }
   const hrBits = [];
   if (activity.average_heartrate) hrBits.push(`avg HR ${activity.average_heartrate}`);
@@ -105,7 +106,7 @@ function formatDayLine(day, activity, note) {
   const elev = activity.elevation_gain_ft
     ? `, ${activity.elevation_gain_ft}ft gain${activity.elev_per_mile != null ? ` (${activity.elev_per_mile}ft/mi)` : ''}`
     : '';
-  return `${day.dow} ${day.date}: ${planned}. Actual: ${activity.distance}mi @ ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}${elev}.${noteBit}`;
+  return `${day.dow} ${day.date}: ${planned}.${focusBit} Actual: ${activity.distance}mi @ ${activity.avg_pace || 'n/a'}/mi${hrBits.length ? `, ${hrBits.join(', ')}` : ''}${elev}.${noteBit}`;
 }
 
 function formatFullDayLine(day) {
@@ -116,7 +117,7 @@ function formatFullDayLine(day) {
 
 function weekOneLiner(week) {
   const longRun = week.days.find((d) => d.kind === 'long');
-  const label = week.label ? ` — ${week.label}` : '';
+  const label = week.label ? ` - ${week.label}` : '';
   const longBit = longRun ? `, long run ${longRun.miles}mi` : '';
   return `Week ${week.week} (${week.phase}): ${week.totalMiles}mi planned${longBit}${label}.`;
 }
@@ -155,7 +156,7 @@ async function fillTerrain(accessToken, activities, index, budget) {
 
 function buildUserMessage({ wk, dayLines, seasonTable, remainingOneLiners, nextWeekLines, isRaceWeek, hillLines }) {
   const parts = [
-    `This Week: Week ${wk.weekNumber} (${wk.phase})${wk.label ? ` — ${wk.label}` : ''}, ${wk.totalMiles}mi planned.`,
+    `This Week: Week ${wk.weekNumber} (${wk.phase})${wk.label ? ` - ${wk.label}` : ''}, ${wk.totalMiles}mi planned.`,
     dayLines.join('\n'),
     '',
     'Season-to-date, planned vs. actual mileage by week (computed - trust these numbers exactly):',
@@ -311,7 +312,7 @@ export default async function handler(req, res) {
     const response = await client.messages.create({
       model: MODEL,
       max_tokens: 2000,
-      system: COACH_SYSTEM_PROMPT + '\n\n' + WEEKLY_REVIEW_PROMPT_ADDENDUM,
+      system: COACH_SYSTEM_PROMPT + '\n\n' + WEEKLY_REVIEW_PROMPT_ADDENDUM + '\n\n' + buildPlanContext(plan.meta),
       messages: [{ role: 'user', content: userMessage }],
     });
     const textBlock = response.content.find((b) => b.type === 'text');
