@@ -536,22 +536,22 @@
         },
         {
           "dow": "Wed",
-          "kind": "rest",
-          "type": "Rest",
-          "miles": 0,
-          "pace": "",
-          "hr": "",
-          "focus": "Rest. Do not fill this day. Check today and again tomorrow morning before running; Thursday morning is the verdict on Tuesday's reps.",
-          "date": "Aug 19"
-        },
-        {
-          "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
           "miles": 3.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy aerobic, no strides. Run it early if Friday's long run is a morning run. DO THE MORNING CHECK BEFORE YOU RUN: it is the 48-hour verdict on Tuesday and it governs Friday's MP miles.",
+          "focus": "Easy aerobic, no strides. Moved up from Thursday. Check this morning before running; this is only one day off Tuesday's reps, so ease off if anything feels off rather than pushing pace.",
+          "date": "Aug 19"
+        },
+        {
+          "dow": "Thu",
+          "kind": "rest",
+          "type": "Rest",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Rest, moved from Wednesday. Do not fill this day. Check this morning before deciding on Friday's long run; this is the 48-hour verdict on Tuesday's reps and it governs Friday's MP miles.",
           "date": "Aug 20"
         },
         {
