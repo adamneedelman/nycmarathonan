@@ -15,16 +15,16 @@
       "recovery": "<130",
       "easy": "130-145 (9:00-10:00); avg to 152 in heat through wk11",
       "steady": "145-155",
-      "threshold": "155-164. Planned for weeks 8 and 12 this cycle, as 3 x 0.5 mi (wk 8) and 3 x 0.75 mi (wk 12) at 7:45 with easy floats, but week 8's session was deferred: the Italy flight moved to Tuesday evening of that week, which removed the pre-flight window for a hard effort. Week 12 remains conditional and defaults to 8:00-8:15 absent a clean week 8 result. Reps should average 158-165; a rep AVERAGING above 164 means the session went above threshold and should be stopped. 7:45 is the threshold pace here because 8:00-8:15 sits only 15-30 sec/mi off MP 8:30 and is not a distinct stimulus. The 164 anchor comes from the Apr 2025 Jersey City Half (162 avg) and is 15 months old; re-anchor off the Sep 19 check.",
+      "threshold": "155-164. Used this cycle in weeks 8 and 12, as 3 x 0.5 mi (wk 8) and 3 x 0.75 mi (wk 12) at 7:45 with easy floats. Week 8's session runs Wednesday Aug 26 on a hotel treadmill in Venice and is optional; if it does not happen, or comes back ambiguous, week 12 runs at 8:00-8:15. Reps should average 158-165; a rep AVERAGING above 164 means the session went above threshold and should be stopped. 7:45 is the threshold pace here because 8:00-8:15 sits only 15-30 sec/mi off MP 8:30 and is not a distinct stimulus. The 164 anchor comes from the Apr 2025 Jersey City Half (162 avg) and is 15 months old; re-anchor off the Sep 19 check.",
       "vo2": "164+ Short reps of 0.25 mi at 7:00-7:15 (week 7, Aug 18) sit in this pace territory but not in its duration; at 1:45-1:49 per rep they never reach steady state, so they carry no HR gate and are judged on split averages and the morning-after only."
     },
     "tibRules": [
-      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days. This block deliberately tests the top edge of that band: weeks 8 and 12 prescribe 7:45 in broken reps with easy floats. Everything else stays clear of it. Verified Jul 29 2026 at 8:00-8:15: fastest 400m 7:51, fastest half mile 7:56, fastest mile 8:18, max HR 162 against a threshold of 164. Week 8's planned Aug 25 test of 7:45 was deferred due to a travel-timing change (flight moved to Tuesday evening); week 12 is now the first live 7:45 attempt, and runs at 8:00-8:15 by default since there is no week 8 data to clear it. Week 7's Aug 18 reps run at 7:00-7:15, below the band rather than inside it, and are capped at 0.25 mi.",
-      "Tempo sessions were planned for weeks 4, 8 and 12; week 8's was deferred for travel reasons and is not made up, mirroring week 6. Week 6's tempo was converted to an easy run on the day (Aug 13) and then skipped outright for inner left knee pain; it is not made up. Week 4 (done) ran at 8:00-8:15 with 8:30 as a bad-day floor. Week 12 was conditional on week 8's 48-hour check; with no week 8 session, it runs at 8:00-8:15 by default unless a new 7:45 exposure is scheduled before then. Rep length was set to progress 3 x 0.5 (wk 4) -> 3 x 0.5 at 7:45 (wk 8, deferred) -> 3 x 0.75 at 7:45 (wk 12). Rep length drops when pace rises: one variable at a time. Mile reps at 7:45 are deliberately absent from this block. Pace creep is the primary risk; a rep split under 7:38 invalidates the session as a data point. Placement: Wednesday in week 4, Tuesday in week 12 (week 8's Tuesday slot went to an easy day instead). The week 7 Tuesday interval session is not a tempo and does not change this: short reps below the flare band, not sustained work inside it.",
+      "Flare trigger is SUSTAINED fast pace in the 7:30-7:45 band, not volume or consecutive days. This block deliberately tests the top edge of that band: weeks 8 and 12 prescribe 7:45 in broken reps with easy floats. Everything else stays clear of it. Verified Jul 29 2026 at 8:00-8:15: fastest 400m 7:51, fastest half mile 7:56, fastest mile 8:18, max HR 162 against a threshold of 164. Week 8 (Wed Aug 26, treadmill, Venice) is the decision point for whether 7:45 is viable at all, and it is optional; an unrun or ambiguous session leaves the question open and sends week 12 to 8:00-8:15. Week 7's Aug 18 reps run at 7:00-7:15, below the band rather than inside it, and are capped at 0.25 mi.",
+      "Tempo sessions run in weeks 4, 8 and 12 only; no other week carries one. Week 6's tempo was converted to an easy run on the day (Aug 13) and then skipped outright for inner left knee pain; it is not made up. Week 4 (done) ran at 8:00-8:15 with 8:30 as a bad-day floor. Weeks 8 and 12 run at 7:45 and are conditional: week 12 happens at 7:45 only if week 8 was actually run and its 48-hour check was clean, otherwise it runs at 8:00-8:15. Rep length progresses 3 x 0.5 (wk 4) -> 3 x 0.5 at 7:45 (wk 8) -> 3 x 0.75 at 7:45 (wk 12). Rep length drops when pace rises: one variable at a time. Mile reps at 7:45 are deliberately absent from this block. Pace creep is the primary risk; a rep split under 7:38 invalidates the session as a data point. Placement: Wednesday in weeks 4 and 8, Tuesday in week 12. Week 8 sits on Wednesday because the Venice-to-Dolomites transfer leaves that afternoon and the morning is the last sea-level window; a treadmill also removes pace creep outright, which is the session's main risk. The week 7 Tuesday interval session is not a tempo and does not change this: short reps below the flare band, not sustained work inside it.",
       "Marathon pace 8:30 is the race-specific workhorse and sits 45-60 sec clear of the flare band, which makes added MP volume the cheapest way to add quality. It appears in long-run pace-up segments throughout and in one midweek session, week 13 Wednesday. Dedicated threshold work exists this cycle but only in weeks 8 and 12.",
-      "Fast bursts are safe but never sprint-fast. Strides (<=20s) run twice weekly throughout. Week 7 (Aug 18) extends this to 4 x 0.25 mi at 7:00-7:15, roughly 1:45-1:49 per rep, which is the first sub-7:30 running of the block. The band sits deliberately below the 7:30-7:45 flare band rather than inside it; a 7:15-7:45 band was considered and rejected because its top half is the flare band and it would preview the Aug 25 session. Rep count, not pace, is the dial if a session feels like too much. Short reps carry no HR gate: they never reach steady state and the watch is unreliable for intervals.",
+      "Fast bursts are safe but never sprint-fast. Strides (<=20s) run twice weekly throughout. Week 7 (Aug 18) extends this to 4 x 0.25 mi at 7:00-7:15, roughly 1:45-1:49 per rep, which is the first sub-7:30 running of the block. The band sits deliberately below the 7:30-7:45 flare band rather than inside it; a 7:15-7:45 band was considered and rejected because its top half is the flare band and it would preview the Aug 26 session. Rep count, not pace, is the dial if a session feels like too much. Short reps carry no HR gate: they never reach steady state and the watch is unreliable for intervals.",
       "Long-run pace-up segments are capped at MP (8:30) for their sustained blocks, and from week 7 each long run reaches that block through a descending ramp that converts easy miles already sitting in front of it. The ramp is shaping, not added dose: every MP dose and every long-run distance in this file is unchanged by it. Ramp floor is 8:20 with a hard stop at 8:15 on any split, which keeps it 30-plus seconds clear of the flare band; judged on split averages after the fact, never on the watch. The ramp is the first thing dropped if the knee or tib speaks, and the MP block the second. Sep 19 carries no ramp: it is a measurement, and a ramp in front of it would change what is being measured. Week 8's long run carries neither ramp nor MP; altitude makes both meaningless.",
-      "At most one dedicated fast session per week, counting tempo and midweek MP alike, and at most one MP dose within that week's long run. A dose may be delivered as one continuous block or as two blocks separated by an easy float; the broken format is a way of delivering the same dose with less continuous time under tension, not a way of taking two doses. Floats within a long run run at full easy pace, 9:00-10:00; a float run faster than that turns the whole span into a continuous progression run and voids the distinction. Week 9 carries no quality at all and week 8's long run carries none either; both are travel weeks and that is intentional. Week 7 was originally in that group and now carries two quality items, intervals on Aug 18 and a ramp-plus-MP long run on Aug 21. This is a recorded exception to the one-fast-session-per-week rule rather than a silent break: it was flagged, the tradeoff is that intervals seven days before the Aug 25 7:45 test may blur that test's read, and it was taken deliberately. If Aug 27's check comes back ambiguous, treat the 7:45 question as unanswered rather than answered badly, and run week 12 at 8:00-8:15.",
+      "At most one dedicated fast session per week, counting tempo and midweek MP alike, and at most one MP dose within that week's long run. A dose may be delivered as one continuous block or as two blocks separated by an easy float; the broken format is a way of delivering the same dose with less continuous time under tension, not a way of taking two doses. Floats within a long run run at full easy pace, 9:00-10:00; a float run faster than that turns the whole span into a continuous progression run and voids the distinction. Week 9 carries no quality at all and week 8's long run carries none either; both are travel weeks and that is intentional. Week 7 was originally in that group and now carries two quality items, intervals on Aug 18 and a ramp-plus-MP long run on Aug 21. This is a recorded exception to the one-fast-session-per-week rule rather than a silent break: it was flagged, the tradeoff is that intervals eight days before the Aug 26 7:45 test may blur that test's read, and it was taken deliberately. If Aug 28's check comes back ambiguous, treat the 7:45 question as unanswered rather than answered badly, and run week 12 at 8:00-8:15.",
       "Maximum three consecutive running days.",
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel.",
       "Instantaneous watch readings are not evidence, for pace or for HR. Watch pace reads fast during efforts and swings hard: the Jul 29 2026 session logged a 5:58 max speed that never happened, and a perceived 7:30 turned out to be 7:56 on the splits. HR behaves the same way; the Jul 25 2026 long run peaked at 168 while averaging 152.7 at a genuinely easy 9:34 pace. Judge both from run averages and lap splits after the fact, never from the number on the wrist mid-run. Momentary HR spikes cresting a hill carry no information.",
@@ -34,7 +34,7 @@
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw. Week 5 is a flat week at 23.0 rather than a down week; the absolute load does not warrant an unload there. Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch in the wk4 long run (Aug 1), repeated at the same 2 mi dose in wk5.",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 35.5 mpw, dipping to 24.5 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Tempo was planned for wk 8 as the first 7:45 exposure at sea level in Venice on Aug 25, but that session is deferred for travel-timing reasons and, like week 6's (skipped for knee pain), is not made up. Week 8's Saturday is at altitude in the Dolomites and carries no MP; week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18.",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 35.5 mpw, dipping to 24.5 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Tempo in wk 8 only, the first 7:45 exposure, run at sea level on a Venice hotel treadmill on Aug 26 and optional; week 6's tempo was skipped outright for knee pain and is not made up. Week 8's Saturday is at altitude in the Dolomites and carries no MP; week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18.",
       "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 40 -> 43 mpw with a long-run unload at wk13 (36 mpw, LR 14.5). LR 20 / 14.5 / 22, the 22 on Oct 10. Peak trimmed from 46 to 43; the three long runs of 18 or more survive intact, as do all their MP doses, because peak weekly volume is the cheapest thing to give back and the least expensive in fitness terms. Tempo in wk12 only, on Tuesday; wk14 carries none. Wk13 holds the block's only midweek MP session, and its midweek volume keeps the step into wk14 at about +19 percent.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
     }
@@ -581,7 +581,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Leg strength. Calf raises, tibialis raises, single-leg stability, posterior chain. No longer a travel day since the flight moved to Tuesday of next week.",
+          "focus": "Leg strength. Calf raises, tibialis raises, single-leg stability, posterior chain. Do it earlier in the day; the redeye to Venice leaves this evening.",
           "date": "Aug 23"
         }
       ],
@@ -590,16 +590,16 @@
     {
       "week": 8,
       "phase": "Build",
-      "label": "Travel week (Tue redeye) - 13 hilly at altitude",
+      "label": "Venice treadmill tempo (Wed) - 13 hilly at altitude",
       "days": [
         {
           "dow": "Mon",
-          "kind": "easy",
-          "type": "Easy aerobic",
-          "miles": 5.0,
-          "pace": "9:00-10:00",
-          "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy aerobic, no strides. Still at home; the flight to Italy is tomorrow evening, so this is a normal easy day.",
+          "kind": "rest",
+          "type": "Rest (travel)",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "The redeye lands in Venice this morning. No run. Get outside in daylight and stay upright as long as you can; that does more for the reset than a shakeout would.",
           "date": "Aug 24"
         },
         {
@@ -608,28 +608,29 @@
           "type": "Easy aerobic",
           "miles": 4.0,
           "pace": "9:00-10:00",
-          "hr": "<=145",
-          "focus": "The 7:45 tempo test moves off this day: a hard threshold effort right before an overnight redeye is not a good trade. Easy 4 mi if the morning allows it around packing and work; skip without penalty if it does not. No strides, no pace-ups. The 7:45 exposure is deferred; week 12 defaults to 8:00-8:15 per the existing rule, since there is no week 8 data to clear it.",
+          "hr": "<=145; avg to 152 in heat",
+          "focus": "Easy 4 mi, no strides. Deliberately light: tomorrow's session is the first 7:45 exposure and both pace creep and pace shortfall get worse on tired legs. Run it on the Lido, vaporetto from San Zaccaria, where the Lungomare and the Murazzi seawall give flat uninterrupted ground. Venice proper puts a stepped bridge every few hundred meters.",
           "date": "Aug 25"
         },
         {
           "dow": "Wed",
-          "kind": "rest",
-          "type": "Rest",
-          "miles": 0,
-          "pace": "",
-          "hr": "",
-          "focus": "Travel day. The redeye lands this morning, then it's the transfer toward Alpe di Siusi. No run.",
-          "date": "Aug 26"
+          "kind": "easy",
+          "type": "Easy + tempo (optional, treadmill)",
+          "miles": 5.0,
+          "pace": "see focus",
+          "hr": "reps avg 158-165; hard gate 164",
+          "focus": "Optional first 7:45 exposure, morning, hotel treadmill, before the afternoon transfer. Skip it without penalty if there is no machine, if the flight left you flattened, or if the morning tib check is off; week 12 then runs at 8:00-8:15 by default.\n\nStructure: 1.5 mi easy warm-up including the full tib protocol, then 3 x 0.5 mi @ 7:45 with 0.5 mi easy floats between, then 1 mi easy. 5.0 mi total.\n\nThe treadmill is the point, not a compromise: pace creep is the main risk on this session and a set belt removes it. Italian machines read km/h. 12.4-12.5 km/h is 7:47-7:43. Do not go above 12.5, which holds you clear of the 7:38 floor even if the belt reads slow. Set 0-1 percent incline.\n\nBelt calibration is unverifiable and the watch has no GPS indoors, so pace splits are not evidence here. HR is the governing gate: reps should average 158-165 and any rep averaging above 164 ends the session. Two reps is a fine outcome.\n\nOutdoor fallback if there is no treadmill: the Lido seawall, same structure, same gates, with pace splits usable again.",
+          "date": "Aug 26",
+          "note": "Optional treadmill tempo, Venice, morning before afternoon transfer."
         },
         {
           "dow": "Thu",
           "kind": "easy",
-          "type": "Easy + strides, then hike",
+          "type": "Easy, then hike",
           "miles": 3.5,
-          "pace": "by HR, expect 10:00-10:45 + 4 strides",
+          "pace": "by HR, expect 10:00-10:45",
           "hr": "<=145 by HR; disregard pace",
-          "focus": "Morning run, 3.5 mi at roughly 1,800-2,000m. Run by HR and let pace go; expect 10:00-10:45. Route: the Hans and Paula Steger trail past Compatsch, rolling meadow. Then 4 x 20s relaxed strides at the end, flat ground.\n\nDo the morning check before you run; it governs the run, the hike and Saturday, if it is off, the hike shrinks too.\n\nAfternoon hike, cross-training, not counted in mileage: Bullaccia / Puflatsch short loop, signed PU. Telemix from Compatsch up to Bergrestaurant Puflatsch at about 1,950m and loop from there. About 3 mi, roughly 500 ft gain, 1.5 to 2 hours. Engelrast platform, the Witches' Benches, Arnika Huette. Check lift hours before you go.\n\nRide the lift back down, not optional. Cap the whole thing at 2 hours; poles on anything steep. Not the Tires hike today, that is Sunday Aug 30. If the hike runs long, decide Friday morning to make Saturday 10-11 mi on the plateau with no sustained descent.",
+          "focus": "Morning run, 3.5 mi at roughly 1,800-2,000m. Run by HR and let pace go; expect 10:00-10:45. Route: the Hans and Paula Steger trail past Compatsch, rolling meadow. No strides today; this is 24 hours off the tempo, at altitude.\n\nDo the morning check before you run. This is the 24-hour read on Wednesday's tempo if you ran it; it governs the run, the hike and Saturday, and if it is off, the hike shrinks too. Take the lift both directions regardless: descent load today sits between the tempo and Friday's 48-hour verdict, and every bit of it muddies that read.\n\nAfternoon hike, cross-training, not counted in mileage: Bullaccia / Puflatsch short loop, signed PU. Telemix from Compatsch up to Bergrestaurant Puflatsch at about 1,950m and loop from there. About 3 mi, roughly 500 ft gain, 1.5 to 2 hours. Engelrast platform, the Witches' Benches, Arnika Huette. Check lift hours before you go.\n\nRide the lift back down, not optional. Cap the whole thing at 2 hours; poles on anything steep. Not the Tires hike today, that is Sunday Aug 30. If the hike runs long, decide Friday morning to make Saturday 10-11 mi on the plateau with no sustained descent.",
           "date": "Aug 27",
           "note": "Bullaccia/Puflatsch short loop as cross-training. Lift both directions. Cap 2 hours."
         },
@@ -640,7 +641,7 @@
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest before the long run.",
+          "focus": "Rest before the long run. Morning check is the 48-hour verdict on Wednesday's tempo and it governs Saturday. Read it conservatively: Thursday's hike descent is a confound, so an ambiguous result means the 7:45 question is unanswered, not answered badly, and week 12 runs at 8:00-8:15.",
           "date": "Aug 28"
         },
         {
@@ -650,7 +651,7 @@
           "miles": 13.0,
           "pace": "see focus",
           "hr": "by effort; see focus",
-          "focus": "13 mi at Alpe di Siusi, roughly 1,800-2,000m, hilly. No MP segment. Run by effort; expect 10:00-11:00 and treat a faster number as a warning. Descend controlled: shorter stride, quicker cadence, no braking. Conditional on Thursday morning's check: if it is off, stay on the Compatsch plateau, skip any sustained descent toward Siusi or Castelrotto, and cut to 10-11 mi. Fuel every 30-40 min; altitude raises fluid loss.",
+          "focus": "13 mi at Alpe di Siusi, roughly 1,800-2,000m, hilly. No MP segment. Run by effort; expect 10:00-11:00 and treat a faster number as a warning. Descend controlled: shorter stride, quicker cadence, no braking. Conditional on Friday morning's check: if it is off, stay on the Compatsch plateau, skip any sustained descent toward Siusi or Castelrotto, and cut to 10-11 mi. Fuel every 30-40 min; altitude raises fluid loss.",
           "date": "Aug 29"
         },
         {
@@ -678,7 +679,7 @@
           "miles": 4.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Short, easy, fully relaxed.",
+          "focus": "Short, easy, fully relaxed. Last day on the plateau; run by HR and ignore pace while you are still up high.",
           "date": "Aug 31"
         },
         {
