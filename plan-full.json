@@ -685,7 +685,7 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 7.5,
+          "miles": 6.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
           "focus": "The week's longest run, moved here from Saturday. Keep the effort genuinely relaxed. If you are still at altitude, run by HR and ignore pace.",
@@ -705,7 +705,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy (light)",
-          "miles": 5,
+          "miles": 4,
           "pace": "9:30-10:00",
           "hr": "<=140",
           "focus": "Easy aerobic, genuinely relaxed. No pressure on pace.",
@@ -725,10 +725,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long (short/travel)",
-          "miles": 7.5,
+          "miles": 9.0,
           "pace": "9:20-10:00",
           "hr": "avg 150-157",
-          "focus": "7.5 mi easy-steady, no MP. Finish feeling fresh; travel home is right behind it.",
+          "focus": "9.0 mi easy-steady, no MP. Finish feeling fresh; travel home is right behind it.",
           "date": "Sep 5"
         },
         {
@@ -742,7 +742,7 @@
           "date": "Sep 6"
         }
       ],
-      "totalMiles": 24.5
+      "totalMiles": 24.0
     },
     {
       "week": 10,
