@@ -34,7 +34,7 @@
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw. Week 5 is a flat week at 23.0 rather than a down week; the absolute load does not warrant an unload there. Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch in the wk4 long run (Aug 1), repeated at the same 2 mi dose in wk5.",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 35.5 mpw, dipping to 20.5 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Week 8's tempo was dropped when the Italy flight settled on Tuesday evening Aug 25, since its 48-hour verdict would have fallen mid-flight; week 6's was skipped outright for knee pain. Neither is made up, which leaves the Build phase with no threshold work at all and pushes the block's only 7:45 exposure to wk 12. Week 8's long run moved from Sat Aug 29 to Sun Aug 30, is at altitude in the Dolomites and carries no MP; the week total is unchanged at 27.0. Week 9's Monday Aug 31 run was cancelled outright and not made up, with 0.5 mi added to each of Tue Sep 1 and Sat Sep 5, taking wk9 from 24.0 to 20.5 and making the step into wk10 about +51 percent. Week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18.",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 35.5 mpw, dipping to 21.0 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Week 8's tempo was dropped when the Italy flight settled on Tuesday evening Aug 25, since its 48-hour verdict would have fallen mid-flight; week 6's was skipped outright for knee pain. Neither is made up, which leaves the Build phase with no threshold work at all and pushes the block's only 7:45 exposure to wk 12. Week 8's long run moved from Sat Aug 29 to Sun Aug 30, is at altitude in the Dolomites and carries no MP; the week total is unchanged at 27.0. Week 9's Monday Aug 31 run was cancelled outright and not made up, with 0.5 mi added to Tue Sep 1 and 1.0 mi added to Sat Sep 5, taking wk9 from 24.0 to 21.0 and making the step into wk10 about +48 percent. Week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18.",
       "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 40 -> 43 mpw with a long-run unload at wk13 (36 mpw, LR 14.5). LR 20 / 14.5 / 22, the 22 on Oct 10. Peak trimmed from 46 to 43; the three long runs of 18 or more survive intact, as do all their MP doses, because peak weekly volume is the cheapest thing to give back and the least expensive in fitness terms. Tempo in wk12 only, on Tuesday, and it is the block's only 7:45 exposure, run as 3 x 0.5 mi rather than the 3 x 0.75 originally planned; wk14 carries none. Wk13 holds the block's only midweek MP session, and its midweek volume keeps the step into wk14 at about +19 percent.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), short MP (8:30) touches to stay sharp, race Nov 1"
     }
@@ -725,10 +725,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long (short/travel)",
-          "miles": 9.5,
+          "miles": 10.0,
           "pace": "9:20-10:00",
           "hr": "avg 150-157",
-          "focus": "9.5 mi easy-steady, no MP, up 0.5 from the original 9.0. Finish feeling fresh; travel home is right behind it.",
+          "focus": "10.0 mi easy-steady, no MP, up 1.0 from the original 9.0. Finish feeling fresh; travel home is right behind it.",
           "date": "Sep 5"
         },
         {
@@ -742,7 +742,7 @@
           "date": "Sep 6"
         }
       ],
-      "totalMiles": 20.5
+      "totalMiles": 21.0
     },
     {
       "week": 10,
