@@ -753,10 +753,10 @@
           "dow": "Mon",
           "kind": "easy",
           "type": "Easy shakeout",
-          "miles": 4.0,
+          "miles": 4.5,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "Easy 4.0 mi shakeout, just loosening up. First run back after the flight home, so this morning's check reads unreliably: swelling and stiffness contaminate both touch-tenderness and stairs. If anything is ambiguous, cut it short rather than push through. No strides.",
+          "focus": "Easy 4.5 mi shakeout, just loosening up. First run back after the flight home, so this morning's check reads unreliably: swelling and stiffness contaminate both touch-tenderness and stairs. If anything is ambiguous, cut it short rather than push through. No strides.",
           "date": "Sep 7"
         },
         {
@@ -773,10 +773,10 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 7.0,
+          "miles": 6.5,
           "pace": "9:00-10:00 + 6 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. The week's longest weekday run. If the tib is not clean, hold this at 6.5.",
+          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. The week's longest weekday run. If the tib is not clean, hold this at 6.0.",
           "date": "Sep 9"
         },
         {
