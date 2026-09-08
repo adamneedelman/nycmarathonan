@@ -763,10 +763,10 @@
           "dow": "Tue",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 4.5,
+          "miles": 6.0,
           "pace": "9:00-10:00 + 6 strides",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Moved from Wednesday, which is now rest. This morning's check is the first readable one since the flight home; if it is ambiguous, hold this at 4.0 and cut to 4 strides. Thursday morning is the 48-hour read on the strides.",
+          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. The week's longest weekday run, moved here from Wednesday, which is rest for a late night at the US Open. Up from 4.5 with Thursday coming down to 4.5 in exchange; the week total is unchanged. This makes Mon-Tue an 11.0 back-to-back two days off the flight home, so if this morning's check is at all ambiguous, hold this at 5.5 and cut to 4 strides. Thursday morning is the 48-hour read on the strides.",
           "date": "Sep 8"
         },
         {
@@ -783,10 +783,10 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 6.0,
+          "miles": 4.5,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy aerobic, no strides. Up from 4.5; the strides moved to Tuesday so this day stays plain 48 hours out from Saturday. Do the morning check before you run; this is the 48-hour read on Tuesday's strides and it governs Saturday's ramp and MP miles. If anything is unsettled, hold this at 5.0.",
+          "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run. No strides; they ran Tuesday. Down from 6.0 with Tuesday taking those miles instead, so the week's volume sits four days out from Saturday rather than two. Do the morning check before you run: this is the 48-hour read on Tuesday's strides and it governs Saturday's ramp and MP miles. If anything is unsettled, hold this at 4.0.",
           "date": "Sep 10"
         },
         {
