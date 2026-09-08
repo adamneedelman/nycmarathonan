@@ -761,32 +761,32 @@
         },
         {
           "dow": "Tue",
+          "kind": "easy",
+          "type": "Easy + strides",
+          "miles": 4.5,
+          "pace": "9:00-10:00 + 6 strides",
+          "hr": "<=145; avg to 152 in heat",
+          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. Moved from Wednesday, which is now rest. This morning's check is the first readable one since the flight home; if it is ambiguous, hold this at 4.0 and cut to 4 strides. Thursday morning is the 48-hour read on the strides.",
+          "date": "Sep 8"
+        },
+        {
+          "dow": "Wed",
           "kind": "rest",
           "type": "Rest",
           "miles": 0,
           "pace": "",
           "hr": "",
-          "focus": "Rest. Tib check.",
-          "date": "Sep 8"
-        },
-        {
-          "dow": "Wed",
-          "kind": "easy",
-          "type": "Easy + strides",
-          "miles": 6.0,
-          "pace": "9:00-10:00 + 6 strides",
-          "hr": "<=145; avg to 152 in heat",
-          "focus": "Easy with 6 x 20s relaxed strides at the end, flat ground, smooth turnover, never sprint-fast. Inclusive of the day's miles, no added distance. The week's longest weekday run. If the tib is not clean, hold this at 5.5.",
+          "focus": "Rest, moved from Tuesday. Do not fill this day. Morning tib check: touch-tenderness + first flight of stairs.",
           "date": "Sep 9"
         },
         {
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4.5,
+          "miles": 6.0,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
-          "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run. If anything is unsettled, hold this at 4.0.",
+          "focus": "Easy aerobic, no strides. Up from 4.5; the strides moved to Tuesday so this day stays plain 48 hours out from Saturday. Do the morning check before you run; this is the 48-hour read on Tuesday's strides and it governs Saturday's ramp and MP miles. If anything is unsettled, hold this at 5.0.",
           "date": "Sep 10"
         },
         {
