@@ -803,10 +803,10 @@
           "dow": "Sat",
           "kind": "long",
           "type": "Long w/ ramp + MP segment",
-          "miles": 15.5,
+          "miles": 16.0,
           "pace": "see focus",
           "hr": "avg 150-157 easy; to 160 in MP",
-          "focus": "9.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 2 mi @ 8:30 (MP), then 2 mi easy. Ramp floor 8:20, hard stop 8:15 on any split. Drop the ramp first and the MP block second if anything speaks. If you drop the MP miles here, open Sep 19 at 4 MP miles and extend by feel rather than starting cold at 6.",
+          "focus": "10 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 2 mi @ 8:30 (MP), then 2 mi easy. Ramp floor 8:20, hard stop 8:15 on any split. Drop the ramp first and the MP block second if anything speaks. If you drop the MP miles here, open Sep 19 at 4 MP miles and extend by feel rather than starting cold at 6.",
           "date": "Sep 12"
         },
         {
@@ -820,7 +820,7 @@
           "date": "Sep 13"
         }
       ],
-      "totalMiles": 31.0
+      "totalMiles": 31.5
     },
     {
       "week": 11,
