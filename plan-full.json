@@ -35,7 +35,7 @@
     ],
     "structure": {
       "Base": "Weeks 1-5 (Jul 6 - Aug 9): 15.5 -> 23.4 mpw. Week 5 is a flat week at 23.0 rather than a down week; the absolute load does not warrant an unload there. Easy aerobic + strides, knee return protocol wks 1-2, tempo enters wk4. LR 7.6 -> 11; first MP touch in the wk4 long run (Aug 1), repeated at the same 2 mi dose in wk5.",
-      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 35.5 mpw, dipping to 20.5 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Week 8's tempo was dropped when the Italy flight settled on Tuesday evening Aug 25, since its 48-hour verdict would have fallen mid-flight; week 6's was skipped outright for knee pain. Neither is made up, which leaves the Build phase with no threshold work at all and pushes the block's only 7:45 exposure to wk 12. Week 8's long run moved from Sat Aug 29 to Sun Aug 30, is at altitude in the Dolomites and carries no MP; the week total is unchanged at 27.0. Week 9's Monday Aug 31 run was cancelled outright and not made up, with 0.5 mi added to each of Tue Sep 1 and Sat Sep 5, taking wk9 from 24.0 to 20.5 and making the step into wk10 about +51 percent. Week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18.",
+      "Build": "Weeks 6-11 (Aug 10 - Sep 20): 22.5 -> 36.0 mpw, dipping to 20.5 in the wk9 travel cutback. Trimmed roughly 5 percent block-wide in mid-August after a skipped run for inner left knee pain; the cuts come out of midweek volume and out of week 8, never out of the three measurement or race-specific long runs. Volume sits in midweek rather than in longer long runs. Week 8's tempo was dropped when the Italy flight settled on Tuesday evening Aug 25, since its 48-hour verdict would have fallen mid-flight; week 6's was skipped outright for knee pain. Neither is made up, which leaves the Build phase with no threshold work at all and pushes the block's only 7:45 exposure to wk 12. Week 8's long run moved from Sat Aug 29 to Sun Aug 30, is at altitude in the Dolomites and carries no MP; the week total is unchanged at 27.0. Week 9's Monday Aug 31 run was cancelled outright and not made up, with 0.5 mi added to each of Tue Sep 1 and Sat Sep 5, taking wk9 from 24.0 to 20.5 and making the step into wk10 about +51 percent. Week 7's Aug 22 long run gained a 2-mile MP dose so the gap between Aug 15 and Sep 12 does not run four weeks. Week 7 also carries the block's only short-interval session, 4 x 0.25 mi at 7:00-7:15 on Aug 18. LR 12.5 -> 18. Week 11 is logged at 36.0 rather than the planned 35.5 because Wed Sep 16 and Thu Sep 17 each ran 0.25 mi over; Sep 19 stays at 18 for route reasons.",
       "Peak": "Weeks 12-14 (Sep 21 - Oct 11): 40 -> 43 mpw with a long-run unload at wk13 (36 mpw, LR 14.5). LR 20 / 14.5 / 21, the 21 on Oct 10, trimmed from 22 on Sep 13: at roughly 3:10 against 3:25 the extra mile bought duration and tendon exposure at the point of peak cumulative fatigue with no aerobic return. The mile came off the cooldown rather than the front, which holds the MP block at miles 16-20 where its depth into the run is the point of the session, and it was added back into midweek (Tue 7.0, Wed 9.5) so the week holds 43 and the long-run share falls from 51 to 48.8 percent. Volume is not the flare trigger, so moving load from one long session into easy midweek miles is close to free against the tib. Peak trimmed from 46 to 43 earlier in the block; the three long runs of 18 or more survive intact, as do all their MP doses. Week 12's Tuesday tempo was dropped on Sep 13 and its slot converted to the block's first downhill exposure, so the Peak phase carries no threshold work. Wk13 holds the block's only midweek MP session, and its midweek volume keeps the step into wk14 at about +19 percent.",
       "Taper": "Weeks 15-17 (Oct 12 - Nov 1): volume drops to 30/24, then race week (~38 incl. race), race Nov 1. MP doses raised on Sep 13 from 2/2 to 4 (Oct 17) and 3 (Oct 24) with no change to either run's distance: cutting volume while holding intensity is the point of a taper, and two MP miles in each of the last two long runs was too thin a touch of race pace. Race shoe is the Asics Kayano. Sleep protocol starts Thu Oct 29: the two nights before race night do more than race night itself, which 2025 demonstrated the hard way."
     }
@@ -852,7 +852,7 @@
           "dow": "Wed",
           "kind": "easy",
           "type": "Easy + strides",
-          "miles": 7.5,
+          "miles": 7.75,
           "pace": "9:00-10:00 + 4 strides",
           "hr": "<=145; avg to 152 in heat",
           "focus": "This week's longest midweek run, with 4 x 20s relaxed strides at the end.",
@@ -862,7 +862,7 @@
           "dow": "Thu",
           "kind": "easy",
           "type": "Easy aerobic",
-          "miles": 4.0,
+          "miles": 4.25,
           "pace": "9:00-10:00",
           "hr": "<=145; avg to 152 in heat",
           "focus": "Short and light, taper day into Friday's rest ahead of Saturday's long run.",
@@ -899,7 +899,7 @@
           "date": "Sep 20"
         }
       ],
-      "totalMiles": 35.5
+      "totalMiles": 36.0
     },
     {
       "week": 12,
