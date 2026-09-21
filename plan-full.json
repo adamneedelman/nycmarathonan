@@ -23,7 +23,7 @@
       "Tempo sessions ran in week 4 only. Week 6's was converted to an easy run on the day (Aug 13) and then skipped outright for inner left knee pain; it is not made up. Week 4 (done) ran 3 x 0.5 mi at 8:00-8:15 with 8:30 as a bad-day floor, broken rather than continuous per PT guidance. Week 8's tempo was dropped for travel: the Tuesday Aug 25 redeye put its 48-hour verdict mid-transatlantic, where flight swelling makes the morning check unreadable. Week 12's 7:45 session was dropped on Sep 13 and its slot converted to the block's first downhill exposure. No tempo or threshold work remains in the block; marathon pace 8:30 carries all remaining quality. Mile reps at 7:45 are deliberately absent. The week 7 Tuesday interval session was not a tempo: short reps below the flare band, not sustained work inside it.",
       "Marathon pace 8:30 is the race-specific workhorse and sits 45-60 sec clear of the flare band, which makes added MP volume the cheapest way to add quality. It appears in long-run pace-up segments throughout and in one midweek session, week 13 Wednesday. No dedicated threshold work exists this cycle.",
       "Fast bursts are safe but never sprint-fast. Strides (<=20s) run twice weekly throughout. Week 7 (Aug 18) extends this to 4 x 0.25 mi at 7:00-7:15, roughly 1:45-1:49 per rep, which is the first sub-7:30 running of the block. The band sits deliberately below the 7:30-7:45 flare band rather than inside it; a 7:15-7:45 band was considered and rejected because its top half is the flare band and it would preview the week 12 session. Rep count, not pace, is the dial if a session feels like too much. Short reps carry no HR gate: they never reach steady state and the watch is unreliable for intervals.",
-      "Long-run pace-up segments are capped at MP (8:30) for their sustained blocks, and from week 7 each long run reaches that block through a descending ramp that converts easy miles already sitting in front of it. The ramp is shaping, not added dose: every MP dose and every long-run distance in this file is unchanged by it. Ramp floor is 8:20 with a hard stop at 8:15 on any split, which keeps it 30-plus seconds clear of the flare band; judged on split averages after the fact, never on the watch. The ramp is the first thing dropped if the knee or tib speaks, and the MP block the second. Sep 19 carries no ramp: it is a measurement, and a ramp in front of it would change what is being measured. Week 8's long run carries neither ramp nor MP; altitude makes both meaningless.",
+      "Long-run pace-up segments are capped at MP (8:30) for their sustained blocks, and from week 7 each long run reaches that block through a descending ramp that converts easy miles already sitting in front of it. The ramp is shaping, not added dose: every MP dose and every long-run distance in this file is unchanged by it. Ramp floor is 8:20 with a hard stop at 8:15 on any split, which keeps it 30-plus seconds clear of the flare band; judged on split averages after the fact, never on the watch. The ramp is the first thing dropped if the knee or tib speaks, and the MP block the second. Sep 19 carries no ramp: it is a measurement, and a ramp in front of it would change what is being measured. Sep 26 carries no ramp either: on Sep 21 its MP dose became one continuous 6-mile block at miles 13.5-19.5, placed behind two climbs, and a 20 has no room for a ramp in front of that block and a cooldown behind it. Week 8's long run carries neither ramp nor MP; altitude makes both meaningless.",
       "At most one dedicated fast session per week, counting tempo and midweek MP alike, and at most one MP dose within that week's long run. A dose may be delivered as one continuous block or as two blocks separated by an easy float; the broken format is a way of delivering the same dose with less continuous time under tension, not a way of taking two doses. Floats within a long run run at full easy pace, 9:00-10:00; a float run faster than that turns the whole span into a continuous progression run and voids the distinction. Week 9 carries no quality at all and week 8's long run carries none either; both are travel weeks and that is intentional. Week 7 was originally in that group and now carries two quality items, intervals on Aug 18 and a ramp-plus-MP long run on Aug 22. This is a recorded exception to the one-fast-session-per-week rule rather than a silent break: it was flagged and taken deliberately. With week 8's tempo dropped, those intervals no longer sit anywhere near a 7:45 test, so the blur they risked never materialized. Week 10 was considered as a home for the relocated 7:45 exposure and rejected; that exposure was then dropped altogether on Sep 13. Week 13 carries two MP items, the midweek 4 mi on Sep 30 and the ramp-plus-3-MP in the Oct 3 unload long run. This is a recorded exception rather than a silent break: both run at MP rather than threshold, and the long run is a deliberate unload at 14.5, which is what makes the pairing affordable.",
       "Maximum three consecutive running days.",
       "Morning-after check (touch-tenderness + stairs, for both knee and tib) governs progression, not in-run feel.",
@@ -959,11 +959,11 @@
         {
           "dow": "Sat",
           "kind": "long",
-          "type": "Long w/ ramp + MP blocks",
+          "type": "Long w/ late MP block",
           "miles": 20,
           "pace": "see focus",
-          "hr": "<=153",
-          "focus": "9 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 1 mi easy float, then 3 mi @ 8:30 (MP), then 2 mi easy. 20 mi total, 6 MP miles. Ramp floor 8:20, hard stop 8:15. The float mile runs 9:00-10:00; a faster float invalidates the session. Drop the ramp first, then the second MP block, then both, if the knee or tib speaks.",
+          "hr": "avg 150-157 easy; to 160 in MP",
+          "focus": "13.5 mi easy (9:10-9:50), then 6 mi @ 8:30 (MP) continuous, then 0.5 mi easy. 20 mi total, 6 MP miles at miles 13.5-19.5. No ramp and no float today.\n\nThe route climbs at about mile 10.8 and mile 12.7, roughly half a mile each, and both sit inside the easy portion. Take them by effort, not pace, and descend controlled: shorter stride, quicker cadence, no braking. Start the MP block only once you are off the second descent and on flat ground; if that runs past 13.5, start MP when the descent ends and take the lost distance off the MP block, not the cooldown. Never run MP on a descent.\n\nKeep the first 13.5 genuinely easy. On Sep 19 the planned-easy back 8 drifted to 8:45, and that cannot happen in front of this block. No MP split faster than 8:20, judged on split averages. Drop the MP block to 4 mi if the knee or tib speaks, and to easy entirely if it keeps speaking.",
           "date": "Sep 26"
         },
         {
@@ -1040,7 +1040,7 @@
           "type": "Long unload w/ ramp + MP",
           "miles": 14.5,
           "pace": "see focus",
-          "hr": "<=153",
+          "hr": "easy avg <=150; to 160 in MP",
           "focus": "7.5 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 3 mi @ 8:30 (MP), then 2 mi easy. Run this on rolling terrain; put the ramp and the MP miles on the flattest section available and never on a descent. Descend controlled: shorter stride, quicker cadence, no braking. Ramp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything speaks.",
           "date": "Oct 3"
         },
@@ -1118,8 +1118,8 @@
           "type": "LONGEST \u00b7 21 w/ ramp + MP finish",
           "miles": 21,
           "pace": "see focus",
-          "hr": "<=153",
-          "focus": "13 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 5 mi @ 8:30 (MP), then 1 mi easy. 21 mi total, 5 MP miles sitting at miles 16-20. Flat route: MP accuracy matters more here than terrain, and the descent work lives on Sep 22, Oct 3 and Oct 17 instead.\n\nTrimmed from 22 on Sep 13. The mile came off the cooldown rather than the front, which holds the MP block at miles 16-20; how deep into the run those miles fall is the whole point of the session.\n\nConditional on Sep 26: if that run's moving time exceeds 3:05 or the morning-after check isn't clean, cut this to 20 by trimming the front mile (holding MP at 15-19 instead of 16-20) and add the mile back into Tue/Wed midweek to keep the week at 43.\n\nRamp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything is off; finishing 21 easy is still the win.\n\nFull race rehearsal: Kayanos, race-day kit, one gel per 35 min with caffeine concentrated in the back half, Skratch pre-run and Instant Hydration on the run.",
+          "hr": "easy avg <=150; to 160 in MP",
+          "focus": "13 mi easy, then a 2 mi descending ramp at 8:50 / 8:40, then 5 mi @ 8:30 (MP), then 1 mi easy. 21 mi total, 5 MP miles sitting at miles 16-20. Flat route: MP accuracy matters more here than terrain, and the descent work lives on Sep 22, Oct 3 and Oct 17 instead.\n\nTrimmed from 22 on Sep 13. The mile came off the cooldown rather than the front, which holds the MP block at miles 16-20; how deep into the run those miles fall is the whole point of the session.\n\nConditional on Sep 26: if that run's moving time exceeds 3:08 or the morning-after check isn't clean, cut this to 20 by trimming the front mile (holding MP at 15-19 instead of 16-20) and add the mile back into Tue/Wed midweek to keep the week at 43. The gate moved from 3:05 on Sep 21 because Sep 26 now carries two half-mile climbs; 3:05 would trip on terrain rather than fatigue.\n\nRamp floor 8:20, hard stop 8:15. Drop the ramp first and the MP segment second if anything is off; finishing 21 easy is still the win.\n\nFull race rehearsal: Kayanos, race-day kit, one gel every 25 min (time-based, not mileage-based) with caffeine concentrated in the back half, Skratch pre-run, and water plus Skratch on the run.",
           "date": "Oct 10"
         },
         {
@@ -1196,7 +1196,7 @@
           "type": "Long (reduced)",
           "miles": 14,
           "pace": "see focus",
-          "hr": "<=153",
+          "hr": "easy avg <=150; to 160 in MP",
           "focus": "7.5 mi easy, then a 1.5 mi descending ramp from 8:55 to 8:40, then 4 mi @ 8:30 (MP), then 1 mi easy. MP raised from 2 to 4 on Sep 13; distance unchanged, because holding intensity while volume falls is the point of the taper. Include one moderate descent in the first half, controlled, and keep it off the MP miles. HR under 150 on the easy portion. Ramp floor 8:20, hard stop 8:15. Drop the ramp and the MP segment if anything feels off.",
           "date": "Oct 17"
         },
@@ -1274,7 +1274,7 @@
           "type": "Long (reduced)",
           "miles": 11,
           "pace": "see focus",
-          "hr": "<=153",
+          "hr": "easy avg <=150; to 160 in MP",
           "focus": "7 mi easy, then 3 mi @ 8:30 (MP), then 1 mi easy. MP raised from 2 to 3 on Sep 13; distance unchanged. Keep it comfortable. This is the last touch of race pace at any real length.",
           "date": "Oct 24"
         },
@@ -1363,7 +1363,7 @@
           "miles": 26.2,
           "pace": "target 8:30 (3:43)",
           "hr": "148-153",
-          "focus": "Race day. Goal 3:43 at 8:30/mi, HR 148-153. Start controlled, bank nothing, let the first 10K feel almost easy. Settle into 8:30 and fuel every 30-40 min. Adjust to what the day gives.",
+          "focus": "Race day. Goal 3:43 at 8:30/mi, HR 148-153. Start controlled, bank nothing, let the first 10K feel almost easy. Settle into 8:30 and take one gel every 25 min, caffeine concentrated in the back half, exactly as rehearsed on Oct 10. Adjust to what the day gives.",
           "date": "Nov 1"
         }
       ],
