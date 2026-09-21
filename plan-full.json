@@ -919,21 +919,21 @@
         {
           "dow": "Tue",
           "kind": "easy",
-          "type": "Easy + rolling descents",
-          "miles": 7.5,
-          "pace": "9:00-10:00",
-          "hr": "<=145",
-          "focus": "Easy 7.5 mi on rolling terrain, the block's first deliberate downhill exposure. Find 3 to 4 genuine descents and run them controlled: shorter stride, quicker cadence, no braking, no reaching. No timed efforts and no pace targets on the descents; effort stays easy throughout.\n\nThis slot held the block's only 7:45 tempo until Sep 13. It was dropped because nothing downstream of it ran at 7:45, so a clean result had no use inside this block while a flare four days before Saturday's 20 would have cost the peak. Do not reinstate it.\n\nMorning tib check before you run. Thursday morning is the 48-hour read on the descents and it governs Saturday's ramp and MP miles.",
-          "date": "Sep 22"
-        },
-        {
-          "dow": "Wed",
-          "kind": "easy",
           "type": "Easy aerobic",
           "miles": 6.5,
           "pace": "9:00-10:00",
           "hr": "<=145",
           "focus": "Easy aerobic, no strides, no pace-ups. Do the morning tib check before you run; running first contaminates it.",
+          "date": "Sep 22"
+        },
+        {
+          "dow": "Wed",
+          "kind": "easy",
+          "type": "Easy + rolling descents",
+          "miles": 7.5,
+          "pace": "9:00-10:00",
+          "hr": "<=145",
+          "focus": "Easy 7.5 mi on rolling terrain, the block's first deliberate downhill exposure. Find 3 to 4 genuine descents and run them controlled: shorter stride, quicker cadence, no braking, no reaching. No timed efforts and no pace targets on the descents; effort stays easy throughout.\n\nThis slot held the block's only 7:45 tempo until Sep 13. It was dropped because nothing downstream of it ran at 7:45, so a clean result had no use inside this block while a flare four days before Saturday's 20 would have cost the peak. Do not reinstate it.\n\nMorning tib check before you run. Friday morning is the 48-hour read on the descents and it governs Saturday's ramp and MP miles.",
           "date": "Sep 23"
         },
         {
