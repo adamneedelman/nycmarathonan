@@ -1339,22 +1339,22 @@
         },
         {
           "dow": "Fri",
-          "kind": "rest",
-          "type": "Rest",
-          "miles": 0,
-          "pace": "",
-          "hr": "",
-          "focus": "Rest. Travel to the expo / pick up your bib. Stay off your feet as much as you can.",
-          "date": "Oct 30"
-        },
-        {
-          "dow": "Sat",
           "kind": "easy",
           "type": "Shakeout",
           "miles": 2,
           "pace": "9:30-10:00",
           "hr": "<=140",
-          "focus": "2 mi easy shakeout, no strides. Lay out kit: Kayanos, race-day fueling, throwaway layers. Confirm your ferry or bus time and plan for a long wait at Fort Wadsworth dressed for sitting still in the cold. Early night, though last night was the one that counted.",
+          "focus": "2 mi easy shakeout, no strides. Then travel to the expo / pick up your bib and stay off your feet as much as you can for the rest of the day. Bank sleep tonight; it counts more than race eve.",
+          "date": "Oct 30"
+        },
+        {
+          "dow": "Sat",
+          "kind": "rest",
+          "type": "Rest",
+          "miles": 0,
+          "pace": "",
+          "hr": "",
+          "focus": "Full rest, no run. Lay out kit: Kayanos, race-day fueling, throwaway layers. Confirm your ferry or bus time and plan for a long wait at Fort Wadsworth dressed for sitting still in the cold. Early night, though last night was the one that counted.",
           "date": "Oct 31"
         },
         {
